@@ -1,7 +1,18 @@
-export const author = "André Stafast"
+export const author: string = "André Stafast"
 
-export const socialLinks = [{
+export interface Link {
+    name: string,
+    url: string
+}
 
+export const links: Link[] = [
+    {
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/stafast/'
+    },
+    {
+        name: 'instagram',
+        url: 'https://www.instagram.com/sanjoruns'
     }
 ]
 
