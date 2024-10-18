@@ -4,7 +4,6 @@ export interface Link {
     name: string,
     url: string
 }
-
 export const links: Link[] = [
     {
         name: 'LinkedIn',
