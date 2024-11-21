@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import {type CollectionEntry, getCollection} from 'astro:content';
+import BlogList from "@components/BlogList.astro";
+import toSlug from "@utils/toSlug";
+
+interface Props {
+    posts: CollectionEntry<"blog">[];
+    title: string;
+}
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog')
+    const tags = [...new Set(posts.map((post) => post.data.tags).flat())]
+
+    return tags.map((tag) => {
+        const filteredPosts = posts.filter((post) => post.data.tags.includes(tag)).sort(
+            (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
+        );
+        return {
+            params: {tag: toSlug(tag)},
+            props: {posts: filteredPosts, title: tag},
+        };
+    });
+}
+
+const {tag} = Astro.params;
+const {title, posts} = Astro.props;
+
+let pageTitle: string = title;
+let pageDescription: string = `Hier findest du alle Blogbeiträge, die sich mit dem Thema „${title}“ beschäftigen.`;
+
+if (tag == 'laufen') {
+    pageTitle = 'Laufen, Spaß und Schmerzen';
+    pageDescription = 'Laufen ist mehr als ein Hobby – es ist eine Leidenschaft!';
+}
+---
+<Layout pageTitle={pageTitle} pageDescription={pageDescription}>
+
+    <h1 class="text-3xl font-bold">Blogbeiträge zum Thema <span class="whitespace-nowrap">{title}</span></h1>
+
+    <p class="mb-14 font-semibold">{pageDescription}</p>
+
+    <BlogList posts={posts}/>
+
+</Layout>

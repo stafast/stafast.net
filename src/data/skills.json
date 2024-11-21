@@ -1,0 +1,12 @@
+[
+  { "id": "JavaScript", "icon": "js" },
+  { "id": "Nuxt.js", "icon": "nuxt" },
+  { "id": "Vue.js", "icon": "vue" },
+  { "id": "Astro", "icon": "astro" },
+  { "id": "PHP", "icon": "php" },
+  { "id": "Shopware", "icon": "shopware" },
+  { "id": "TYPO3", "icon": "typo3" },
+  { "id": "Laravel", "icon": "laravel" },
+  { "id": "WordPress", "icon": "wordpress" },
+  { "id": "AutoCAD", "icon": "autocad" }
+]

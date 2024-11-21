@@ -1,0 +1,29 @@
+---
+import Layout from '@layouts/Layout.astro'
+
+const pageTitle = 'Kontakt'
+---
+
+<Layout pageTitle={pageTitle}>
+
+    <div class="mx-auto max-w-prose">
+        <h1 class="text-3xl">{pageTitle}</h1>
+
+        <p>
+            Hast du Fragen oder möchtest du mit mir zusammenarbeiten?
+            Ich freue mich, von dir zu hören! Schick mir einfach eine E-Mail an:<br>
+            <mail/>
+        </p>
+        <p>
+            Ich antworte in der Regel innerhalb von 24 Stunden. Ich freue mich auf deine Nachricht!
+        </p>
+    </div>
+
+</Layout>
+
+<script is:inline type="text/javascript">
+    const user = "hey";
+    const domain = "stafast";
+    const tdl = "net";
+    document.querySelector('mail').outerHTML = `<a class="font-normal" href="mailto:${user}@${domain}.${tdl}">${user}@${domain}.${tdl}</a>`;
+</script>

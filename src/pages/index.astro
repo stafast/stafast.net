@@ -1,0 +1,82 @@
+---
+import Layout from "@layouts/Layout.astro";
+import {getCollection} from "astro:content";
+import {Icon} from 'astro-icon/components'
+import {author, title, links} from "../data/constants";
+
+const skills = await getCollection('skills')
+const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.data.sortOrder);
+---
+
+<Layout>
+    <div class="mx-auto">
+        <div class="flex flex-wrap flex-row gap-x-10 md:gap-x-16">
+            <div>
+                <div class="sticky top-4">
+                    <h1 class="text-3xl font-bold mb-0">{author}</h1>
+                    <p class="font-medium italic">{title}</p>
+                    <ul class="m-0">
+                        {links.map(link => (
+                                <li>
+                                    <a href={link.url} title={link.title} target="_blank">
+                                        {link.title}
+                                        <Icon title="external link" name="link" class="inline relative bottom-0.5"/>
+                                    </a>
+                                </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+            <div class="sm:flex-1">
+                <div class="my-10 md:mb-16 sm:mt-0 ">
+                    <h2 class="text-2xl">Über mich</h2>
+                    <p class="leading-relaxed">
+                        Moin 👋 ich bin André Stafast, Entwickler aus Neumünster im Herzen Schleswig-Holsteins.
+                        Hauptberuflich arbeite ich im Frontend & E-Commerce Bereich bei intedia. In meiner Freizeit gehe
+                        ich gerne laufen und bin ich in der Organisation eines mehrtägigen Musikfestivals tätig.
+                    </p>
+                </div>
+                <div class="my-10 md:my-16">
+                    <h3 class="text-2xl">Technologie Stack</h3>
+                    <ul class="grid grid-cols-2 gap-x-4 leading-loose">
+                        {skills.map(skill => (
+                                <li class="flex items-center gap-2">
+                                    {skill.data.icon &&
+                                            <Icon class="inline w-5 h-5" title={skill.id} name={skill.data.icon}/>}
+                                    {skill.id}
+                                </li>
+                        ))}
+                    </ul>
+                </div>
+                <div class="my-10 md:my-16">
+                    <h2 class="text-2xl -mb-4">Aktuelle Beschäftigungen</h2>
+                    {jobs.map(job => (
+                            <div>
+                                <h3 class="text-lg font-semibold mt-10 mb-0">
+                                    {job.data.job ? (
+                                        <>
+                                            {job.data.job + ' '}
+                                            <span class="whitespace-nowrap">
+                                                @
+                                                <a href={job.data.url} title={job.data.company} target="_blank">
+                                                    {job.data.company}
+                                                    <Icon name="link" class="inline relative bottom-0.5"/>
+                                                </a>
+                                            </span>
+                                        </>
+                                    ) : job.data.company}
+                                </h3>
+                                <p class="mb-2 text-sm text-muted">
+                                    Seit {job.data.since.toLocaleDateString('de-DE', {month: 'short', year: 'numeric'})}
+                                </p>
+                                <div class="text border-l border-stone-300 dark:border-stone-600 pl-4 pt-1 overflow-auto"
+                                     set:html={job.rendered?.html}/>
+                            </div>
+                    ))}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</Layout>

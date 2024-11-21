@@ -1,0 +1,75 @@
+---
+interface Props {
+    pageTitle?: string;
+    pageDescription?: string;
+    ogImage?: string;
+}
+
+import '@fontsource-variable/noto-sans';
+import notoSansWoff2 from '@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url';
+import { SEO } from "astro-seo";
+import Header from '@components/Header.astro'
+import Footer from '@components/Footer.astro'
+import {author, defaultPageDescription} from '@data/constants'
+import '@css/main.css'
+
+const {pageTitle, pageDescription, ogImage} = Astro.props;
+const title = pageTitle ? pageTitle + ' | ' + author : author
+const description = pageDescription ? pageDescription : defaultPageDescription;
+const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
+
+---
+
+<!doctype html>
+<html lang="de">
+<head>
+    <link rel="preload" as="font" type="font/woff2" href={notoSansWoff2} crossorigin="anonymous" />
+    <SEO
+        charset="utf-8"
+        title={title}
+        description={description}
+        extend={{
+            meta: [
+                {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1.0"
+                },
+                {
+                    name: "robots",
+                    content: "follow, index"
+                },
+                {
+                    name: "generator",
+                    content: Astro.generator
+                }
+            ]
+        }}
+        openGraph={{
+            basic: {
+                title: title,
+                type: "website",
+                image: ogImageUrl
+            },
+            optional: {
+                siteName: author,
+                locale: "de_DE",
+                description: pageDescription
+            }
+        }}
+
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+</head>
+<body class="flex flex-col h-svh bg-stone-50 dark:bg-stone-900 leading-relaxed selection:text-white selection:bg-fuchsia-500 antialiased">
+
+<Header/>
+
+<main class="container max-w-4xl flex-1 print:my-10">
+    <slot/>
+</main>
+
+<Footer/>
+
+</body>
+</html>

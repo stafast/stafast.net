@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import type {CollectionEntry} from "astro:content";
+import toSlug from "@utils/toSlug";
+
+interface Props {
+    posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+
+---
+
+<ol>
+    {posts?.map((post: CollectionEntry<"blog">) => (
+        <li class="d-block mb-10 pb-10 md:mb-14 md:pb-14 border-b border-stone-200 last:border-0 dark:border-stone-700">
+            <div class="relative">
+                {post.data.teaser && (
+                        <Image class="ml-4 md:ml-4 mb-0.5 float-right w-[26vw] md:w-[250px] bg-white dark:bg-stone-800"
+                               format="webp"
+                               loading="lazy"
+                               decoding="async"
+                               width="250"
+                               densities={[1.5, 2]}
+                               src={post.data.teaser}
+                               alt={post.data.teaserAlt ?? ''}  />
+                )}
+                <div class="">
+                    <h2 class="mb-4 text-2xl font-bold">{post.data.title}</h2>
+                    <p>
+                        {post.data.description}
+                    </p>
+                </div>
+                <a data-astro-prefetch class="inset-0 absolute" href={`/blog/${post.id}/`} title={`Geh zum Blogbeitrag ${post.data.title}`}></a>
+            </div>
+            <p class="flex flex-wrap gap-x-4 mt-4 mb-0 opacity-75 text-sm">
+                <span>
+                    Veröffentlicht am {post.data.published.toLocaleDateString('de-DE', {day: 'numeric', month: 'short', year: 'numeric'})}
+                </span>
+                <span>
+                    {post.data.tags && post.data.tags.map((tag: string, index: number) => (
+                        <>
+                            <a class="font-normal" href={`/blog/tags/${toSlug(tag)}/`} title={`Weitere Beiträge zum Thema ${tag}`}>
+                                {tag}</a>{index < post.data.tags.length - 1 && ', '}
+                        </>
+                    ))}
+                </span>
+            </p>
+        </li>
+    ))}
+</ol>

@@ -1,0 +1,6 @@
+@import "base/base.css";
+@import "base/typo.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

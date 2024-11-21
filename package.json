@@ -1,0 +1,27 @@
+{
+  "name": "stafast.net",
+  "version": "6.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource-variable/noto-sans": "^5.1.0",
+    "astro": "^5.0.0-beta.5",
+    "astro-expressive-code": "0.37.1",
+    "astro-icon": "^1.1.2",
+    "astro-seo": "^0.8.4",
+    "tailwindcss": "^3.4.14"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^5.1.2",
+    "@tailwindcss/typography": "^0.5.15",
+    "sass": "^1.80.6",
+    "typescript": "^5.6.3"
+  }
+}

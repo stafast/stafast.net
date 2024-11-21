@@ -1,0 +1,36 @@
+---
+import {navigation} from '@data/constants'
+
+const currentPath: string = Astro.url.pathname || '';
+---
+
+<header class="print:!hidden mb-10 md:mb-16 pt-5 md:pt-6 pb-5 md:pb-6 border-b border-stone-200 dark:border-stone-700">
+    <div class="container">
+        <nav>
+            <ul class="flex justify-center gap-3 sm:gap-6 m-0">
+                {navigation.map((item) => (
+                        <li>
+                            <a data-astro-prefetch class={`inline-block
+                                px-6 py-2 
+                                border border-stone-50 hover:border-stone-200 dark:border-0 
+                                rounded-full 
+                                text-stone-700 dark:text-stone-300 
+                                font-medium 
+                                hover:bg-white hover:dark:bg-stone-800
+                                 ${
+                                (currentPath === '/' && item.url === '/') ||
+                                (currentPath.includes(item.url) && item.url !== '/')
+                                    ? 'bg-white dark:bg-stone-800 !text-emerald-500 !border-stone-200'
+                                    : ''
+                            }`}
+                               href={item.url}
+                               title={item.title}
+                            >
+                                {item.title}
+                            </a>
+                        </li>
+                ))}
+            </ul>
+        </nav>
+    </div>
+</header>

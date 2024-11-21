@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stafast.net/sitemap-index.xml

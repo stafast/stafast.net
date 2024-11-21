@@ -1,0 +1,33 @@
+---
+import Layout from "@layouts/Layout.astro";
+import BlogList from "@components/BlogList.astro";
+
+import {getCollection, type CollectionEntry} from 'astro:content';
+
+const posts: CollectionEntry<'blog'>[] = await getCollection('blog');
+
+if (posts) {
+    posts.sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
+}
+
+const description = "Entdecke meine neuesten Blogbeiträge zu Programmierung, Technologie, Festivals, Sport und mehr. Hol dir wertvolle Insights und Tipps aus der Praxis für dich."
+---
+
+<Layout pageTitle="Blog" pageDescription={description}>
+
+    <h1 class="text-3xl font-bold">Willkommen auf meinem Blog!</h1>
+
+    <p class="mb-14 font-semibold">
+        Hier dreht sich alles um Themen, die mich begeistern oder beschäftigen: Von
+        <a href="/blog/tags/technologie/" title="Beiträge zu Softwareentwicklung">Softwareentwicklung</a> über <a
+            href="/blog/tags/laufen/" title="Beiträge zu Laufen">Laufen</a> bis hin zu interessanten Einblicken in
+        verschiedenste Themen. Mein Blog ist eine abwechslungsreiche Mischung.
+    </p>
+
+    <BlogList posts={posts}/>
+
+    <p class="text-center my-8">
+        <a href="/blog/tags/" title="Übersicht aller Tags">Zur Themenübersicht vom Blog</a>
+    </p>
+
+</Layout>

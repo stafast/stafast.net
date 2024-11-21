@@ -1,0 +1,59 @@
+---
+import Layout from '@layouts/Layout.astro'
+
+const pageTitle = 'Datenschutz'
+---
+
+<Layout pageTitle={pageTitle}>
+
+    <div class="prose dark:prose-invert mx-auto">
+        <h1>{pageTitle}</h1>
+
+
+        <h2>1. Allgemeine Hinweise</h2>
+        <p>Der Schutz deiner persönlichen Daten ist uns ein wichtiges Anliegen. Diese Datenschutzerklärung
+            informiert dich darüber, welche Daten wir bei der Nutzung dieser Website erheben, wie wir sie verwenden
+            und welche Rechte dir zustehen.</p>
+
+        <h2>2. Verantwortliche Stelle</h2>
+        <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>André Stafast</p>
+
+        <h2>3. Hosting auf Cloudflare Pages</h2>
+        <p>Diese Website wird über den Hosting-Dienst <strong>Cloudflare Pages</strong> bereitgestellt. Cloudflare
+            speichert und verarbeitet Daten, um die Sicherheit und Performance der Website zu gewährleisten. Dabei
+            werden standardmäßig technische Daten wie IP-Adressen in Server-Logfiles erfasst. Die Verarbeitung
+            erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Grundlage unseres berechtigten Interesses an einer sicheren
+            und effizienten Bereitstellung der Website. Weitere Informationen findest du in der <a
+                    href="https://www.cloudflare.com/de-de/privacypolicy/" target="_blank"
+                    rel="noopener noreferrer">Datenschutzerklärung von Cloudflare</a>.</p>
+
+        <h2>4. Datenerfassung und -nutzung</h2>
+        <p>Wir erheben und verarbeiten keine personenbezogenen Daten, die Rückschlüsse auf einzelne Besucher
+            ermöglichen. Diese Website wird ohne die Erfassung von personenbezogenen Tracking-Cookies betrieben.</p>
+
+        <h2>5. Matomo (ehemals Piwik)</h2>
+        <p>Wir verwenden Matomo, eine Open-Source-Webanalyseplattform, um die Nutzung unserer Website zu
+            analysieren. Matomo wird so konfiguriert, dass es die Vorgaben der DSGVO erfüllt. Insbesondere:</p>
+        <ul>
+            <li>Es werden keine Tracking-Cookies verwendet.</li>
+            <li>IP-Adressen werden anonymisiert, sodass keine Rückschlüsse auf einzelne Besucher möglich sind.</li>
+            <li>Besucher werden nicht über verschiedene Websites hinweg getrackt.</li>
+        </ul>
+        <div id="matomo-opt-out"></div>
+        <script is:inline src="https://matomo.stafast.net/index.php?module=CoreAdminHome&action=optOutJS&divId=matomo-opt-out&language=auto&showIntro=1"></script>
+
+
+        <h2>6. Rechte der betroffenen Personen</h2>
+        <p>Du hast das Recht, jederzeit Auskunft über deine gespeicherten personenbezogenen Daten zu erhalten.
+            Außerdem hast du das Recht auf Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten.
+            Wenn du der Meinung bist, dass deine Daten unrechtmäßig verarbeitet werden, hast du das Recht, eine
+            Beschwerde bei der zuständigen Aufsichtsbehörde einzureichen.</p>
+
+        <h2>7. Änderung der Datenschutzerklärung</h2>
+        <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren, um sie an neue rechtliche
+            Vorgaben oder Änderungen unserer Dienstleistungen anzupassen.</p>
+
+
+    </div>
+
+</Layout>
