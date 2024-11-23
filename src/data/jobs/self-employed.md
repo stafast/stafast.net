@@ -4,7 +4,6 @@ company: "Selbeständigkeit"
 since: "2013-02-01T00:00"
 ---
 
-
-Derzeit nur gelegentlich aktiv. Schwerpunkte: Entwicklung und Betreuung von Websites und Online-Shops sowie die
-Programmierung individueller webbasierter Anwendungen. Zusammenarbeit mit Kunden, um maßgeschneiderte digitale Lösungen
-zu realisieren. Ergänzend biete ich Unterstützung und Beratung bei der Entwicklung und Umsetzung digitaler Strategien.
+Derzeit gelegentlich aktiv. Fokus auf die Entwicklung und Betreuung von Websites, Online-Shops und individuellen
+Anwendungen. Ich arbeite eng mit Kunden zusammen, um passgenaue digitale Lösungen zu entwickeln, und unterstütze bei der
+Konzeption und Umsetzung digitaler Strategien und Marketingmaßnahmen. [Schreibe mir](/kontakt/)

@@ -31,9 +31,10 @@ const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.d
                 <div class="my-10 md:mb-16 sm:mt-0 ">
                     <h2 class="text-2xl">Über mich</h2>
                     <p class="leading-relaxed">
-                        Moin 👋 ich bin André Stafast, Entwickler aus Neumünster im Herzen Schleswig-Holsteins.
-                        Hauptberuflich arbeite ich im Frontend & E-Commerce Bereich bei intedia. In meiner Freizeit gehe
-                        ich gerne laufen und bin ich in der Organisation eines mehrtägigen Musikfestivals tätig.
+                        Moin 👋, ich bin André Stafast, Entwickler aus Neumünster in Schleswig-Holstein.
+                        Hauptberuflich arbeite ich bei der <a href="https://intedia.de/">intedia GmbH</a> im Frontend. Nebenbei
+                        bin ich als <a href="/#self-employed">Freelancer</a> aktiv, engagiere mich in der Organisation eines <a href="https://love-explosion.com/">Musikfestivals</a> und gehe
+                        gerne laufen.
                     </p>
                 </div>
                 <div class="my-10 md:my-16">
@@ -51,19 +52,19 @@ const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.d
                 <div class="my-10 md:my-16">
                     <h2 class="text-2xl -mb-4">Aktuelle Beschäftigungen</h2>
                     {jobs.map(job => (
-                            <div>
+                            <div id={job.id}>
                                 <h3 class="text-lg font-semibold mt-10 mb-0">
                                     {job.data.job ? (
-                                        <>
-                                            {job.data.job + ' '}
-                                            <span class="whitespace-nowrap">
+                                            <>
+                                                {job.data.job + ' '}
+                                                <span class="whitespace-nowrap">
                                                 @
                                                 <a href={job.data.url} title={job.data.company} target="_blank">
                                                     {job.data.company}
                                                     <Icon name="link" class="inline relative bottom-0.5"/>
                                                 </a>
                                             </span>
-                                        </>
+                                            </>
                                     ) : job.data.company}
                                 </h3>
                                 <p class="mb-2 text-sm text-muted">
