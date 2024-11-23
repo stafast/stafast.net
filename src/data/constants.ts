@@ -10,7 +10,7 @@ export interface Links {
 
 export const author: string = 'André Stafast';
 export const title: string = 'Software-Entwickler';
-export const defaultPageDescription: string = 'André Stafast, Software-Entwickler aus Neumünster, spezialisiert auf Frontend & E-Commerce. Nebenberuflich engagiert in der Festival-Organisation und leidenschaftlicher Läufer.'
+export const defaultPageDescription: string = 'André Stafast, Software-Entwickler aus Neumünster. Spezialisiert auf Frontend, E-Commerce, Webentwicklung & Backend. Nebenberuflich engagiert in der Festival-Organisation und leidenschaftlicher Läufer.'
 
 export const navigation: NavigationItem[] = [
     { title: 'Home', url: '/' },
