@@ -1,0 +1,40 @@
+---
+import Layout from '@layouts/Layout.astro'
+import {intro} from "../data/constants";
+
+const pageTitle = 'Webentwicklung & Webdesign'
+const description = 'Webentwicklung & Webdesign mit Astro, TYPO3, Vue.js, Nuxt.js, WordPress aus Neumünster'
+---
+
+<Layout pageTitle={pageTitle} pageDescription={description}>
+
+    <div class="mx-auto max-w-prose">
+        <h1 class="text-3xl">{pageTitle}</h1>
+
+        <p class="leading-relaxed" set:html={intro}></p>
+
+
+        <div class="my-10 md:mb-16">
+            <h2 class="text-2xl">Leistungen in meiner Selbständigkeit</h2>
+
+            <h3 class="mt-5 text-xl">Webdesign & Webentwicklung</h3>
+            <p>Benutzerfreundliche und ästhetische Websites mit modernsten Technologien mit bspw. Astro, Nuxt.js, TYPO3
+                oder WordPress.</p>
+
+            <h3 class="mt-5 text-xl">Beratung für digitale Strategien</h3>
+            <p>Unterstütze bei der Konzeption und Umsetzung digitaler Strategien und Marketingmaßnahmen</p>
+
+            <h3 class="mt-5 text-xl">SEO-Optimierung</h3>
+            <p>Mehr Sichtbarkeit bei Google durch gezielte Suchmaschinenoptimierung.</p>
+
+            <h3 class="mt-5 text-xl">Technische Betreuung</h3>
+            <p>Laufende Wartung, Updates und Fehlerbehebung für deine Website.</p>
+        </div>
+
+        <div class="my-10 md:mb-16 text-center">
+            <a class="bg-emerald-500 hover:bg-emerald-700 text-white hover:text-white py-2.5 px-5 transition-all" href="/kontakt/" title="Kontaktieren">Kontakt</a>
+        </div>
+
+    </div>
+
+</Layout>

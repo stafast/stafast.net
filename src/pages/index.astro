@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import {getCollection} from "astro:content";
 import {Icon} from 'astro-icon/components'
-import {author, title, links} from "../data/constants";
+import {author, title, links, intro} from "../data/constants";
 
 const skills = await getCollection('skills')
 const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.data.sortOrder);
@@ -30,12 +30,7 @@ const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.d
             <div class="sm:flex-1">
                 <div class="my-10 md:mb-16 sm:mt-0 ">
                     <h2 class="text-2xl">Über mich</h2>
-                    <p class="leading-relaxed">
-                        Moin 👋, ich bin André Stafast, Entwickler aus Neumünster in Schleswig-Holstein.
-                        Hauptberuflich arbeite ich bei der <a href="#intedia">intedia GmbH</a> im Frontend. Nebenbei
-                        bin ich als <a href="/#self-employed">Freelancer</a> aktiv, engagiere mich in der Organisation eines <a href="#koss-events">Musikfestivals</a> und gehe
-                        gerne laufen.
-                    </p>
+                    <p class="leading-relaxed" set:html={intro}></p>
                     <ul class="m-0 sm:hidden sm:invisible">
                         {links.map(link => (
                                 <li>
