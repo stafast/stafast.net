@@ -45,3 +45,6 @@ schnell nicht vergessen werden. Die Hitze, die Anstrengung, aber auch die Unters
 Strecke haben diesen Tag zu etwas Besonderem gemacht.
 
 Für uns steht fest: Das war nicht unser letzter Lauf. Aber hoffentlich beim nächsten Mal mit etwas milderen Temperaturen!
+
+
+[![Streckenverlauf Kiel Lauf](./kiel-lauf-strecke.jpg "Streckenverlauf Kiel Lauf")](/files/pdf/karte_kiellauf.pdf)
