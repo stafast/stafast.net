@@ -11,7 +11,7 @@ export interface Links {
 export const author: string = 'André Stafast';
 export const title: string = 'Software-Entwickler';
 export const defaultPageDescription: string = 'André Stafast, Software-Entwickler aus Neumünster. Spezialisiert auf Frontend, E-Commerce, Webentwicklung & Backend. Nebenberuflich engagiert in der Festival-Organisation und leidenschaftlicher Läufer.'
-export const intro: string = 'Moin 👋, ich bin André Stafast, Entwickler aus Neumünster in Schleswig-Holstein. Hauptberuflich arbeite ich bei der <a href="/#intedia">intedia GmbH</a> im Frontend. Nebenbei bin ich als <a href="/#self-employed">Freelancer</a> aktiv, engagiere mich in der Organisation eines <a href="/#koss-events">Musikfestivals</a> und gehe gerne laufen.'
+export const intro: string = 'Moin 👋, ich bin André Stafast, Entwickler aus Neumünster in Schleswig-Holstein. Hauptberuflich arbeite ich bei <a href="/#intedia">intedia</a> im Frontend. Nebenbei bin ich als <a href="/#self-employed">Freelancer</a> aktiv, engagiere mich in der Organisation eines <a href="/#koss-events">Musikfestivals</a> und gehe gerne laufen.'
 
 export const navigation: NavigationItem[] = [
     { title: 'Home', url: '/' },
