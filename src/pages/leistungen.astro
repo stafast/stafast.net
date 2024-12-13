@@ -2,24 +2,20 @@
 import Layout from '@layouts/Layout.astro'
 import {intro} from "../data/constants";
 
-const pageTitle = 'Professionelle Webentwicklung & Webdesign'
-const description = 'Professionelle Webentwicklung & Webdesign mit Astro, TYPO3, Vue.js, Nuxt.js, WordPress aus Neumünster'
+const pageTitle = 'Leistungen'
+const description = 'Professionelle Webentwicklung und Anwendungsentwicklung mit Astro, JavaScript, Vue.js, Nuxt.js, TYPO3, WordPress.'
 ---
 
 <Layout pageTitle={pageTitle} pageDescription={description}>
 
     <div class="mx-auto max-w-prose">
-        <h1 class="text-3xl">{pageTitle}</h1>
-
-        <p class="leading-relaxed" set:html={intro}></p>
-
+        <h1 class="text-3xl">Meine Leistungen</h1>
 
         <div class="my-10 md:mb-16">
-            <h2 class="text-2xl">Meine Leistungen</h2>
 
-            <h3 class="mt-5 text-xl">Webdesign & Webentwicklung</h3>
-            <p>Ich entwickle benutzerfreundliche und ästhetische Websites mit modernsten Technologien wie
-                <a href="/blog/tags/astro/">Astro</a>, Nuxt.js, TYPO3 oder WordPress – immer individuell auf deine
+            <h2 class="mt-5 text-xl">Entwicklung</h2>
+            <p>Ich entwickle benutzerfreundliche und ästhetische Websites oder Anwendungen mit modernsten Technologien wie zum Beispiel
+                <a href="/blog/tags/astro/">Astro</a>, Nuxt.js, TYPO3, WordPress – immer individuell auf deine
                 Anforderungen zugeschnitten.
             </p>
 
