@@ -3,7 +3,7 @@ title: "CSS light-dark(): Dynamische Farben für Light und Dark Mode"
 description: "Entdecke, wie die CSS light-dark() Funktion das Styling für Light und Dark Mode vereinfacht und dir hilft, flexiblere Designs zu erstellen."
 teaser: "teaser.jpg"
 teaserAlt: "Snippetauszug"
-published: "2024-10-06T00:00"
+published: "2024-10-06T00:00:00"
 tags: [ "CSS", "Color Schema", "Technologie" ]
 ---
 

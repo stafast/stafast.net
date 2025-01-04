@@ -3,7 +3,7 @@ title: "Google Jahresrückblick 2024: Die spannendsten Trends im Überblick"
 description: "Entdecke die Google-Suchtrends 2024: Von spannenden Ereignissen wie der Fußball-EM und US-Wahl bis hin zu beliebten Serien und Top-Fragen – das hat uns dieses Jahr bewegt!"
 teaser: "teaser.jpg"
 teaserAlt: "Google"
-published: "2024-12-10T00:00"
+published: "2024-12-10T00:00:00"
 tags: [ "Google", "Trends"]
 ---
 

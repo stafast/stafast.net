@@ -3,7 +3,7 @@ title: "Preloading von FontSource-Schriften"
 description: "Erfahre, wie du das Preloading von Schriften mit FontSource optimierst, um Sprungeffekte zu vermeiden und die Performance deiner Website zu verbessern."
 teaser: "teaser.jpg"
 teaserAlt: "Snippetauszug"
-published: "2024-11-04T00:00"
+published: "2024-11-04T00:00:00"
 tags: [ "Preload", "Font", "Performance", "Technologie" ]
 ---
 

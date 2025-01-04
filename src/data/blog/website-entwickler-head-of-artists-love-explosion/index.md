@@ -3,7 +3,7 @@ title: "Vom Website-Entwickler zum Head of Artists: Mein Weg bei der Love Explos
 description: "Wie ich mich vom Webentwickler zum Head of Artists beim Love Explosion Festival entwickelt habe und was die Aufgaben eines Bookers umfassen."
 teaser: "./teaser.jpg"
 teaserAlt: "Psytrance Stage der Love Explosion 2023."
-published: "2024-02-16T00:00"
+published: "2024-02-16T00:00:00"
 tags: [ "Festival", "Booker", "Love Explosion", "Event" ]
 ---
 

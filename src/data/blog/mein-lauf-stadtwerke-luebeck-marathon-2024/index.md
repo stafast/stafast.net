@@ -3,7 +3,7 @@ title: "Stadtwerke Lübeck Marathon 2024"
 description: "Der Stadtwerke Lübeck Marathon 2024 brachte tausende Läufer in die Altstadt.  Trotz Fußschmerzen war es ein schöner Lauf – mit großartiger Stimmung und perfekter Organisation."
 teaser: "teaser.jpg"
 teaserAlt: "Läufer beim Stadtwerke Lübeck Marathon in der Altstadt."
-published: "2024-10-27T00:00"
+published: "2024-10-27T00:00:00"
 tags: ["Lübeck", "Laufen", "Sport" ]
 ---
 ## Mein Lauf beim Stadtwerke Lübeck Marathon 2024

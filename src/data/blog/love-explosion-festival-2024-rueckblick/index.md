@@ -3,8 +3,8 @@ title: "Love Explosion Festival 2024: Ein Rückblick auf unvergessliche Tage"
 description: "Rückblick auf das Love Explosion Festival 2024: Ein Event voller elektronischer Musik, Gemeinschaft und Einblicke in die intensive Arbeit hinter den Kulissen."
 teaser: "./teaser.jpg"
 teaserAlt: "Techno Stage der Love Explosion 2024."
-published: "2024-07-03T00:00"
-updated: "2024-08-13T00:00"
+published: "2024-07-03T00:00:00"
+updated: "2024-08-13T00:00:00"
 tags: [ "Festival", "Love Explosion", "Booker", "Event" ]
 ---
 

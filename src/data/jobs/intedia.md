@@ -11,4 +11,4 @@ Nuxt.js sowie die kontinuierliche Pflege und Weiterentwicklung bestehender Anwen
 E-Commerce-Projekten mit Fokus auf UX- und Performance-Optimierung. Implementierung von Analyselösungen wie Google
 Analytics und Matomo. Enge Zusammenarbeit mit Kunden bei der Lösung komplexer Anforderungen.
 
-<small>Kunden: [Ritzenhoff](https://www.ritzenhoff.de), [Dosenmatrosen](https://www.dosenmatrosen.de), [Bike Mailorder](https://www.bike-mailorder.de), [Cloudmarkt](https://www.cloudmarkt.de), …</small>
+<small>Auszug: [Ritzenhoff](https://www.ritzenhoff.de), [Dosenmatrosen](https://www.dosenmatrosen.de), [team](https://www.team.de), [SURI FREY](https://www.surifrey.com), [Bike Mailorder](https://www.bike-mailorder.de), [Cloudmarkt](https://www.cloudmarkt.de)</small>

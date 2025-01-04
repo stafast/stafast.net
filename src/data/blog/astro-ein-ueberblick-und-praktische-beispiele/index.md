@@ -3,7 +3,7 @@ title: "Astro: Ein Überblick und praktische Beispiele"
 description: "Astro ist ein leistungsstarkes Web-Framework, das schnelle Webseiten mit minimalem JavaScript ermöglicht. In diesem Artikel erhältst du einen Überblick und praktische Codebeispiele, um sofort loszulegen und die Performance deiner Website zu steigern."
 teaser: "teaser.jpg"
 teaserAlt: "Astro Framework Logo"
-published: "2024-09-02T00:00"
+published: "2024-09-02T00:00:00"
 tags: [ "Astro", "Framework", "JavaScript", "Technologie" ]
 ---
 

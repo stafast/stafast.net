@@ -3,7 +3,7 @@ title: "Astro: Performance-Boost mit Prefetch"
 description: "Erfahre, wie du mit Prefetch im Astro Framework die Ladezeiten deiner Website verbessern kannst. Dieser Beitrag zeigt, wie du Prefetch aktivierst, konfigurierst und optimal einsetzt, um ein flüssiges Nutzererlebnis zu schaffen."
 teaser: "teaser.jpg"
 teaserAlt: "Astro Framework Logo"
-published: "2024-11-16T00:00"
+published: "2024-11-16T00:00:00"
 tags: [ "Astro", "Prefetch", "Performance", "Technologie" ]
 ---
 

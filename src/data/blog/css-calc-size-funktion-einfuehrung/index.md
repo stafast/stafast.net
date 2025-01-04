@@ -3,7 +3,7 @@ title: "Überblick zur neuen CSS-Funktion calc-size()"
 description: "Entdecke die neue experimentelle CSS-Funktion calc-size(), die Berechnungen auf intrinsischen Größen wie auto und fit-content ermöglicht. Erfahre, wie sie flexiblere Layouts und dynamische Animationen unterstützt und welchen Einfluss sie auf moderne Webentwicklung haben könnte."
 teaser: "teaser.jpg"
 teaserAlt: "Snippetauszug"
-published: "2024-12-16T00:00"
+published: "2024-12-16T00:00:00"
 tags: [ "CSS", "calc-size", "Technologie" ]
 ---
 
