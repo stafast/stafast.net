@@ -1,7 +1,7 @@
 ---
 sortOrder: 90
-company: "Koss Events"
-url: "https://koss-events.com"
+company: "Love Explosion"
+url: "https://love-explosion.com"
 job: "Head of Artist & Generalist"
 since: "2021-08-01T00:00"
 ---
