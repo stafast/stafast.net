@@ -29,7 +29,7 @@ async function refreshAccessToken() {
     })
 
     if (!response.ok) {
-        return new Response(JSON.stringify({error: "Failed to fetch data"}));
+        return new Response(JSON.stringify({error: "Failed to fetch access_token"}));
     }
 
     const data = await response.json();
@@ -45,7 +45,7 @@ export const GET: APIRoute = async () => {
         headers: { Authorization: `Bearer ${accessToken}` },
     });
 
-    if (response.ok) {
+    if (!response.ok) {
         return new Response(JSON.stringify({ error: "Failed to fetch data" }));
     }
 
