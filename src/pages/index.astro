@@ -1,4 +1,5 @@
 ---
+import {GET} from './api/strava.ts'
 import Layout from "@layouts/Layout.astro";
 import {getCollection} from "astro:content";
 import {Icon} from 'astro-icon/components'
@@ -6,9 +7,15 @@ import {author, title, links, intro} from "../data/constants";
 
 const skills = await getCollection('skills')
 const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.data.sortOrder);
+
+const stravaResponse = await GET(Astro)
+const stravaData = await stravaResponse.json()
+
+console.log(stravaData)
 ---
 
 <Layout>
+
     <div class="mx-auto">
         <div class="flex flex-wrap flex-row gap-x-10 md:gap-x-16">
             <div>
@@ -30,7 +37,12 @@ const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.d
             <div class="sm:flex-1">
                 <div class="my-10 md:mb-16 sm:mt-0 ">
                     <h2 class="text-2xl">Über mich</h2>
-                    <p class="leading-relaxed" set:html={intro}></p>
+                    <p class="leading-relaxed">
+                        <span set:html={intro}></span>
+                        {stravaData.currentMonth && (
+                            <>Diesen Monat bin ich bereits <span class="font-bold">{stravaData.currentMonth}</span> gelaufen und letztens Monat <span class="font-semibold">{stravaData.lastMonth}</span>.</>
+                        )}
+                    </p>
                     <ul class="m-0 sm:hidden sm:invisible">
                         {links.map(link => (
                                 <li>
