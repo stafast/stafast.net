@@ -10,8 +10,6 @@ const jobs = (await getCollection('jobs')).sort((a, b) => b.data.sortOrder - a.d
 
 const stravaResponse = await GET(Astro)
 const stravaData = await stravaResponse.json()
-
-
 ---
 
 <Layout>
@@ -40,7 +38,10 @@ const stravaData = await stravaResponse.json()
                     <p class="leading-relaxed">
                         <span set:html={intro}></span>
                         {stravaData.currentMonth && (
-                            <>Im {new Date().toLocaleString('de-DE', {month: 'long'})} bin ich bereits <span class="font-bold ">{stravaData.currentMonth}</span> gelaufen und letzten Monat <span class="font-bold">{stravaData.lastMonth}</span>.</>
+                                <>Im {new Date().toLocaleString('de-DE', {month: 'long'})} bin ich bereits <span
+                                        class="font-bold ">{stravaData.currentMonth}</span> gelaufen, während es im
+                                    letzten Monat <span class="font-bold">{stravaData.lastMonth}</span> waren.
+                                </>
                         )}
                     </p>
                     <ul class="m-0 sm:hidden sm:invisible">
