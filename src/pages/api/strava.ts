@@ -41,6 +41,10 @@ export const GET: APIRoute = async () => {
 
     await refreshAccessToken();
 
+    if (!accessToken) {
+        return new Response(JSON.stringify({ error: "Access token is null" }));
+    }
+
     const response = await fetch("https://www.strava.com/api/v3/athlete/activities", {
         headers: { Authorization: `Bearer ${accessToken}` },
     });
