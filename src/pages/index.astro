@@ -40,8 +40,8 @@ const stravaData = await stravaResponse.json()
                         {stravaData.currentMonth && (
                                 <>
                                     Außerdem gehe ich gerne laufen – im
-                                    {new Date().toLocaleString('de-DE', {month: 'long'})} habe ich bereits
-                                    <span class="font-bold ">{stravaData.currentMonth}</span> geschafft, im letzten
+                                    {new Date().toLocaleString('de-DE', {month: 'long'})} bin ich bereits
+                                    <span class="font-bold whitespace-nowrap">{stravaData.currentMonth}</span> gelaufen, im letzten
                                     Monat waren es <span class="font-bold">{stravaData.lastMonth}</span>.
                                 </>
                         )}
