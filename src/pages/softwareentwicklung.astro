@@ -1,0 +1,45 @@
+---
+import Layout from '@layouts/Layout.astro'
+import {intro} from "../data/constants";
+
+const pageTitle = 'Individuelle Softwareentwicklung & digitale Lösungen'
+const description = 'Moderne Softwareentwicklung mit Technologien wie Vue.js, Laravel, Node.js, TYPO3, Shopware oder Astro – aus Neumünster.'
+---
+
+<Layout pageTitle={pageTitle} pageDescription={description}>
+
+    <div class="mx-auto max-w-prose">
+        <h1 class="text-3xl">{pageTitle}</h1>
+
+        <p class="leading-relaxed" set:html={intro}></p>
+
+        <div class="my-10 md:mb-16">
+            <h2 class="text-2xl">Meine Leistungen</h2>
+
+            <h3 class="mt-5 text-xl">Individuelle Softwareentwicklung</h3>
+            <p>Ich entwickle maßgeschneiderte Webanwendungen und Backend-Lösungen mit modernen Frameworks wie
+                Laravel, Node.js, Vue.js oder Astro – skalierbar, sicher und performant.
+            </p>
+
+            <h3 class="mt-5 text-xl">Systemarchitektur & Konzeption</h3>
+            <p>Von der Auswahl des passenden Technologie-Stacks bis zur durchdachten Architektur – ich plane deine Anwendung
+                zukunftssicher und wartungsfreundlich. Dabei berücksichtige ich Skalierbarkeit, Performance und Sicherheit.
+            </p>
+
+            <h3 class="mt-5 text-xl">Schnittstellen & Integrationen</h3>
+            <p>Ich entwickle robuste APIs und integriere externe Systeme – egal ob Zahlungsanbieter, Drittanbieter-APIs oder ERP-Systeme.</p>
+
+            <h3 class="mt-5 text-xl">E-Commerce-Entwicklung</h3>
+            <p>Ob mit Shopware, Shopify oder einem individuellen Ansatz: Ich entwickle performante Onlineshops mit Fokus auf Usability, Conversion und Technik.</p>
+
+            <h3 class="mt-5 text-xl">Wartung & Weiterentwicklung</h3>
+            <p>Ich begleite dein Projekt auch nach dem Launch: mit technischer Betreuung, regelmäßigen Updates und kontinuierlicher Weiterentwicklung.</p>
+        </div>
+
+        <div class="my-10 md:mb-16 text-center">
+            <a class="bg-emerald-500 hover:bg-emerald-700 text-white hover:text-white py-2.5 px-5 transition-all"
+               href="/kontakt/" title="Kontaktieren">Jetzt Kontakt aufnehmen</a>
+        </div>
+    </div>
+
+</Layout>
