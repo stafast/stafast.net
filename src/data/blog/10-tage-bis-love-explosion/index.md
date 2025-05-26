@@ -1,6 +1,6 @@
 ---
 title: "Noch 10 Tage bis zur Love Explosion"
-description: "Die Festival- und Eventbranche steckt in einer Krise: Sinkende Ticketverkäufe, gestiegene Gagen und Kosten sowie ein verändertes Feierverhalten gefährden viele kleine und mittlere Festivals – während Major-Events weiter boomen."
+description: "Love Explosion 2025 steht an – mein viertes Jahr im Team, voll Chaos, Herzblut und Vorfreude auf Musik, Menschen und Magie."
 teaser: "teaser.jpg"
 teaserAlt: "Windpark Quarnstedt."
 published: "2025-05-26T00:00:00"
