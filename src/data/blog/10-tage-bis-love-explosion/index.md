@@ -18,11 +18,16 @@ sicher ist: Das große Ganze wird wieder klappen.
 
 ## Mein Platz im Chaos
 
-Ich bin stellvertretender Veranstaltungsleiter – mit unter mach ich auch die Künstlerbetreuung, Website, Lagepläne und
-organisatorische
-Baustellen überall. Einer, der da ist, wenn’s brennt. Klar habe ich über das Jahr hinweg meine
-festen Bereiche, aber kurz vor dem Festival und währenddessen ist es vor allem: Probleme lösen. Und das liebe ich.
-Irgendwie.
+Ich bin während des Festivals stellvertretender Veranstalter, aber meine Hauptaufgaben über das Jahr hinweg liegen vor
+allem im Künstlerbooking, der Programmplanung, IT-Lösungen, CAD-Lageplänen, Ticketing, der Website, dem Marketing – und
+all den organisatorischen Baustellen, die eben so anfallen.
+
+Man könnte sagen: Ich bin der, der da ist, wenn’s brennt.
+
+Natürlich habe ich meine festen Zuständigkeiten, aber je näher das Festival rückt, desto mehr geht es vor allem darum,
+Probleme zu lösen – spontan, flexibel, kreativ.
+
+Und genau das liebe ich. Irgendwie.
 
 ## Neue Ideen, gewachsene Strukturen
 
@@ -41,7 +46,7 @@ haben sich ebenfalls nochmal stark verbessert. Man merkt einfach: Das Festival w
 ## Zwischen Job, Leidenschaft und Zeitmanagement
 
 Dass ich das alles neben meinem eigentlichen Job mache, fragen mich viele. Die Antwort ist einfach: Zeitmanagement und
-Leidenschaft. Ich arbeite das ganze Jahr nebenbei an diesem Festival – weil es mir etwas bedeutet. 
+Leidenschaft. Ich arbeite das ganze Jahr nebenbei an diesem Festival – weil es mir etwas bedeutet.
 
 ## Worum’s wirklich geht
 
