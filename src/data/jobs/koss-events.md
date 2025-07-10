@@ -2,7 +2,7 @@
 sortOrder: 90
 company: "Love Explosion"
 url: "https://love-explosion.com"
-job: "Head of Artist & Generalist"
+job: "Veranstaltungsleitung & Booker"
 since: "2021-08-01T00:00"
 ---
 
