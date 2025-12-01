@@ -45,7 +45,7 @@ export const GET: APIRoute = async () => {
         return new Response(JSON.stringify({ error: "Access token is null" }));
     }
 
-    const response = await fetch("https://www.strava.com/api/v3/athlete/activities", {
+    const response = await fetch("https://www.strava.com/api/v3/athlete/activities?per_page=100", {
         headers: { Authorization: `Bearer ${accessToken}` },
     });
 
@@ -55,6 +55,7 @@ export const GET: APIRoute = async () => {
 
     const data = await response.json();
     const runs: Activity[] = data.filter(({sport_type}: Activity) => sport_type === 'Run');
+    console.log(data);
 
     const filterRunsByDate = (start: number, end?: number): number => {
         const filteredRuns = runs.filter(({start_date}) => {
