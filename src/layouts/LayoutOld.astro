@@ -8,13 +8,13 @@ interface Props {
 import '@fontsource-variable/noto-sans';
 import notoSansWoff2 from '@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url';
 import { SEO } from "astro-seo";
-import Header from '@layouts/Header.astro'
+import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import {author, defaultPageDescription, defaultPageTitle} from '@data/constants'
-import '@styles/global.css'
+import {author, defaultPageDescription} from '@data/constants'
+import '@css/main.css'
 
 const {pageTitle, pageDescription, ogImage} = Astro.props;
-const title = pageTitle ? pageTitle + ' | ' + author : defaultPageTitle
+const title = pageTitle ? pageTitle + ' | ' + author : author
 const description = pageDescription ? pageDescription : defaultPageDescription;
 const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
 
@@ -30,10 +30,6 @@ const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
         description={description}
         extend={{
             meta: [
-                {
-                    name: "author",
-                    content: author
-                },
                 {
                     name: "viewport",
                     content: "width=device-width, initial-scale=1.0"
@@ -65,11 +61,11 @@ const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="flex flex-col h-svh antialiased bg-stone-50 text-stone-900">
+<body class="flex flex-col h-svh bg-stone-50 dark:bg-stone-900 leading-relaxed selection:text-white selection:bg-fuchsia-500 antialiased">
 
 <Header/>
 
-<main class="container mx-auto flex-1 print:my-10">
+<main class="container max-w-4xl flex-1 print:my-10">
     <slot/>
 </main>
 
@@ -81,7 +77,7 @@ const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-        var u="https://matomo.stafast.net/";
+        var u="//matomo.stafast.net/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '4']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];

@@ -17,8 +17,8 @@
       "@utils/*": [
         "src/utils/*"
       ],
-      "@css/*": [
-        "src/assets/css/*"
+      "@styles/*": [
+        "src/styles/*"
       ],
       "~/assets/*": [
         "src/assets/*"

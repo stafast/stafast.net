@@ -2,10 +2,12 @@
 import {navigation} from '@data/constants'
 
 const currentPath: string = Astro.url.pathname || '';
+
 ---
 
-<header class="print:!hidden">
-    <div class="container hidden">
+<header>
+    <div class="container">
+
         <nav>
             <ul class="">
                 {navigation.map((item) => (
@@ -27,5 +29,6 @@ const currentPath: string = Astro.url.pathname || '';
                 ))}
             </ul>
         </nav>
+
     </div>
 </header>
