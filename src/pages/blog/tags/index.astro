@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import toSlug from "@utils/toSlug";
+
+const posts = await getCollection('blog')
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())].sort()
+const title = "Tags";
+
+---
+
+
+<Layout pageTitle={title}>
+    <div class="mx-auto max-w-prose">
+        <h1 class="mb-10 text-3xl font-bold">{title}</h1>
+        <div class="tags flex flex-wrap gap-y-3 gap-x-6">
+            {tags.map((tag) => (
+                    <span class="inline-block"><a title={`Beiträge zu ${tag}`} href={`/blog/tags/${toSlug(tag)}/`}>{tag}</a></span>
+            ))}
+        </div>
+    </div>
+</Layout>

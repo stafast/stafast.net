@@ -1,0 +1,107 @@
+---
+import { Image, getImage } from "astro:assets";
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import toSlug from "@utils/toSlug";
+import {author} from '@data/constants'
+import Layout from "@layouts/Layout.astro";
+
+type Props = CollectionEntry<"blog">;
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map((post) => ({
+        params: { id: post.id },
+        props: post,
+    }));
+}
+
+const post: Props = Astro.props;
+const { Content  } = await render(post);
+const ogImage = post.data.teaser ? await getImage({src: post.data.teaser, format: 'jpg', width: 1200, height: 630}) : false
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "keywords": post.data.tags?.join(', '),
+    "datePublished": post.data.published?.toISOString(),
+    "dateModified": post.data.updated?.toISOString(),
+    "articleBody": post.body,
+    "wordCount": post.body?.trim().split(/\s+/).length,
+    ...(ogImage ? {
+        "image": {
+            "@type": "ImageObject",
+            "url": Astro.site + ogImage.src,
+            "width": 1200,
+            "height": 630
+        }
+    } : {}),
+    "author": {
+        "@type": "Person",
+        "name": author,
+        "url": Astro.site
+    }
+}
+
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<Layout pageTitle={post.data.title} pageDescription={post.data.description} ogImage={ogImage ? ogImage.src : ''}>
+
+    <div class="mx-auto prose prose-stone dark:prose-invert prose-a:text-emerald-500 prose-a:no-underline">
+        <p class="print:!hidden hidden mb-8">
+            <a class="back font-normal" href="/blog/">&larr; Zurück zum Blog</a>
+        </p>
+
+        <p class="text-center text-sm">
+            {post.data.updated ? (
+                <span>Aktualisiert am {post.data.updated.toLocaleDateString('de-DE', {day: 'numeric', month: 'long', year: 'numeric'})}</span>
+            ) : (
+                 <span>{post.data.published.toLocaleDateString('de-DE', {day: 'numeric', month: 'long', year: 'numeric'})}</span>
+            )}
+        </p>
+
+        <h1>{post.data.title}</h1>
+
+        {post.data.teaser && (
+            <Image class="bg-white dark:bg-stone-800"
+                   format="webp"
+                   loading="lazy"
+                   decoding="async"
+                   width="600"
+                   height="337"
+                   densities={[1.5, 2]}
+                   src={post.data.teaser}
+                   alt={post.data.teaserAlt ?? ''} />
+        )}
+
+        <Content />
+
+        <ol class="flex flex-wrap gap-y-2 gap-x-2 my-8 p-0 list-none text-sm">
+            {post.data.tags && post.data.tags.map((tag) => (
+                    <li class="p-0">
+                        <a class="tag py-1 px-3 bg-stone-200 dark:bg-stone-800 rounded-full font-normal" href=`/blog/tags/${toSlug(tag)}/`>
+                            {tag}
+                        </a>
+                    </li>
+            ))}
+        </ol>
+
+        <p class="mt-8 print:!hidden">
+            <a class="back font-normal" href="/blog/">&larr; Zurück zum Blog</a>
+        </p>
+    </div>
+
+</Layout>
+
+<style scoped>
+    a.back {
+        @apply text-stone-400 hover:text-stone-700 dark:text-stone-500 hover:dark:text-stone-400;
+    }
+
+    a.tag {
+        @apply text-stone-500 dark:text-stone-400 hover:text-emerald-600;
+    }
+</style>
