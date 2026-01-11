@@ -15,7 +15,6 @@ export const intro: string = 'Moin 👋, ich bin André Stafast, Entwickler aus 
 
 export const navigation: NavigationItem[] = [
     { title: 'Home', url: '/' },
-    { title: 'Blog', url: '/blog/' },
     { title: 'Kontakt', url: '/kontakt/' }
 ];
 
