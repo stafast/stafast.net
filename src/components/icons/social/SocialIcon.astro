@@ -1,0 +1,55 @@
+---
+import type { SocialPlatform } from "@/config/schema";
+import AppleMusicIcon from "./AppleMusicIcon.astro";
+import BandcampIcon from "./BandcampIcon.astro";
+import BeatportIcon from "./BeatportIcon.astro";
+import BlueskyIcon from "./BlueskyIcon.astro";
+import DiscogsIcon from "./DiscogsIcon.astro";
+import EmailIcon from "./EmailIcon.astro";
+import FacebookIcon from "./FacebookIcon.astro";
+import InstagramIcon from "./InstagramIcon.astro";
+import LinkedInIcon from "./LinkedInIcon.astro";
+import MixcloudIcon from "./MixcloudIcon.astro";
+import ResidentAdvisorIcon from "./ResidentAdvisorIcon.astro";
+import SoundcloudIcon from "./SoundcloudIcon.astro";
+import SpotifyIcon from "./SpotifyIcon.astro";
+import ThreadsIcon from "./ThreadsIcon.astro";
+import TiktokIcon from "./TiktokIcon.astro";
+import ViberateIcon from "./ViberateIcon.astro";
+import WhatsappIcon from "./WhatsappIcon.astro";
+import XIcon from "./XIcon.astro";
+import YoutubeIcon from "./YoutubeIcon.astro";
+
+interface Props {
+    platform: SocialPlatform;
+    class?: string | undefined;
+}
+
+const { platform, class: className } = Astro.props;
+
+const icons: Record<SocialPlatform, typeof InstagramIcon> = {
+    instagram: InstagramIcon,
+    linkedin: LinkedInIcon,
+    spotify: SpotifyIcon,
+    "apple-music": AppleMusicIcon,
+    youtube: YoutubeIcon,
+    tiktok: TiktokIcon,
+    facebook: FacebookIcon,
+    threads: ThreadsIcon,
+    x: XIcon,
+    whatsapp: WhatsappIcon,
+    soundcloud: SoundcloudIcon,
+    "resident-advisor": ResidentAdvisorIcon,
+    viberate: ViberateIcon,
+    beatport: BeatportIcon,
+    bluesky: BlueskyIcon,
+    discogs: DiscogsIcon,
+    mixcloud: MixcloudIcon,
+    bandcamp: BandcampIcon,
+    email: EmailIcon,
+};
+
+const Icon = icons[platform];
+---
+
+<Icon class={className} />

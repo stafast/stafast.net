@@ -1,93 +1,29 @@
 ---
-interface Props {
-    pageTitle?: string;
-    pageDescription?: string;
-    ogImage?: string;
-}
+import "@fontsource-variable/geist-mono/wght.css";
+import "@fontsource-variable/geist/wght.css";
+import "@fontsource-variable/bricolage-grotesque/wght.css";
+import "@/styles/global.css";
 
-import '@fontsource-variable/noto-sans';
-import notoSansWoff2 from '@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url';
-import { SEO } from "astro-seo";
-import Header from '@layouts/Header.astro'
-import Footer from '@components/Footer.astro'
-import {author, defaultPageDescription, defaultPageTitle} from '@data/constants'
-import '@styles/global.css'
-
-const {pageTitle, pageDescription, ogImage} = Astro.props;
-const title = pageTitle ? pageTitle + ' | ' + author : defaultPageTitle
-const description = pageDescription ? pageDescription : defaultPageDescription;
-const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
-
+import Head from "@components/layout/Head.astro";
+import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
 ---
 
-<!doctype html>
-<html lang="de" class="scroll-smooth">
-<head>
-    <link rel="preload" as="font" type="font/woff2" href={notoSansWoff2} crossorigin="anonymous" />
-    <SEO
-        charset="utf-8"
-        title={title}
-        description={description}
-        extend={{
-            meta: [
-                {
-                    name: "author",
-                    content: author
-                },
-                {
-                    name: "viewport",
-                    content: "width=device-width, initial-scale=1.0"
-                },
-                {
-                    name: "robots",
-                    content: "follow, index"
-                },
-                {
-                    name: "generator",
-                    content: Astro.generator
-                }
-            ]
-        }}
-        openGraph={{
-            basic: {
-                title: title,
-                type: "website",
-                image: ogImageUrl
-            },
-            optional: {
-                siteName: author,
-                locale: "de_DE",
-                description: pageDescription
-            }
-        }}
-
-    />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-</head>
-<body class="flex flex-col h-svh antialiased bg-stone-50 text-stone-900">
-
-<Header/>
-
-<main class="container mx-auto flex-1 print:my-10">
-    <slot/>
-</main>
-
-<Footer/>
-<script defer is:inline type="text/javascript">
-    /* eslint-disable */
-    var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-        var u="https://matomo.stafast.net/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '4']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-    /* eslint-enable */
-</script>
-</body>
+<html lang="en" class="scroll-smooth antialiased">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+        <Head />
+    </head>
+    <body class="bg-background text-foreground flex h-svh flex-col">
+        <Header />
+        <main class="container mx-auto flex-1">
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>

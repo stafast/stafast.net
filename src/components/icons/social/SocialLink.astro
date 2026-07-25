@@ -1,0 +1,33 @@
+---
+import { socialPlatformLabels, type SocialPlatform } from "@/config/schema";
+import SocialIcon from "./SocialIcon.astro";
+import { cn } from "@lib/utils.ts";
+
+interface Props {
+    platform: SocialPlatform;
+    url: string;
+    label?: string | undefined;
+    class?: string | undefined;
+    iconClass?: string | undefined;
+}
+
+const {
+    platform,
+    url,
+    label = socialPlatformLabels[platform],
+    class: className,
+    iconClass,
+} = Astro.props;
+const opensNewTab = new URL(url).protocol !== "mailto:";
+const accessibleName = opensNewTab ? `${label} (opens in a new tab)` : label;
+---
+
+<a
+    aria-label={accessibleName}
+    class={cn(["inline-block", className])}
+    href={url}
+    rel={opensNewTab ? "noopener noreferrer" : undefined}
+    target={opensNewTab ? "_blank" : undefined}
+>
+    <SocialIcon platform={platform} class={iconClass} />
+</a>

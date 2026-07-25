@@ -1,0 +1,56 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
+    {
+        variants: {
+            variant: {
+                default: "bg-primary text-primary-fg hover:bg-primary/90",
+                secondary:
+                    "bg-secondary text-secondary-fg hover:bg-secondary/80",
+                tertiary: "bg-tertiary text-tertiary-fg hover:bg-tertiary/80",
+                accent: "bg-accent text-accent-fg hover:bg-accent/90",
+                outline:
+                    "border bg-transparent text-foreground hover:bg-secondary hover:text-secondary-fg",
+                ghost: "text-foreground hover:bg-tertiary data-[state=open]:bg-tertiary",
+                link: "text-primary underline-offset-4 hover:text-primary/80 hover:underline",
+            },
+            size: {
+                default: "h-10 py-2 px-4",
+                sm: "h-9 px-3 rounded-md",
+                lg: "h-11 px-8 rounded-md",
+            },
+        },
+        defaultVariants: {
+            variant: "default",
+            size: "default",
+        },
+    },
+);
+
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+
+interface Props extends Omit<HTMLAttributes<"button">, "size"> {
+    variant?: ButtonVariants["variant"];
+    size?: ButtonVariants["size"];
+}
+
+const {
+    variant,
+    size,
+    type = "button",
+    class: className,
+    ...props
+} = Astro.props;
+---
+
+<button
+    type={type}
+    class={cn(buttonVariants({ variant, size }), className)}
+    {...props}
+>
+    <slot />
+</button>
