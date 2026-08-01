@@ -3,16 +3,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --font-sans: "Geis Variablet", ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-
-    --font-serif: 'Bricolage Grotesque Variable', sans-serif;
-
-    --font-mono: "Geist Mono Variable", "IBM Plex Mono", "SFMono-Regular", Consolas,
-    "Liberation Mono", monospace;
-
     --background: oklch(0.972 0.005 106);
     --foreground: oklch(0.21 0.005 145);
 
@@ -39,6 +29,14 @@
 }
 
 @theme inline {
+    --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+    --font-serif: "Bricolage Grotesque Variable", ui-sans-serif, sans-serif;
+    --font-mono: "Geist Mono Variable", "IBM Plex Mono", "SFMono-Regular", Consolas,
+    "Liberation Mono", monospace;
+
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-primary: var(--primary);
@@ -51,19 +49,206 @@
     --color-accent-fg: var(--accent-fg);
 
     --color-border: var(--border);
+
+    --text-display: clamp(2.75rem, 5.5vw, 5rem);
+    --text-h1: clamp(2.75rem, 5vw, 4.25rem);
+    --text-h2: clamp(2.25rem, 4vw, 3.25rem);
+    --text-h3: clamp(1.625rem, 2.5vw, 2rem);
+    --text-h4: 1.5rem;
+    --text-h5: 1.125rem;
+    --text-h6: 0.75rem;
+
+    --text-lead: clamp(1.125rem, 1.5vw, 1.375rem);
+    --text-body: clamp(1rem, 0.97rem + 0.12vw, 1.125rem);
+    --text-small: 0.875rem;
+    --text-eyebrow: 0.75rem;
+
+    --text-xs: 0.8125rem;
+    --text-sm: 0.9375rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+
+    --text-xs--line-height: 1.5;
+    --text-sm--line-height: 1.55;
+    --text-base--line-height: 1.7;
+    --text-lg--line-height: 1.65;
+    --text-xl--line-height: 1.55;
 }
 
 @layer base {
-    * {
-        @apply border-border;
+    *,
+    ::before,
+    ::after {
+        @apply border-border ;
+    }
+
+    html {
+        min-width: 340px;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        @apply hyphens-auto lg:hyphens-none bg-background text-foreground/90 text-body flex min-h-svh antialiased flex-col;
+    }
+
+    ::selection {
+        background: color-mix(in oklch, var(--primary), transparent 78%);
+        color: var(--foreground);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 3px;
+    }
+
+    img,
+    picture,
+    svg {
+        display: block;
+        max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--foreground);
+        text-wrap: balance;
+    }
+
+    h1 {
+        font-family: var(--font-serif);
+        font-size: var(--text-h1);
+        font-weight: 550;
+        line-height: 1.02;
+        letter-spacing: -0.035em;
+    }
+
+    h2 {
+        font-family: var(--font-sans);
+        font-size: var(--text-h2);
+        font-weight: 650;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+    }
+
+    h3 {
+        font-family: var(--font-sans);
+        font-size: var(--text-h3);
+        font-weight: 650;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        font-weight: 650;
+        line-height: 1.3;
+    }
+
+    h5 {
+        font-size: 1.125rem;
+        font-weight: 650;
+        line-height: 1.4;
+    }
+
+    h6 {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    p {
+        max-width: 68ch;
+        font-family: var(--font-sans);
+        line-height: 1.7;
+        text-wrap: pretty;
+    }
+
+    a {
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+    }
+}
+
+@layer components {
+    .text-lead {
+        @apply text-foreground/85;
+        font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+        line-height: 1.55;
+        letter-spacing: -0.012em;
+        text-wrap: pretty;
+    }
+
+    .text-eyebrow {
+        color: var(--primary);
+        font-family: var(--font-mono);
+        font-size: var(--text-eyebrow);
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+
+    .cursor {
+        --cursor-size: 20px;
+        box-sizing: content-box;
+        background: white;
+        mix-blend-mode: exclusion;
+        pointer-events: none;
+        position: fixed;
+        height: var(--cursor-size);
+        width: var(--cursor-size);
+        border-radius: var(--cursor-size);
+        transform: translate(-50%, -50%);
+        transform-origin: center center;
+        will-change: opacity, scale, border-radius, height, width, transform;
+        border: 0 solid red;
+        transition: opacity 200ms, height 100ms, width 200ms, scale 150ms, border-radius 100ms;
+        z-index: 99999;
+        opacity: 0;
+
+        &.text {
+            width: 3px;
+            height: 72px;
+        }
+
     }
 }
 
 @utility container {
-    padding-inline: 1rem;
+    width: min(100% - 2rem, 80rem);
     margin-inline: auto;
 
     @variant lg {
-        padding-inline: 2rem;
+        width: min(100% - 4rem, 80rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

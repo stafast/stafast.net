@@ -2,31 +2,22 @@ import { defineStafastConfig } from "./src/config/schema";
 
 export default defineStafastConfig({
     site: {
-        name: "Your DJ Name",
-        // Replace this with the canonical production URL before deployment.
-        url: "https://example.com",
+        name: "André Stafast",
+        url: "https://stafast.net",
         base: "/",
-        language: "en",
-        locale: "en_GB",
+        language: "de",
+        locale: "de_DE",
         timezone: "Europe/Berlin",
     },
-    artist: {
-        name: "Your DJ Name",
-        tagline: "DJ · Producer · Selector",
-        location: "Berlin, Germany",
-        genres: ["House", "Techno", "Electronic"],
-        bookingEmail: "booking@example.com",
-    },
     seo: {
-        title: "Your DJ Name — DJ & Producer",
-        titleTemplate: "%s — Your DJ Name",
+        title: "André Stafast — Softwareentwicklung mit technischer Tiefe",
+        titleTemplate: "%s — André Stafast",
         description:
-            "Official website of Your DJ Name — DJ, producer and selector.",
-        // Add a 1200 × 630px image in /public when social sharing is set up.
+            "André Stafast ist Software Engineer aus Kiel und entwickelt komplexe digitale Produkte mit technischer Tiefe, klarer Struktur und guter Benutzerführung.",
         defaultImage: undefined,
         robots: {
             index: true,
             follow: true,
         },
-    }
+    },
 });

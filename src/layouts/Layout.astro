@@ -4,26 +4,87 @@ import "@fontsource-variable/geist/wght.css";
 import "@fontsource-variable/bricolage-grotesque/wght.css";
 import "@/styles/global.css";
 
-import Head from "@components/layout/Head.astro";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
+import stafast from "../../stafast.config";
+import Cursor from "@components/layout/Cursor.astro";
+
+interface Props {
+    title?: string;
+    description?: string;
+    noindex?: boolean;
+}
+
+const {
+    title,
+    description = stafast.seo.description,
+    noindex = false,
+} = Astro.props;
+
+const pageTitle = title
+    ? stafast.seo.titleTemplate.replace("%s", title)
+    : stafast.seo.title;
+const canonicalUrl = new URL(Astro.url.pathname, stafast.site.url).toString();
+const robots = noindex
+    ? "noindex, nofollow"
+    : `${stafast.seo.robots.index ? "index" : "noindex"}, ${
+          stafast.seo.robots.follow ? "follow" : "nofollow"
+      }`;
 ---
 
-<html lang="en" class="scroll-smooth antialiased">
+<html lang={stafast.site.language} class="scroll-smooth">
     <head>
         <meta charset="utf-8" />
+        <title>{pageTitle}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
-        <Head />
+        <meta name="description" content={description} />
+        <meta name="robots" content={robots} />
+        <meta name="theme-color" content="#f5f7f5" />
+        <link rel="canonical" href={canonicalUrl} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={stafast.site.locale} />
+        <meta property="og:site_name" content={stafast.site.name} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        {
+            stafast.seo.defaultImage && (
+                <meta
+                    property="og:image"
+                    content={new URL(
+                        stafast.seo.defaultImage,
+                        stafast.site.url,
+                    ).toString()}
+                />
+            )
+        }
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={description} />
+        {
+            stafast.seo.defaultImage && (
+                <meta
+                    name="twitter:image"
+                    content={new URL(
+                        stafast.seo.defaultImage,
+                        stafast.site.url,
+                    ).toString()}
+                />
+            )
+        }
     </head>
-    <body class="bg-background text-foreground flex h-svh flex-col">
+    <body>
         <Header />
-        <main class="container mx-auto flex-1">
+        <main class="flex-1">
             <slot />
         </main>
         <Footer />
+        <Cursor />
     </body>
 </html>

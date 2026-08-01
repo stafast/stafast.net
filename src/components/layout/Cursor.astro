@@ -1,0 +1,91 @@
+---
+
+---
+
+<div class="cursor" style="opacity:0;"></div>
+
+<script is:inline>
+    const cursor = document.querySelector(".cursor");
+
+    const isTouchDevice =
+        "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!isTouchDevice && !prefersReducedMotion && cursor) {
+        const style = document.createElement("style");
+        style.textContent = `*{cursor:none;}`;
+        document.head.appendChild(style);
+
+        let x = 0;
+        let y = 0;
+
+        const moveCursor = (e) => {
+            x = e.clientX;
+            y = e.clientY;
+
+            if (x === 0 && y === 0) {
+                return;
+            }
+
+            cursor.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px)`;
+            cursor.style.opacity = "1";
+        };
+
+        document.addEventListener("pointermove", moveCursor);
+        document.addEventListener("drag", moveCursor);
+
+        document.addEventListener("dragstart", (e) => {
+            if (e.target instanceof Element && e.target.closest("a")) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener("dragend", () => {
+            cursor.classList.remove("click");
+        });
+
+        document.documentElement.addEventListener("mouseleave", () => {
+            cursor.style.opacity = "0";
+        });
+
+        document.documentElement.addEventListener("mouseenter", () => {
+            cursor.style.opacity = "1";
+        });
+
+        document.addEventListener(
+            "mousedown",
+            (e) =>
+                (cursor.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px) scale(0.9)`),
+        );
+        document.addEventListener(
+            "mouseup",
+            (e) =>
+                (cursor.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px)`),
+        );
+
+        const textItems = document.querySelectorAll(
+            "h1, h2, h3, h4, h5, h6, p, span",
+        );
+        textItems.forEach((item) => {
+            item.addEventListener("mouseover", () => {
+                cursor.classList.add("text");
+
+                let lineHeight = parseFloat(
+                    window.getComputedStyle(item).lineHeight,
+                );
+                let radiusValue = 3000 / lineHeight;
+
+                cursor.style.height = `${lineHeight * 0.9}px`;
+                cursor.style.borderRadius = `500% / ${radiusValue}%`;
+            });
+
+            item.addEventListener("mouseleave", () => {
+                cursor.classList.remove("text");
+                cursor.style.height = "";
+                cursor.style.borderRadius = "";
+            });
+        });
+    }
+</script>

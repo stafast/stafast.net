@@ -1,5 +1,9 @@
-import {z} from "astro/zod";
+import { z } from "astro/zod";
 
+export interface NavigationItem {
+    title: string;
+    url: string;
+}
 export const socialPlatforms = [
     "instagram",
     "linkedin",
@@ -72,13 +76,6 @@ export const stafastConfigSchema = z.object({
         locale: z.string().min(2).default("en_GB"),
         timezone: z.string().min(1).default("Europe/Berlin"),
     }),
-    artist: z.object({
-        name: z.string().min(1),
-        tagline: z.string().min(1),
-        location: z.string().min(1).optional(),
-        genres: z.array(z.string().min(1)).default([]),
-        bookingEmail: z.email().optional(),
-    }),
     seo: z.object({
         title: z.string().min(1),
         titleTemplate: z.string().min(1),
@@ -89,7 +86,7 @@ export const stafastConfigSchema = z.object({
                 index: z.boolean().default(true),
                 follow: z.boolean().default(true),
             })
-            .default({index: true, follow: true}),
+            .default({ index: true, follow: true }),
     }),
     social: z.array(socialLinkSchema).default([]),
 });

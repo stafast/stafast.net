@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import { CodeXml, FolderKanban, Layers } from "@lucide/astro";
+import meImage from "@/assets/images/me.jpg";
+import Button from "@components/ui/Button.astro";
+---
+
+<section id="hero" class="mt-16">
+    <div class="container">
+        <div
+            class="grid gap-12 lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-16 xl:gap-32"
+        >
+            <div>
+                <span class="text-eyebrow mb-2 inline-block"
+                    >// SOFTWARE ENGINEER · KIEL</span
+                >
+
+                <h1 class="text-display">
+                    Softwareentwicklung mit technischer Tiefe.
+                </h1>
+                <p class="text-lead mt-4">
+                    Ich entwickle komplexe digitale Produkte und verbinde
+                    technische Tiefe mit klarer Struktur, guter Benutzerführung
+                    und langfristig wartbaren Lösungen.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-6">
+                    <Button>Erfahrung ansehen</Button>
+                    <Button variant="link">Lass uns reden &#8594;</Button>
+                </div>
+                <div class="hidden">
+                    <ul
+                        class="[&>li>svg]:text-primary flex flex-wrap gap-6 text-sm font-medium [&>li]:flex [&>li]:items-center [&>li]:gap-2.5 [&>li]:py-2 [&>li]:pr-6 [&>li:not(:last-child)]:border-r [&>li>svg]:size-6"
+                    >
+                        <li><CodeXml /> Softwareentwicklung</li>
+                        <li><Layers /> Technische Konzeption</li>
+                        <li><FolderKanban /> Projektverantwortung</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="aspect-10/8 overflow-hidden lg:aspect-9/10">
+                <Image
+                    src={meImage}
+                    alt="Porträt von André Stafast"
+                    class="h-full w-full rounded-lg object-cover object-[center_40%] shadow"
+                />
+            </div>
+        </div>
+    </div>
+</section>

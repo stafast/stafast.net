@@ -1,5 +1,34 @@
 ---
-
+import { navigation } from "@data/constants";
+import { Menu } from "@lucide/astro";
+import StafastLogo from "@components/icons/StafastLogo.astro";
 ---
 
-<header class="group/header container mx-auto">NAv</header>
+<header class="group/header border-b lg:border-none">
+    <div class="container mx-auto flex h-20 items-center justify-between">
+        <div class="class">
+            <a href="/">
+                <StafastLogo class="text-foreground h-7 w-auto" />
+            </a>
+        </div>
+        <nav class="class">
+            <div class="lg:hidden">
+                <Menu class="size-6" />
+            </div>
+            <ul class="hidden items-center gap-8 lg:flex">
+                {
+                    navigation.map((item) => (
+                        <li>
+                            <a
+                                href={item.url}
+                                class="text-foreground/80 hover:text-foreground transition"
+                            >
+                                {item.title}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+    </div>
+</header>
