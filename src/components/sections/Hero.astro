@@ -11,8 +11,18 @@ import Button from "@components/ui/Button.astro";
             class="grid gap-12 lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-16 xl:gap-32"
         >
             <div>
-                <span class="text-eyebrow mb-2 inline-block"
-                    >// SOFTWARE ENGINEER · KIEL</span
+                <span class="text-eyebrow mb-2 inline-block">
+                    <span aria-hidden="true">//</span>
+                    <span class="role-title" aria-hidden="true"
+                        >SOFTWARE ENGINEER</span
+                    >
+                    <span class="sr-only">
+                        Schwerpunkte: Software Engineering, Full-Stack
+                        Experience, Technical Conception sowie Festivals und
+                        digitale Erlebnisse.
+                    </span>
+                    <span aria-hidden="true">·</span>
+                    <span aria-label="Standort">Kiel</span></span
                 >
 
                 <h1 class="text-display">
@@ -47,3 +57,70 @@ import Button from "@components/ui/Button.astro";
         </div>
     </div>
 </section>
+
+<script>
+    import { gsap } from "gsap";
+
+    const roleTitle = document.querySelector<HTMLElement>(".role-title");
+    const roles = [
+        "SOFTWARE ENGINEERING",
+        "FULL-STACK EXPERIENCE",
+        "TECHNICAL CONCEPTION",
+        "FESTIVALS & DIGITAL EXPERIENCES",
+    ];
+
+    if (roleTitle) {
+        const timeline = gsap.timeline({ repeat: -1 });
+
+        for (const role of roles) {
+            const characters = { count: 0 };
+
+            timeline
+                .to(characters, {
+                    count: role.length,
+                    duration: role.length * 0.06,
+                    ease: "none",
+                    snap: { count: 1 },
+                    onUpdate: () => {
+                        roleTitle.textContent = role.slice(0, characters.count);
+                    },
+                })
+                .to({}, { duration: 3 })
+                .to(characters, {
+                    count: 0,
+                    duration: role.length * 0.045,
+                    ease: "none",
+                    snap: { count: 1 },
+                    onUpdate: () => {
+                        roleTitle.textContent = role.slice(0, characters.count);
+                    },
+                })
+                .to({}, { duration: 0.3 });
+        }
+    }
+</script>
+
+<style>
+    .role-title::after {
+        width: 0.08em;
+        height: 0.9em;
+        margin-left: 0.12em;
+        display: inline-block;
+        background: currentColor;
+        content: "";
+        vertical-align: -0.08em;
+        animation: role-title-cursor 1s steps(1, end) infinite;
+    }
+
+    @keyframes role-title-cursor {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .role-title::after {
+            display: none;
+        }
+    }
+</style>

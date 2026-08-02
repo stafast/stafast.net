@@ -56,12 +56,12 @@
 
         document.addEventListener(
             "mousedown",
-            (e) =>
+            () =>
                 (cursor.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px) scale(0.9)`),
         );
         document.addEventListener(
             "mouseup",
-            (e) =>
+            () =>
                 (cursor.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px)`),
         );
 
@@ -72,10 +72,10 @@
             item.addEventListener("mouseover", () => {
                 cursor.classList.add("text");
 
-                let lineHeight = parseFloat(
+                const lineHeight = parseFloat(
                     window.getComputedStyle(item).lineHeight,
                 );
-                let radiusValue = 3000 / lineHeight;
+                const radiusValue = 3000 / lineHeight;
 
                 cursor.style.height = `${lineHeight * 0.9}px`;
                 cursor.style.borderRadius = `500% / ${radiusValue}%`;
