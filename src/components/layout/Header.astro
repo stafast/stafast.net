@@ -11,11 +11,11 @@ import StafastLogo from "@components/icons/StafastLogo.astro";
                 <StafastLogo class="text-foreground h-7 w-auto" />
             </a>
         </div>
-        <nav class="class">
+        <nav class="class relative">
             <div class="lg:hidden">
                 <Menu class="size-6" />
             </div>
-            <ul class="hidden items-center gap-8 lg:flex">
+            <ul class="navigation-items hidden items-center gap-8 lg:flex">
                 {
                     navigation.map((item) => (
                         <li>
@@ -29,6 +29,7 @@ import StafastLogo from "@components/icons/StafastLogo.astro";
                     ))
                 }
             </ul>
+            <div class=""></div>
         </nav>
     </div>
 </header>
