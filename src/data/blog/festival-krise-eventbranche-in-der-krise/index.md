@@ -2,7 +2,7 @@
 title: "Festival-Krise: Warum die Eventbranche ums Überleben kämpft"
 description: "Die Festival- und Eventbranche steckt in einer Krise: Sinkende Ticketverkäufe, gestiegene Gagen und Kosten sowie ein verändertes Feierverhalten gefährden viele kleine und mittlere Festivals – während Major-Events weiter boomen."
 teaser: "teaser.jpg"
-teaserAlt: "Läufer beim Stadtwerke Lübeck Marathon in der Altstadt."
+teaserAlt: "Blick auf eine beleuchtete Festivalbühne und ein dichtes Publikum am Abend."
 published: "2025-04-09T00:00:00"
 tags: [ "Festival", "Event", "Booker" ]
 ---
