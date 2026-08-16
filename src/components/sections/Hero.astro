@@ -5,7 +5,7 @@ import meImage from "@/assets/images/me.jpg";
 import Button from "@components/ui/Button.astro";
 ---
 
-<section id="hero" class="mt-16">
+<section id="hero">
     <div class="container">
         <div
             class="grid gap-12 lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-16 xl:gap-32"
@@ -13,7 +13,7 @@ import Button from "@components/ui/Button.astro";
             <div>
                 <span class="text-eyebrow mb-2 inline-block">
                     <span aria-hidden="true">//</span>
-                    <span class="role-title" aria-hidden="true"
+                    <span class="role-title print:hidden" aria-hidden="true"
                         >SOFTWARE ENGINEER</span
                     >
                     <span class="sr-only">
@@ -21,8 +21,9 @@ import Button from "@components/ui/Button.astro";
                         Experience, Technical Conception sowie Festivals und
                         digitale Erlebnisse.
                     </span>
-                    <span aria-hidden="true">·</span>
-                    <span aria-label="Standort">Kiel</span></span
+                    <span class="hidden print:!inline">SOFTWARE ENGINEER</span>
+                    <span class="" aria-hidden="true">·</span>
+                    <span class="" aria-label="Standort">Kiel</span></span
                 >
 
                 <h1 class="text-display">

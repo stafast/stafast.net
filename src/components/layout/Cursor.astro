@@ -68,8 +68,22 @@
         const textItems = document.querySelectorAll(
             "h1, h2, h3, h4, h5, h6, p, span",
         );
+        const resetTextCursor = () => {
+            cursor.classList.remove("text");
+            cursor.style.height = "";
+            cursor.style.borderRadius = "";
+        };
+
         textItems.forEach((item) => {
-            item.addEventListener("mouseover", () => {
+            item.addEventListener("mouseover", (event) => {
+                if (
+                    event.target instanceof Element &&
+                    event.target.closest("a, button, img")
+                ) {
+                    resetTextCursor();
+                    return;
+                }
+
                 cursor.classList.add("text");
 
                 const lineHeight = parseFloat(
@@ -82,9 +96,7 @@
             });
 
             item.addEventListener("mouseleave", () => {
-                cursor.classList.remove("text");
-                cursor.style.height = "";
-                cursor.style.borderRadius = "";
+                resetTextCursor();
             });
         });
     }
