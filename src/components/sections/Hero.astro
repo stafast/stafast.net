@@ -48,10 +48,18 @@ import Button from "@components/ui/Button.astro";
                     </ul>
                 </div>
             </div>
-            <div class="aspect-10/8 overflow-hidden lg:aspect-9/10">
+            <div class="relative aspect-10/8 overflow-hidden lg:aspect-9/10">
+                <div
+                    class="absolute inset-0 -z-10 animate-pulse rounded-lg bg-neutral-200"
+                >
+                </div>
                 <Image
                     src={meImage}
                     alt="Porträt von André Stafast"
+                    width="1000"
+                    height="1109"
+                    decoding="async"
+                    fetchpriority="high"
                     class="h-full w-full rounded-lg object-cover object-[center_40%] shadow"
                 />
             </div>
