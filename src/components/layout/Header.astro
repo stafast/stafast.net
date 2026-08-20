@@ -1,5 +1,5 @@
 ---
-import { navigation } from "@data/constants";
+import stafastConfig from "../../../stafast.config";
 import { Menu } from "@lucide/astro";
 import StafastLogo from "@components/icons/StafastLogo.astro";
 ---
@@ -17,7 +17,7 @@ import StafastLogo from "@components/icons/StafastLogo.astro";
             </div>
             <ul class="navigation-items hidden items-center gap-8 lg:flex">
                 {
-                    navigation.map((item) => (
+                    stafastConfig.navigation.map((item) => (
                         <li>
                             <a
                                 href={item.url}

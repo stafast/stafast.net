@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import { CodeXml, FolderKanban, Layers } from "@lucide/astro";
 import meImage from "@/assets/images/me.jpg";
 import Button from "@components/ui/Button.astro";
-import { hero } from "@data/home.ts";
 ---
 
 <section id="hero">
@@ -15,27 +14,29 @@ import { hero } from "@data/home.ts";
                 <span class="text-eyebrow mb-2 inline-block">
                     <span aria-hidden="true">//</span>
                     <span class="role-title print:hidden" aria-hidden="true"
-                        >{hero.eyebrow.roleDefault}</span
+                        >SOFTWARE ENGINEER</span
                     >
-                    <span class="sr-only">{hero.eyebrow.screenReader}</span>
-                    <span class="hidden print:inline!"
-                        >{hero.eyebrow.roleDefault}</span
-                    >
+                    <span class="sr-only">
+                        Schwerpunkte: Software Engineering, Full-Stack
+                        Experience, Technical Conception sowie Festivals und
+                        digitale Erlebnisse.
+                    </span>
+                    <span class="hidden print:!inline">SOFTWARE ENGINEER</span>
                     <span class="" aria-hidden="true">·</span>
-                    <span class="" aria-label="Standort"
-                        >{hero.eyebrow.city}</span
-                    ></span
+                    <span class="" aria-label="Standort">Kiel</span></span
                 >
 
-                <h1 class="text-display">{hero.heading}</h1>
-                <p class="text-lead mt-4">{hero.description}</p>
+                <h1 class="text-display">
+                    Softwareentwicklung mit technischer Tiefe.
+                </h1>
+                <p class="text-lead mt-4">
+                    Ich entwickle komplexe digitale Produkte und verbinde
+                    technische Tiefe mit klarer Struktur, guter Benutzerführung
+                    und langfristig wartbaren Lösungen.
+                </p>
                 <div class="mt-8 flex flex-wrap gap-6">
-                    <Button href={hero.cta.primary.url}>
-                        {hero.cta.primary.label}
-                    </Button>
-                    <Button href={hero.cta.secondary.url} variant="link">
-                        {hero.cta.secondary.label} &#8594;
-                    </Button>
+                    <Button>Erfahrung ansehen</Button>
+                    <Button variant="link">Lass uns reden &#8594;</Button>
                 </div>
                 <div class="hidden">
                     <ul
@@ -68,10 +69,14 @@ import { hero } from "@data/home.ts";
 
 <script>
     import { gsap } from "gsap";
-    import { hero } from "@data/home";
 
     const roleTitle = document.querySelector<HTMLElement>(".role-title");
-    const roles = hero.eyebrow.roles;
+    const roles = [
+        "SOFTWARE ENGINEERING",
+        "FULL-STACK EXPERIENCE",
+        "TECHNICAL CONCEPTION",
+        "FESTIVALS & DIGITAL EXPERIENCES",
+    ];
 
     if (roleTitle) {
         const timeline = gsap.timeline({ repeat: -1 });

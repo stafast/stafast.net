@@ -3,11 +3,14 @@ import "@fontsource-variable/geist-mono/wght.css";
 import "@fontsource-variable/geist/wght.css";
 import "@fontsource-variable/bricolage-grotesque/wght.css";
 import "@/styles/global.css";
-
+import bricolageGrotesque from "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url";
+import geistMono from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url";
+import geist from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
-import stafast from "../../stafast.config";
 import Cursor from "@components/layout/Cursor.astro";
+import stafastConfig from "../../stafast.config";
+import { SEO } from "astro-seo";
 
 interface Props {
     title?: string;
@@ -17,67 +20,68 @@ interface Props {
 
 const {
     title,
-    description = stafast.seo.description,
+    description = stafastConfig.seo.description,
     noindex = false,
 } = Astro.props;
 
 const pageTitle = title
-    ? stafast.seo.titleTemplate.replace("%s", title)
-    : stafast.seo.title;
-const canonicalUrl = new URL(Astro.url.pathname, stafast.site.url).toString();
-const robots = noindex
-    ? "noindex, nofollow"
-    : `${stafast.seo.robots.index ? "index" : "noindex"}, ${
-          stafast.seo.robots.follow ? "follow" : "nofollow"
-      }`;
+    ? stafastConfig.seo.titleTemplate.replace("%s", title)
+    : stafastConfig.seo.title;
+
+const openGraphImage = new URL(
+    stafastConfig.seo.defaultImage,
+    stafastConfig.site.url,
+).toString();
 ---
 
-<html lang={stafast.site.language} class="scroll-smooth">
+<html lang={stafastConfig.site.language} class="scroll-smooth">
     <head>
-        <meta charset="utf-8" />
-        <title>{pageTitle}</title>
+        <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href={bricolageGrotesque}
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href={geist}
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href={geistMono}
+            crossorigin="anonymous"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description} />
-        <meta name="robots" content={robots} />
         <meta name="theme-color" content="#f5f7f5" />
-        <link rel="canonical" href={canonicalUrl} />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content={stafast.site.locale} />
-        <meta property="og:site_name" content={stafast.site.name} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonicalUrl} />
-        {
-            stafast.seo.defaultImage && (
-                <meta
-                    property="og:image"
-                    content={new URL(
-                        stafast.seo.defaultImage,
-                        stafast.site.url,
-                    ).toString()}
-                />
-            )
-        }
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={description} />
-        {
-            stafast.seo.defaultImage && (
-                <meta
-                    name="twitter:image"
-                    content={new URL(
-                        stafast.seo.defaultImage,
-                        stafast.site.url,
-                    ).toString()}
-                />
-            )
-        }
+        <SEO
+            title={pageTitle}
+            description={description}
+            charset="utf-8"
+            noindex={noindex}
+            nofollow={noindex}
+            openGraph={{
+                basic: {
+                    title: pageTitle,
+                    type: "website",
+                    image: openGraphImage,
+                },
+                optional: {
+                    description,
+                    locale: stafastConfig.site.locale,
+                    siteName: stafastConfig.site.name,
+                },
+            }}
+            twitter={{ card: "summary_large_image" }}
+        />
     </head>
     <body>
         <Header />

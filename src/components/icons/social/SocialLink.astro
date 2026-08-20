@@ -26,6 +26,7 @@ const accessibleName = opensNewTab ? `${label} (opens in a new tab)` : label;
     aria-label={accessibleName}
     class={cn(["inline-block", className])}
     href={url}
+    title={label}
     rel={opensNewTab ? "noopener noreferrer" : undefined}
     target={opensNewTab ? "_blank" : undefined}
 >

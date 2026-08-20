@@ -1,9 +1,5 @@
 import { z } from "astro/zod";
 
-export interface NavigationItem {
-    title: string;
-    url: string;
-}
 export const socialPlatforms = [
     "instagram",
     "linkedin",
@@ -24,6 +20,8 @@ export const socialPlatforms = [
     "mixcloud",
     "bandcamp",
     "email",
+    "github",
+    "strava",
 ] as const;
 
 export type SocialPlatform = (typeof socialPlatforms)[number];
@@ -48,6 +46,8 @@ export const socialPlatformLabels: Record<SocialPlatform, string> = {
     mixcloud: "Mixcloud",
     bandcamp: "Bandcamp",
     email: "Email",
+    github: "GitHub",
+    strava: "Strava",
 };
 
 const basePathSchema = z
@@ -61,11 +61,26 @@ const imageSourceSchema = z.union([
     z.string().regex(/^\//, "Local image paths must start with '/'."),
 ]);
 
-const socialLinkSchema = z.object({
-    platform: z.enum(socialPlatforms),
-    url: z.url(),
-    label: z.string().min(1).optional(),
+const linkUrlSchema = z.union([
+    z.url(),
+    z.string().regex(/^\/(?!\/)/, "Internal links must start with '/'."),
+]);
+
+const navigationItemSchema = z.object({
+    title: z.string().min(1),
+    url: linkUrlSchema,
 });
+
+const socialLinkSchema = z
+    .object({
+        platform: z.enum(socialPlatforms),
+        url: z.url(),
+        label: z.string().min(1).optional(),
+    })
+    .transform((social) => ({
+        ...social,
+        label: social.label ?? socialPlatformLabels[social.platform],
+    }));
 
 export const stafastConfigSchema = z.object({
     site: z.object({
@@ -74,21 +89,28 @@ export const stafastConfigSchema = z.object({
         base: basePathSchema.default("/"),
         language: z.string().min(2).default("en"),
         locale: z.string().min(2).default("en_GB"),
-        timezone: z.string().min(1).default("Europe/Berlin"),
     }),
     seo: z.object({
         title: z.string().min(1),
         titleTemplate: z.string().min(1),
         description: z.string().min(1).max(160),
-        defaultImage: imageSourceSchema.optional(),
-        robots: z
-            .object({
-                index: z.boolean().default(true),
-                follow: z.boolean().default(true),
-            })
-            .default({ index: true, follow: true }),
+        defaultImage: imageSourceSchema,
     }),
     social: z.array(socialLinkSchema).default([]),
+    navigation: z.array(navigationItemSchema).default([]),
+    footerMenu: z.array(
+        z.object({
+            title: z.string().min(1),
+            items: z
+                .array(
+                    z.object({
+                        title: z.string().min(1),
+                        url: linkUrlSchema,
+                    }),
+                )
+                .min(1),
+        }),
+    ),
 });
 
 export type StafastConfig = z.infer<typeof stafastConfigSchema>;

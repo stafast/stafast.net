@@ -4,6 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 import stafast from "./stafast.config";
 
 export default defineConfig({
+    prefetch: {
+        defaultStrategy: "viewport",
+    },
     site: stafast.site.url,
     base: stafast.site.base,
     trailingSlash: "always",

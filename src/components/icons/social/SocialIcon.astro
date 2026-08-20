@@ -19,6 +19,8 @@ import ViberateIcon from "./ViberateIcon.astro";
 import WhatsappIcon from "./WhatsappIcon.astro";
 import XIcon from "./XIcon.astro";
 import YoutubeIcon from "./YoutubeIcon.astro";
+import GitHubIcon from "./GitHubIcon.astro";
+import StravaIcon from "./StravaIcon.astro";
 
 interface Props {
     platform: SocialPlatform;
@@ -27,9 +29,10 @@ interface Props {
 
 const { platform, class: className } = Astro.props;
 
-const icons: Record<SocialPlatform, typeof InstagramIcon> = {
+const icons: Partial<Record<SocialPlatform, typeof InstagramIcon>> = {
     instagram: InstagramIcon,
     linkedin: LinkedInIcon,
+    github: GitHubIcon,
     spotify: SpotifyIcon,
     "apple-music": AppleMusicIcon,
     youtube: YoutubeIcon,
@@ -46,10 +49,11 @@ const icons: Record<SocialPlatform, typeof InstagramIcon> = {
     discogs: DiscogsIcon,
     mixcloud: MixcloudIcon,
     bandcamp: BandcampIcon,
+    strava: StravaIcon,
     email: EmailIcon,
 };
 
 const Icon = icons[platform];
 ---
 
-<Icon class={className} />
+{Icon && <Icon class={className} />}

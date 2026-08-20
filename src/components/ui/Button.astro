@@ -34,23 +34,26 @@ const buttonVariants = cva(
 type ButtonVariants = VariantProps<typeof buttonVariants>;
 
 interface Props extends Omit<HTMLAttributes<"button">, "size"> {
+    href?: string;
+    target?: HTMLAttributes<"a">["target"];
+    rel?: string;
     variant?: ButtonVariants["variant"];
     size?: ButtonVariants["size"];
 }
 
 const {
+    href,
     variant,
     size,
     type = "button",
     class: className,
     ...props
 } = Astro.props;
+
+const Tag = href ? "a" : "button";
+const buttonClass = cn(buttonVariants({ variant, size }), className);
 ---
 
-<button
-    type={type}
-    class={cn(buttonVariants({ variant, size }), className)}
-    {...props}
->
+<Tag class={buttonClass} {...href ? { href } : { type }} {...props}>
     <slot />
-</button>
+</Tag>
