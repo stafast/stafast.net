@@ -27,6 +27,11 @@ Bestellung aus einem Lager in der Nähe. Der Weg ist kürzer und das zentrale La
 Beim Edge-Computing werden zwar keine Pakete verteilt, das Prinzip ist aber ähnlich: Inhalte oder Berechnungen finden
 dort statt, wo sie schneller verfügbar sind.
 
+![Vergleich einer zentralen Serverarchitektur mit langen Datenwegen und Edge-Computing mit mehreren nahen Serverstandorten.](./edge-computing-vergleich.jpg)
+
+*Links: Ein zentraler Server versorgt alle Endgeräte über lange Wege. Rechts: Mehrere Edge-Standorte verkürzen die
+Datenwege.*
+
 ## Ist Edge-Computing dasselbe wie die Cloud?
 
 Edge-Computing ersetzt die Cloud nicht zwangsläufig, sondern ergänzt sie. Datenbanken und zentrale Systeme können
