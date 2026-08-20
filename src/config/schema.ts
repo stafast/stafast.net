@@ -82,6 +82,11 @@ const socialLinkSchema = z
         label: social.label ?? socialPlatformLabels[social.platform],
     }));
 
+const blogTagPageSchema = z.object({
+    title: z.string().trim().min(1).optional(),
+    description: z.string().trim().min(1).max(160).optional(),
+});
+
 export const stafastConfigSchema = z.object({
     site: z.object({
         name: z.string().min(1),
@@ -95,6 +100,17 @@ export const stafastConfigSchema = z.object({
         titleTemplate: z.string().min(1),
         description: z.string().min(1).max(160),
         defaultImage: imageSourceSchema,
+    }),
+    blog: z.object({
+        title: z.string().trim().min(1),
+        description: z.string().trim().min(1).max(160),
+        introduction: z.string().trim().min(1),
+        tagPages: z
+            .record(
+                z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+                blogTagPageSchema,
+            )
+            .default({}),
     }),
     social: z.array(socialLinkSchema).default([]),
     navigation: z.array(navigationItemSchema).default([]),

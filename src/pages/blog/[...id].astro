@@ -1,0 +1,188 @@
+---
+import { Image, getImage } from "astro:assets";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import { toSlug } from "@lib/toSlug.ts";
+import stafastConfig from "../../../stafast.config.ts";
+
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog", ({ data }) =>
+        import.meta.env.PROD ? !data.draft : true,
+    );
+
+    return posts.map((post) => ({
+        params: { id: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const canonicalUrl =
+    post.data.canonicalUrl ?? new URL(`/blog/${post.id}/`, siteUrl).toString();
+const ogImage = post.data.teaser
+    ? await getImage({
+          src: post.data.teaser,
+          format: "jpg",
+          width: 1200,
+          height: 630,
+          fit: "cover",
+      })
+    : undefined;
+const imageUrl = ogImage ? new URL(ogImage.src, siteUrl).toString() : undefined;
+const wordCount = post.body?.trim()
+    ? post.body.trim().split(/\s+/).length
+    : undefined;
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.description,
+    url: canonicalUrl,
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonicalUrl,
+    },
+    inLanguage: stafastConfig.site.language,
+    keywords: post.data.tags,
+    datePublished: post.data.published.toISOString(),
+    dateModified: (post.data.updated ?? post.data.published).toISOString(),
+    wordCount,
+    ...(imageUrl
+        ? {
+              image: {
+                  "@type": "ImageObject",
+                  url: imageUrl,
+                  width: 1200,
+                  height: 630,
+                  caption: post.data.teaserAlt,
+              },
+          }
+        : {}),
+    author: {
+        "@type": "Person",
+        name: stafastConfig.site.name,
+        url: stafastConfig.site.url,
+    },
+};
+const serializedStructuredData = JSON.stringify(structuredData).replace(
+    /</g,
+    "\\u003c",
+);
+---
+
+<Layout
+    title={post.data.title}
+    description={post.data.description}
+    canonical={canonicalUrl}
+    {...ogImage ? { image: ogImage.src } : {}}
+    imageAlt={post.data.teaserAlt ?? post.data.title}
+    openGraphType="article"
+    article={{
+        publishedTime: post.data.published.toISOString(),
+        ...(post.data.updated
+            ? { modifiedTime: post.data.updated.toISOString() }
+            : {}),
+        tags: post.data.tags,
+    }}
+>
+    <script
+        slot="head"
+        is:inline
+        type="application/ld+json"
+        set:html={serializedStructuredData}
+    />
+
+    <article class="container py-16 md:py-24">
+        <div class="mx-auto max-w-3xl">
+            <p class="mb-8 text-sm">
+                <a href="/blog/">&larr; Zurück zum Blog</a>
+            </p>
+
+            <header class="mb-10">
+                <div
+                    class="text-foreground/60 mb-5 flex flex-wrap gap-x-3 gap-y-1 text-sm"
+                >
+                    <span>
+                        Veröffentlicht am{" "}
+                        <time datetime={post.data.published.toISOString()}>
+                            {
+                                post.data.published.toLocaleDateString(
+                                    "de-DE",
+                                    {
+                                        dateStyle: "long",
+                                    },
+                                )
+                            }
+                        </time>
+                    </span>
+                    {
+                        post.data.updated && (
+                            <span>
+                                Aktualisiert am{" "}
+                                <time
+                                    datetime={post.data.updated.toISOString()}
+                                >
+                                    {post.data.updated.toLocaleDateString(
+                                        "de-DE",
+                                        { dateStyle: "long" },
+                                    )}
+                                </time>
+                            </span>
+                        )
+                    }
+                </div>
+
+                <h1>{post.data.title}</h1>
+                <p class="text-lead mt-6">{post.data.description}</p>
+            </header>
+
+            {
+                post.data.teaser && (
+                    <Image
+                        class="bg-tertiary mb-12 aspect-video w-full rounded-2xl object-cover"
+                        format="webp"
+                        loading="eager"
+                        decoding="async"
+                        fetchpriority="high"
+                        widths={[640, 960, 1280]}
+                        sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+                        src={post.data.teaser}
+                        alt={post.data.teaserAlt}
+                    />
+                )
+            }
+
+            <div
+                class="prose prose-stone prose-a:text-primary prose-a:no-underline max-w-none"
+            >
+                <Content />
+            </div>
+
+            <ul class="mt-12 flex flex-wrap gap-2" aria-label="Themen">
+                {
+                    post.data.tags.map((tag) => (
+                        <li>
+                            <a
+                                class="bg-secondary text-secondary-fg hover:bg-accent inline-flex rounded-full px-3 py-1.5 text-sm no-underline transition-colors"
+                                href={`/blog/tags/${toSlug(tag)}/`}
+                            >
+                                {tag}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <p class="mt-12">
+                <a href="/blog/">&larr; Zurück zum Blog</a>
+            </p>
+        </div>
+    </article>
+</Layout>

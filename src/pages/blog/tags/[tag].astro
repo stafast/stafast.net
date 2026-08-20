@@ -1,0 +1,53 @@
+---
+import Layout from "@layouts/Layout.astro";
+import BlogList from "@components/BlogList.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { toSlug } from "@lib/toSlug.ts";
+import stafastConfig from "../../../../stafast.config.ts";
+
+interface Props {
+    posts: CollectionEntry<"blog">[];
+    tag: string;
+}
+
+export async function getStaticPaths() {
+    const posts = (
+        await getCollection("blog", ({ data }) =>
+            import.meta.env.PROD ? !data.draft : true,
+        )
+    ).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+    const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+
+    return tags.map((tag) => ({
+        params: { tag: toSlug(tag) },
+        props: {
+            tag,
+            posts: posts.filter((post) => post.data.tags.includes(tag)),
+        },
+    }));
+}
+
+const { tag, posts } = Astro.props;
+const tagPage = stafastConfig.blog.tagPages[toSlug(tag)];
+const pageTitle = tagPage?.title ?? `${tag} im Blog`;
+const pageDescription =
+    tagPage?.description ??
+    `Hier findest du alle Blogbeiträge zum Thema „${tag}“.`;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <section class="container py-16 md:py-24">
+        <header class="mb-14 max-w-3xl">
+            <p class="text-eyebrow mb-4">Blogthema</p>
+            <h1>{pageTitle}</h1>
+            <p class="text-lead mt-6">{pageDescription}</p>
+        </header>
+
+        <div class="max-w-4xl">
+            <BlogList posts={posts} />
+            <p class="mt-12">
+                <a href="/blog/tags/">&larr; Alle Themen</a>
+            </p>
+        </div>
+    </section>
+</Layout>

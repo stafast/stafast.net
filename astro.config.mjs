@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import stafast from "./stafast.config";
 
@@ -21,6 +22,7 @@ export default defineConfig({
     output: "static",
     compressHTML: true,
     integrations: [
+        sitemap(),
         expressiveCode({
             themes: ["github-dark", "github-light"],
             styleOverrides: {

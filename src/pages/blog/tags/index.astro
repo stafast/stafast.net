@@ -1,0 +1,48 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { toSlug } from "@lib/toSlug.ts";
+
+const posts = await getCollection("blog", ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true,
+);
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort(
+    (a, b) => a.localeCompare(b, "de", { sensitivity: "base" }),
+);
+const title = "Themen im Blog";
+const description =
+    "Alle Themen und Schlagwörter der Blogbeiträge von André Stafast im Überblick.";
+---
+
+<Layout title={title} description={description}>
+    <section class="container py-16 md:py-24">
+        <div class="max-w-3xl">
+            <p class="text-eyebrow mb-4">Blogarchiv</p>
+            <h1>{title}</h1>
+            <p class="text-lead mt-6">{description}</p>
+
+            {
+                tags.length > 0 ? (
+                    <ul class="mt-10 flex flex-wrap gap-3">
+                        {tags.map((tag) => (
+                            <li>
+                                <a
+                                    class="bg-secondary text-secondary-fg hover:bg-accent inline-flex rounded-full px-4 py-2 no-underline transition-colors"
+                                    href={`/blog/tags/${toSlug(tag)}/`}
+                                >
+                                    {tag}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p class="mt-10">Noch sind keine Themen vorhanden.</p>
+                )
+            }
+
+            <p class="mt-12">
+                <a href="/blog/">&larr; Zurück zum Blog</a>
+            </p>
+        </div>
+    </section>
+</Layout>

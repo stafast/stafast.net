@@ -14,6 +14,20 @@ export default defineStafastConfig({
             "André Stafast ist Software Engineer aus Kiel und entwickelt komplexe digitale Produkte mit technischer Tiefe, klarer Struktur und guter Benutzerführung.",
         defaultImage: "/og.png",
     },
+    blog: {
+        title: "Blog",
+        description:
+            "Praxisnahe Artikel von André Stafast über Softwareentwicklung, Webtechnologien, Festivals, Sport und Themen, die ihn beschäftigen.",
+        introduction:
+            "Hier schreibe ich über Themen, die mich begeistern oder beschäftigen: von Softwareentwicklung und Webtechnologien über Festivals bis zum Laufen.",
+        tagPages: {
+            laufen: {
+                title: "Laufen, Spaß und Schmerzen",
+                description:
+                    "Laufen ist mehr als ein Hobby – es ist eine Leidenschaft.",
+            },
+        },
+    },
     social: [
         {
             platform: "linkedin",
@@ -31,7 +45,7 @@ export default defineStafastConfig({
     navigation: [
         { title: "Über mich", url: "/" },
         { title: "Projekte", url: "/" },
-        { title: "Blog", url: "/" },
+        { title: "Blog", url: "/blog/" },
         { title: "Kontakt", url: "/" },
     ],
     footerMenu: [
@@ -47,10 +61,16 @@ export default defineStafastConfig({
         {
             title: "Artikel",
             items: [
-                { title: "Festival-Krise 2026", url: "/kontakt/" },
-                { title: "Schriften preloading", url: "/impressum/" },
-                { title: "Meine Mac Apps", url: "/datenschutz/" },
-                { title: "Alle Blogartikel", url: "/datenschutz/" },
+                {
+                    title: "Festival-Krise 2026",
+                    url: "/blog/festival-krise-2026-aus-warnzeichen-wird-ein-strukturproblem/",
+                },
+                {
+                    title: "Schriften preloading",
+                    url: "/blog/preload-fontsource/",
+                },
+                { title: "Meine Mac Apps", url: "/blog/mac-apps/" },
+                { title: "Alle Blogartikel", url: "/blog/" },
             ],
         },
         {

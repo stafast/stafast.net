@@ -16,24 +16,39 @@ interface Props {
     title?: string;
     description?: string;
     noindex?: boolean;
+    canonical?: string;
+    image?: string;
+    imageAlt?: string;
+    openGraphType?: "website" | "article";
+    article?: {
+        publishedTime: string;
+        modifiedTime?: string;
+        tags: string[];
+    };
 }
 
 const {
     title,
     description = stafastConfig.seo.description,
     noindex = false,
+    canonical,
+    image = stafastConfig.seo.defaultImage,
+    imageAlt = stafastConfig.site.name,
+    openGraphType = "website",
+    article,
 } = Astro.props;
 
 const pageTitle = title
     ? stafastConfig.seo.titleTemplate.replace("%s", title)
     : stafastConfig.seo.title;
 
-const openGraphImage = new URL(
-    stafastConfig.seo.defaultImage,
-    stafastConfig.site.url,
-).toString();
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const canonicalUrl =
+    canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const openGraphImage = new URL(image, siteUrl).toString();
 ---
 
+<!doctype html>
 <html lang={stafastConfig.site.language} class="scroll-smooth">
     <head>
         <link
@@ -65,23 +80,53 @@ const openGraphImage = new URL(
         <SEO
             title={pageTitle}
             description={description}
+            canonical={canonicalUrl}
             charset="utf-8"
             noindex={noindex}
             nofollow={noindex}
             openGraph={{
                 basic: {
                     title: pageTitle,
-                    type: "website",
+                    type: openGraphType,
                     image: openGraphImage,
+                    url: canonicalUrl,
                 },
                 optional: {
                     description,
                     locale: stafastConfig.site.locale,
                     siteName: stafastConfig.site.name,
                 },
+                image: {
+                    alt: imageAlt,
+                },
+                ...(article
+                    ? {
+                          article: {
+                              publishedTime: article.publishedTime,
+                              ...(article.modifiedTime
+                                  ? { modifiedTime: article.modifiedTime }
+                                  : {}),
+                              authors: [stafastConfig.site.url],
+                              tags: article.tags,
+                          },
+                      }
+                    : {}),
             }}
-            twitter={{ card: "summary_large_image" }}
+            twitter={{
+                card: "summary_large_image",
+                title: pageTitle,
+                description,
+                image: openGraphImage,
+                imageAlt,
+            }}
         />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={`${stafastConfig.blog.title} – ${stafastConfig.site.name}`}
+            href={new URL("rss.xml", siteUrl)}
+        />
+        <slot name="head" />
     </head>
     <body>
         <Header />
