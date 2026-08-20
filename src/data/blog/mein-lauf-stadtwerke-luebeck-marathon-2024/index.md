@@ -14,9 +14,9 @@ Herausforderungen stellte.
 
 ### Ein Tag voller Energie und guter Stimmung
 
-Meine Freundin Anna und ich machten uns früh auf den Weg nach Lübeck. Bei unseren Freunden Carleen und Lasse konnten wir
-uns umziehen, bevor wir gemeinsam in die Altstadt aufmachten. Schon dort war die Atmosphäre spürbar: Überall waren
-Läufer und Zuschauer, die sich auf den Tag freuten.
+Am Morgen machte ich mich früh auf den Weg nach Lübeck. Vor dem Start konnte ich mich bei Freunden in Ruhe umziehen,
+bevor es weiter in die Altstadt ging. Dort war die besondere Atmosphäre sofort spürbar: Überall waren Läufer und
+Zuschauer unterwegs, die sich auf den Tag freuten.
 
 Am Start- und Zielbereich herrschte reges Treiben, begleitet von Musik und Applaus. DJs entlang der Strecke sorgten für
 die passende Stimmung, und die motivierende Stimmung der Zuschauer war spürbar – insbesondere, wenn sie meinen Namen
@@ -40,8 +40,6 @@ nicht die Zeit, die ich mir erhofft hatte, aber unter den Umständen bin ich fro
 Die Erleichterung im Ziel war riesig – nicht nur wegen der Schmerzen, sondern auch wegen der tollen Verpflegung. Es gab
 kostenloses Obst, Energieriegel, alkoholfreies Bier und verschiedene Getränke. Auch entlang der Strecke war die
 Organisation top: Wasserstationen und sogar Snacks hielten uns Läufer bei Kräften.
-
-![Ich, Anna, Carleen und Lasse](./gruppenfoto.jpg "Ich, Anna, Carleen und Lasse.")
 
 ### Was bleibt: Erfahrungen und neue Pläne
 

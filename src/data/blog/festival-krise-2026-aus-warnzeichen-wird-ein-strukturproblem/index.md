@@ -3,7 +3,7 @@ title: "Festival-Krise 2026: Aus Warnzeichen wird ein Strukturproblem"
 description: "Ein Jahr später ist klar: Die Festival-Krise war keine Momentaufnahme. Absagen, späte Ticketkäufe und steigende Kosten setzen Veranstalter weiter unter Druck."
 teaser: "teaser.jpg"
 teaserAlt: "Blick auf eine beleuchtete Festivalbühne und ein dichtes Publikum am Abend."
-published: "2026-08-15T00:00:00"
+published: "2026-07-15T00:00:00"
 tags: [ "Festival", "Event", "Booker" ]
 ---
 
