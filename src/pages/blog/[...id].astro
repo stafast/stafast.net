@@ -4,6 +4,7 @@ import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import { toSlug } from "@lib/toSlug.ts";
 import stafastConfig from "../../../stafast.config.ts";
+import Button from "@components/ui/Button.astro";
 
 interface Props {
     post: CollectionEntry<"blog">;
@@ -21,7 +22,8 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
+const minutesRead = remarkPluginFrontmatter.minutesRead as string;
 const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
 const canonicalUrl =
     post.data.canonicalUrl ?? new URL(`/blog/${post.id}/`, siteUrl).toString();
@@ -99,18 +101,13 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
         set:html={serializedStructuredData}
     />
 
-    <article class="container py-16 md:py-24">
+    <article class="container">
         <div class="mx-auto max-w-3xl">
-            <p class="mb-8 text-sm">
-                <a href="/blog/">&larr; Zurück zum Blog</a>
-            </p>
-
             <header class="mb-10">
                 <div
                     class="text-foreground/60 mb-5 flex flex-wrap gap-x-3 gap-y-1 text-sm"
                 >
                     <span>
-                        Veröffentlicht am{" "}
                         <time datetime={post.data.published.toISOString()}>
                             {
                                 post.data.published.toLocaleDateString(
@@ -122,8 +119,33 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
                             }
                         </time>
                     </span>
-                    {
-                        post.data.updated && (
+                    <span aria-hidden="true">·</span>
+                    <span>{minutesRead}</span>
+                </div>
+
+                <h1 class="text-5xl hyphens-auto">
+                    {post.data.title}
+                </h1>
+
+                {
+                    post.data.teaser && (
+                        <Image
+                            class="bg-tertiary mt-6 aspect-video w-full rounded-2xl object-cover"
+                            format="webp"
+                            loading="eager"
+                            decoding="async"
+                            fetchpriority="high"
+                            widths={[640, 960, 1280]}
+                            sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+                            src={post.data.teaser}
+                            alt={post.data.teaserAlt}
+                        />
+                    )
+                }
+
+                {
+                    post.data.updated && (
+                        <div class="text-muted-foreground mt-5 text-sm italic">
                             <span>
                                 Aktualisiert am{" "}
                                 <time
@@ -131,50 +153,33 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
                                 >
                                     {post.data.updated.toLocaleDateString(
                                         "de-DE",
-                                        { dateStyle: "long" },
+                                        {
+                                            dateStyle: "long",
+                                        },
                                     )}
                                 </time>
                             </span>
-                        )
-                    }
-                </div>
-
-                <h1>{post.data.title}</h1>
-                <p class="text-lead mt-6">{post.data.description}</p>
+                        </div>
+                    )
+                }
             </header>
 
-            {
-                post.data.teaser && (
-                    <Image
-                        class="bg-tertiary mb-12 aspect-video w-full rounded-2xl object-cover"
-                        format="webp"
-                        loading="eager"
-                        decoding="async"
-                        fetchpriority="high"
-                        widths={[640, 960, 1280]}
-                        sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
-                        src={post.data.teaser}
-                        alt={post.data.teaserAlt}
-                    />
-                )
-            }
-
-            <div
-                class="prose prose-stone prose-a:text-primary prose-a:no-underline max-w-none"
-            >
+            <div class="prose prose-stone prose-a:text-primary max-w-none">
                 <Content />
             </div>
 
-            <ul class="mt-12 flex flex-wrap gap-2" aria-label="Themen">
+            <ul class="mt-12 flex flex-wrap gap-4" aria-label="Themen">
                 {
                     post.data.tags.map((tag) => (
                         <li>
-                            <a
-                                class="bg-secondary text-secondary-fg hover:bg-accent inline-flex rounded-full px-3 py-1.5 text-sm no-underline transition-colors"
+                            <Button
+                                variant="secondary"
+                                class="rounded-full"
+                                size="sm"
                                 href={`/blog/tags/${toSlug(tag)}/`}
                             >
                                 {tag}
-                            </a>
+                            </Button>
                         </li>
                     ))
                 }

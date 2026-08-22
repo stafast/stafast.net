@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import BlogList from "@components/BlogList.astro";
 import { getCollection } from "astro:content";
 import stafastConfig from "../../../stafast.config.ts";
+import Button from "@/components/ui/Button.astro";
 
 const posts = (
     await getCollection("blog", ({ data }) =>
@@ -15,9 +16,9 @@ const posts = (
     title={stafastConfig.blog.title}
     description={stafastConfig.blog.description}
 >
-    <section class="container py-16 md:py-24">
+    <section class="container">
         <header class="mb-14 max-w-3xl">
-            <p class="text-eyebrow mb-4">Gedanken und Erfahrungen</p>
+            <p class="text-eyebrow mb-4">// Gedanken und Erfahrungen</p>
             <h1>{stafastConfig.blog.title}</h1>
             <p class="text-lead mt-6">{stafastConfig.blog.introduction}</p>
         </header>
@@ -33,9 +34,11 @@ const posts = (
 
             {
                 posts.length > 0 && (
-                    <p class="mt-12">
-                        <a href="/blog/tags/">Alle Themen im Überblick</a>
-                    </p>
+                    <div class="mt-12 text-center">
+                        <Button href="/blog/tags/">
+                            Alle Themen im Überblick
+                        </Button>
+                    </div>
                 )
             }
         </div>
