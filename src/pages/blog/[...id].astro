@@ -126,11 +126,13 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
                 <h1 class="text-5xl hyphens-auto">
                     {post.data.title}
                 </h1>
+                <p class="text-lead mt-4">{post.data.description}</p>
 
                 {
                     post.data.teaser && (
                         <Image
-                            class="bg-tertiary mt-6 aspect-video w-full rounded-2xl object-cover"
+                            class="transition-name-blog-image bg-tertiary mt-6 aspect-video w-full object-cover"
+                            style={`view-transition-name: blog-post-image-${post.id}`}
                             format="webp"
                             loading="eager"
                             decoding="async"
@@ -164,7 +166,9 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
                 }
             </header>
 
-            <div class="prose prose-stone prose-a:text-primary max-w-none">
+            <div
+                class="prose prose-lg prose-neutral prose-a:text-primary max-w-none"
+            >
                 <Content />
             </div>
 

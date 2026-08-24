@@ -29,21 +29,21 @@ export async function getStaticPaths() {
 
 const { tag, posts } = Astro.props;
 const tagPage = stafastConfig.blog.tagPages[toSlug(tag)];
-const pageTitle = tagPage?.title ?? `${tag} im Blog`;
+const pageTitle = tagPage?.title ?? `${tag}`;
 const pageDescription =
     tagPage?.description ??
     `Hier findest du alle Blogbeiträge zum Thema „${tag}“.`;
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-    <section class="container py-16 md:py-24">
-        <header class="mb-14 max-w-3xl">
-            <p class="text-eyebrow mb-4">Blogthema</p>
-            <h1>{pageTitle}</h1>
-            <p class="text-lead mt-6">{pageDescription}</p>
+    <section class="container">
+        <header class="mb-14">
+            <span class="text-eyebrow mb-2">// Blogthema</span>
+            <h1 class="text-display">{pageTitle}</h1>
+            <p class="text-lead mt-4">{pageDescription}</p>
         </header>
 
-        <div class="max-w-4xl">
+        <div class="">
             <BlogList posts={posts} />
             <p class="mt-12">
                 <a href="/blog/tags/">&larr; Alle Themen</a>

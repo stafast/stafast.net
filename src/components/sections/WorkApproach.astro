@@ -1,0 +1,90 @@
+---
+import { workApproach } from "@data/home.ts";
+import toSlug from "@lib/toSlug.ts";
+---
+
+<section id="work-approach">
+    <div class="bg-neutral-900 py-24 text-neutral-300 md:py-42">
+        <div class="container space-y-36">
+            <div class="max-w-4xl">
+                <h2 class="h1 text-display text-neutral-50">
+                    {workApproach.title}
+                </h2>
+                <p
+                    class="text-lead mt-2 font-light"
+                    set:html={workApproach.description}
+                />
+            </div>
+            <div class="timeline-border-start relative">
+                <div
+                    aria-hidden="true"
+                    class="pointer-events-none absolute inset-0 z-10 hidden grid-cols-5 gap-12 md:block md:grid"
+                >
+                    <div
+                        class="timeline-border bg-primary col-start-5 w-0.5 origin-top scale-y-0"
+                    >
+                    </div>
+                </div>
+
+                {
+                    workApproach.workApproaches.map((approach) => (
+                        <div class="work-approaches grid gap-12 md:grid-cols-5">
+                            <div class="pt-4 pb-42 md:col-span-4">
+                                <span class="text-eyebrow md:hidden">
+                                    {approach.lead}
+                                </span>
+                                <h3
+                                    id={toSlug(approach.title)}
+                                    class="h3 font-semibold text-neutral-50"
+                                >
+                                    {approach.title}
+                                </h3>
+                                <p
+                                    class="mt-2 text-lg"
+                                    set:html={approach.description}
+                                />
+                            </div>
+                            <div class="relative hidden border-l-2 border-neutral-700 md:block">
+                                <div class="sticky top-0 flex items-start gap-2 p-4">
+                                    <div class="font-mono uppercase [writing-mode:sideways-lr]">
+                                        <a
+                                            class="hover:text-primary"
+                                            href={"#" + toSlug(approach.title)}
+                                        >
+                                            {approach.lead}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { SplitText } from "gsap/SplitText";
+
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    const border = document.querySelector(".timeline-border");
+    const trigger = document.querySelector(".timeline-border-start");
+
+    if (border && trigger) {
+        gsap.to(border, {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+                trigger,
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+                invalidateOnRefresh: true,
+            },
+        });
+    }
+</script>

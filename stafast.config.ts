@@ -15,11 +15,11 @@ export default defineStafastConfig({
         defaultImage: "/og.png",
     },
     blog: {
-        title: "Blog",
+        title: "Persönlicher Blog",
         description:
-            "Praxisnahe Artikel von André Stafast über Softwareentwicklung, Webtechnologien, Festivals, Sport und Themen, die ihn beschäftigen.",
+            "Gedanken und Erfahrungen zu Softwareentwicklung, Eventbranche, Laufen und allem, was mich sonst beschäftigt – persönlich und direkt.",
         introduction:
-            "Hier schreibe ich über Themen, die mich begeistern oder beschäftigen: von Softwareentwicklung und Webtechnologien über Festivals bis zum Laufen.",
+            "Was mich beschäftigt, landet früher oder später hier. Mal geht es um Softwareentwicklung, mal um die Eventbranche, das Laufen oder etwas völlig anderes. Manches ist praktisch, manches persönlich – und manches möchte ich einfach festhalten.",
         tagPages: {
             laufen: {
                 title: "Laufen, Spaß und Schmerzen",
@@ -50,16 +50,17 @@ export default defineStafastConfig({
     ],
     footerMenu: [
         {
-            title: "Leistungen",
+            title: "Erfahre mehr",
             items: [
-                { title: "Mehr zu Astro Entwicklung", url: "/kontakt/" },
-                { title: "Festivalberatung", url: "/impressum/" },
-                { title: "Vue.js Programmierung", url: "/impressum/" },
-                { title: "Mehr über Mich", url: "/datenschutz/" },
+                { title: "Über mich", url: "/kontakt/" },
+                { title: "Projekte", url: "/impressum/" },
+                { title: "Webentwicklung", url: "/datenschutz/" },
+                { title: "Beratung", url: "/datenschutz/" },
+                { title: "Astro Entwicklung", url: "/datenschutz/" },
             ],
         },
         {
-            title: "Artikel",
+            title: "Ausgewählte Artikel",
             items: [
                 {
                     title: "Festival-Krise 2026",
@@ -69,6 +70,10 @@ export default defineStafastConfig({
                     title: "Schriften preloading",
                     url: "/blog/preload-fontsource/",
                 },
+                {
+                    title: "Kiel.Lauf",
+                    url: "/blog/mac-apps/",
+                },
                 { title: "Meine Mac Apps", url: "/blog/mac-apps/" },
                 { title: "Alle Blogartikel", url: "/blog/" },
             ],
@@ -76,8 +81,9 @@ export default defineStafastConfig({
         {
             title: "Rechtliches",
             items: [
+                { title: "Kontakt", url: "/impressum/" },
+                { title: "Datenschutzhinweis", url: "/datenschutz/" },
                 { title: "Impressum", url: "/impressum/" },
-                { title: "Datenschutz", url: "/datenschutz/" },
             ],
         },
     ],

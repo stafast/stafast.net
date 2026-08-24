@@ -12,7 +12,7 @@ import { hero } from "@data/home.ts";
             class="grid gap-12 lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-16 xl:gap-32"
         >
             <div>
-                <span class="text-eyebrow mb-2 inline-block">
+                <span class="text-eyebrow mb-2">
                     <span aria-hidden="true">//</span>
                     <span class="role-title print:hidden" aria-hidden="true"
                         >{hero.eyebrow.roleDefault}</span
@@ -48,10 +48,7 @@ import { hero } from "@data/home.ts";
                 </div>
             </div>
             <div class="relative aspect-10/8 overflow-hidden lg:aspect-9/10">
-                <div
-                    class="absolute inset-0 -z-10 animate-pulse rounded-lg bg-neutral-200"
-                >
-                </div>
+                <div class="skeleton absolute inset-0 -z-10"></div>
                 <Image
                     src={meImage}
                     alt="Porträt von André Stafast"
@@ -59,7 +56,7 @@ import { hero } from "@data/home.ts";
                     height="1109"
                     decoding="async"
                     fetchpriority="high"
-                    class="h-full w-full rounded-lg object-cover object-[center_40%] shadow"
+                    class="h-full w-full object-cover object-[center_40%] shadow"
                 />
             </div>
         </div>

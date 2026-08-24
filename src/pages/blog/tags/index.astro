@@ -15,15 +15,15 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-    <section class="container py-16 md:py-24">
-        <div class="max-w-3xl">
-            <p class="text-eyebrow mb-4">Blogarchiv</p>
-            <h1>{title}</h1>
-            <p class="text-lead mt-6">{description}</p>
+    <section class="container">
+        <div class="">
+            <span class="text-eyebrow mb-2">// Blogarchiv</span>
+            <h1 class="text-display">{title}</h1>
+            <p class="text-lead mt-4">{description}</p>
 
             {
                 tags.length > 0 ? (
-                    <ul class="mt-10 flex flex-wrap gap-3">
+                    <ul class="mt-14 flex flex-wrap gap-3">
                         {tags.map((tag) => (
                             <li>
                                 <a

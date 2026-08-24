@@ -4,7 +4,9 @@ import StafastLogo from "@components/icons/StafastLogo.astro";
 import SocialLink from "@components/icons/social/SocialLink.astro";
 ---
 
-<footer class="mt-24 mb-16">
+<footer
+    class="relative overflow-hidden pt-24 pb-16 after:absolute after:right-[-20%] after:bottom-[-40%] after:-z-1 after:h-full after:w-full after:bg-[radial-gradient(oklch(0.905_0.045_167.933/0.3),transparent_60%)] after:content-['']"
+>
     <div class="container space-y-12 md:space-y-24">
         <div
             class="grid grid-cols-2 gap-12 md:grid-cols-3 lg:gap-8 xl:grid-cols-5"
@@ -40,7 +42,7 @@ import SocialLink from "@components/icons/social/SocialLink.astro";
                 stafastConfig.footerMenu.map((footerMenuBlock) => (
                     <div aria-label={footerMenuBlock.title}>
                         <h5 class="mb-4">{footerMenuBlock.title}</h5>
-                        <ul class="space-y-3">
+                        <ul class="space-y-2">
                             {footerMenuBlock.items.map((item) => (
                                 <li>
                                     <a href={item.url}>{item.title}</a>
@@ -58,7 +60,7 @@ import SocialLink from "@components/icons/social/SocialLink.astro";
             <span class="">
                 &copy; {new Date().getFullYear()}
                 <span class="font-serif text-base font-semibold">stafast</span>.
-                All rights reserved.
+                Alle Rechte vorbehalten.
             </span>
             <span>
                 Built with <a
@@ -66,9 +68,24 @@ import SocialLink from "@components/icons/social/SocialLink.astro";
                     rel="noopener noreferrer"
                     href="https://astro.build">Astro</a
                 > and hosted on <a href="/blog/edge-computing-einfach-erklaert/"
-                    >Cloudflare edge</a
+                    >Edge Computing</a
                 >.
             </span>
         </div>
     </div>
 </footer>
+<style>
+    footer::after {
+        animation: footer-move 8s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+    }
+
+    @keyframes footer-move {
+        0%,
+        100% {
+            right: -20%;
+        }
+        50% {
+            right: 20%;
+        }
+    }
+</style>
