@@ -225,13 +225,13 @@
     }
 
     .text-eyebrow {
+        @apply tracking-wider;
         display: inline-block;
         color: var(--primary);
         font-family: var(--font-mono);
         font-size: var(--text-eyebrow);
         font-weight: 500;
         line-height: 1.4;
-        letter-spacing: 0.05em;
         text-transform: uppercase;
     }
 

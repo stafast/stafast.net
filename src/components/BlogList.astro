@@ -20,14 +20,14 @@ const { posts } = Astro.props;
                     <article class="group">
                         {post.data.teaser && (
                             <a
-                                class="relative block overflow-hidden"
+                                class="relative block overflow-hidden rounded-lg"
                                 data-astro-prefetch
                                 href={`/blog/${post.id}/`}
                                 aria-label={post.data.title}
                             >
                                 <div class="skeleton absolute inset-0 -z-10" />
                                 <Image
-                                    class="aspect-video w-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-[1.015] motion-reduce:transition-none"
+                                    class="aspect-video w-full rounded-lg object-cover shadow-sm transition-transform duration-300 group-hover:scale-[1.015] motion-reduce:transition-none"
                                     style={`view-transition-name: blog-post-image-${post.id}`}
                                     format="webp"
                                     loading="lazy"
