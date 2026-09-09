@@ -1,6 +1,6 @@
 ---
 title: "iPhone Duo: Apple stellt sein erstes faltbares iPhone vor"
-description: "Apple hat das iPhone Duo vorgestellt. Das faltbare iPhone kombiniert ein 5,4-Zoll-Außendisplay mit einem 7,6-Zoll-Innendisplay und startet bei 1.999 US-Dollar."
+description: "Apple hat das iPhone Duo vorgestellt. Das faltbare iPhone kombiniert ein 5,4-Zoll-Außendisplay mit einem 7,6-Zoll-Innendisplay und kostet in Deutschland ab 2.299 Euro."
 teaser: "teaser.jpg"
 teaserAlt: "Das iPhone Duo geöffnet und geschlossen in den Farben Star White und Night Sky."
 published: "2026-09-09T21:00:00"
@@ -64,9 +64,9 @@ automatisch aus.
 
 ## Preis und Verfügbarkeit
 
-In den USA startet das iPhone Duo mit 256 GB Speicher bei **1.999 US-Dollar**. Verfügbar sind Speichervarianten bis 2 TB.
-Vorbestellungen beginnen am 16. Oktober, erhältlich ist das Gerät ab dem 23. Oktober 2026. Einen Preis für Deutschland
-hat Apple zum Zeitpunkt der Veröffentlichung noch nicht genannt.
+In Deutschland startet das iPhone Duo mit 256 GB Speicher bei **2.299 Euro**. Das ist ein stolzer Preis, selbst für ein
+neues iPhone-Topmodell. In den USA liegt der von Apple genannte Einstiegspreis bei 1.999 US-Dollar. Verfügbar sind
+Speichervarianten bis 2 TB. Vorbestellungen beginnen am 16. Oktober, erhältlich ist das Gerät ab dem 23. Oktober 2026.
 
 ## Mein Fazit
 
@@ -75,7 +75,7 @@ Pro. Interessanter ist das Zusammenspiel aus den beiden Displays, dem Scharnier 
 dieses Zusammenspiel muss im Alltag zeigen, ob das Duo einen echten Mehrwert bietet oder vor allem ein sehr teures
 iPhone mit mehr Bildschirmfläche ist.
 
-Mit einem Startpreis von 1.999 US-Dollar ist die erste Generation klar kein Gerät für den Massenmarkt. Offen bleibt
+Mit einem deutschen Startpreis von 2.299 Euro ist die erste Generation klar kein Gerät für den Massenmarkt. Offen bleibt
 außerdem, wie gut sich Scharnier und Faltdisplay über längere Zeit bewähren. Apple verspricht eine weniger sichtbare
 Falz und eine hohe Widerstandsfähigkeit. Ob das im Alltag funktioniert, müssen unabhängige Tests zeigen.
 
