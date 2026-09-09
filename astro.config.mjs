@@ -14,7 +14,9 @@ export default defineConfig({
         defaultStrategy: 'viewport'
     },
     integrations: [
-        sitemap(),
+        sitemap({
+            filter: (page) => !page.includes('/blog/tags/'),
+        }),
         icon(),
         astroExpressiveCode({
             themes: ['github-dark', 'github-light'],

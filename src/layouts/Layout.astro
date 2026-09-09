@@ -3,6 +3,7 @@ interface Props {
     pageTitle?: string;
     pageDescription?: string;
     ogImage?: string;
+    noindex?: boolean;
 }
 
 import '@fontsource-variable/noto-sans';
@@ -13,7 +14,7 @@ import Footer from '@components/Footer.astro'
 import {author, defaultPageDescription} from '@data/constants'
 import '@css/main.css'
 
-const {pageTitle, pageDescription, ogImage} = Astro.props;
+const {pageTitle, pageDescription, ogImage, noindex = false} = Astro.props;
 const title = pageTitle ? pageTitle + ' | ' + author : author
 const description = pageDescription ? pageDescription : defaultPageDescription;
 const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
@@ -28,15 +29,12 @@ const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
         charset="utf-8"
         title={title}
         description={description}
+        noindex={noindex}
         extend={{
             meta: [
                 {
                     name: "viewport",
                     content: "width=device-width, initial-scale=1.0"
-                },
-                {
-                    name: "robots",
-                    content: "follow, index"
                 },
                 {
                     name: "generator",
