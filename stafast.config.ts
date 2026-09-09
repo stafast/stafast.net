@@ -43,20 +43,20 @@ export default defineStafastConfig({
         },
     ],
     navigation: [
-        { title: "Über mich", url: "/" },
-        { title: "Projekte", url: "/" },
+        { title: "Über mich", url: "/ueber-mich/" },
+        { title: "Arbeit", url: "/arbeit/" },
         { title: "Blog", url: "/blog/" },
-        { title: "Kontakt", url: "/" },
+        { title: "Kontakt", url: "/kontakt/" },
     ],
     footerMenu: [
         {
             title: "Erfahre mehr",
             items: [
-                { title: "Über mich", url: "/kontakt/" },
-                { title: "Projekte", url: "/impressum/" },
-                { title: "Webentwicklung", url: "/datenschutz/" },
-                { title: "Beratung", url: "/datenschutz/" },
-                { title: "Astro Entwicklung", url: "/datenschutz/" },
+                { title: "Über mich", url: "/ueber-mich/" },
+                { title: "Arbeit", url: "/arbeit/" },
+                { title: "Webentwicklung", url: "/webentwicklung/" },
+                { title: "Beratung", url: "/beratung/" },
+                { title: "Astro Entwicklung", url: "/astro-entwicklung/" },
             ],
         },
         {
@@ -72,7 +72,7 @@ export default defineStafastConfig({
                 },
                 {
                     title: "Kiel.Lauf",
-                    url: "/blog/mac-apps/",
+                    url: "/blog/kiellauf-2024/",
                 },
                 { title: "Meine Mac Apps", url: "/blog/mac-apps/" },
                 { title: "Alle Blogartikel", url: "/blog/" },
@@ -81,7 +81,7 @@ export default defineStafastConfig({
         {
             title: "Rechtliches",
             items: [
-                { title: "Kontakt", url: "/impressum/" },
+                { title: "Kontakt", url: "/kontakt/" },
                 { title: "Datenschutzhinweis", url: "/datenschutz/" },
                 { title: "Impressum", url: "/impressum/" },
             ],
