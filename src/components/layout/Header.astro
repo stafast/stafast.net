@@ -2,6 +2,8 @@
 import stafastConfig from "../../../stafast.config";
 import { Menu } from "@lucide/astro";
 import StafastLogo from "@components/icons/StafastLogo.astro";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="group/header mb-16 border-b md:mb-24 lg:border-none">
@@ -16,18 +18,20 @@ import StafastLogo from "@components/icons/StafastLogo.astro";
                 <Menu class="size-6" />
             </div>
             <ul class="navigation-items hidden items-center gap-8 lg:flex">
-                {
-                    stafastConfig.navigation.map((item) => (
-                        <li>
-                            <a
-                                href={item.url}
-                                class="text-foreground/80 hover:text-foreground transition"
-                            >
-                                {item.title}
-                            </a>
-                        </li>
-                    ))
-                }
+                {stafastConfig.navigation.map((item) => (
+                    <li>
+                        <a
+                            href={item.url}
+                            class="text-foreground/80 hover:text-foreground transition"
+                            class:list={{
+                                "font-semibold text-foreground":
+                                    currentPath === item.url,
+                            }}
+                        >
+                            {item.title}
+                        </a>
+                    </li>
+                ))}
             </ul>
             <div class=""></div>
         </nav>

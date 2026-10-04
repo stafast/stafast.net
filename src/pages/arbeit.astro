@@ -1,0 +1,11 @@
+---
+import Hero from "@/components/sections/work/Hero.astro";
+import { seo } from "@data/work.ts";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title={seo.title}>
+    <div class="grid gap-24 md:gap-42">
+        <Hero />
+    </div>
+</Layout>

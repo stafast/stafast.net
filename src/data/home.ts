@@ -17,11 +17,11 @@ export const hero = {
     cta: {
         primary: {
             label: "Erfahrung ansehen",
-            url: "/",
+            url: "/arbeit/",
         },
         secondary: {
             label: "Lass uns reden",
-            url: "/",
+            url: "/kontakt/",
         },
     },
 };
@@ -54,6 +54,32 @@ export const workApproach = {
             lead: "Verantworten",
             description:
                 "Ich übernehme Verantwortung für technische Entscheidungen, ihre Umsetzung und die Qualität des Ergebnisses. Dazu gehören klare Kommunikation, nachvollziehbare Strukturen und ein offener Umgang mit Risiken und Zielkonflikten. Ich spreche Probleme früh an, treffe Entscheidungen begründet und behalte im Blick, was eine Lösung für Team, Produkt und Betrieb langfristig bedeutet.",
+        },
+    ],
+};
+
+export const work = {
+    title: "Einblicke in meine Arbeit",
+    description:
+        "Softwareentwicklung bildet meinen Schwerpunkt. Selbständige Projekte und Erfahrung in Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
+    items: [
+        {
+            title: "Frontend für komplexe Anwendungen",
+            eyebrow: "Softwareentwicklung",
+            text: "Bei TriNext verantworte ich das Frontend von Nextfolder, einer Anwendung für die Arbeit mit Dokumenten im Bankenumfeld. Dazu gehören die technische Konzeption, die Frontend-Architektur und die Entwicklung mit Vue.js und TypeScript.",
+            note: "Meine Erfahrung reicht von E-Commerce bei intedia bis zur Full-Stack-Entwicklung bei INMEDIUM.",
+        },
+        {
+            eyebrow: "Selbständige Tätigkeit",
+            title: "Websites und E-Commerce",
+            text: "Seit 2013 setze ich neben meiner Festanstellung selbständig digitale Projekte um. Der Schwerpunkt liegt auf Websites und E-Commerce-Lösungen für Unternehmen aus unterschiedlichen Branchen.",
+            note: "Dabei bringe ich meine Erfahrung aus der Softwareentwicklung und dem E-Commerce ein.",
+        },
+        {
+            eyebrow: "Projekt- & Veranstaltungsleitung",
+            title: "Teams und Veranstaltungen",
+            text: "Von 2021 bis 2025 war ich bei Love Explosion für das Booking und den Bereich Artists verantwortlich. Als stellvertretender Veranstaltungsleiter war ich auch an der Planung und den Entscheidungen für die Veranstaltung beteiligt.",
+            note: "Mit Just Aion habe ich zuvor ein Community-Projekt aufgebaut und ein Team von bis zu 20 Personen geleitet.",
         },
     ],
 };
