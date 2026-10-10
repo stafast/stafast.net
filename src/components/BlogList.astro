@@ -11,83 +11,78 @@ const { posts } = Astro.props;
 ---
 
 <ol class="grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-14 xl:grid-cols-3">
-    {
-        posts.map((post) => {
-            const primaryTag = post.data.tags[0];
+    {posts.map((post) => {
+        const primaryTag = post.data.tags[0];
 
-            return (
-                <li>
-                    <article class="group">
-                        {post.data.teaser && (
+        return (
+            <li>
+                <article class="group">
+                    {post.data.teaser && (
+                        <a
+                            class="relative block overflow-hidden rounded-lg"
+                            data-astro-prefetch
+                            href={`/blog/${post.id}/`}
+                            aria-label={post.data.title}
+                        >
+                            <div class="skeleton absolute inset-0 -z-10" />
+                            <Image
+                                class="aspect-video w-full rounded-lg object-cover shadow-sm transition-transform duration-300 group-hover:scale-[1.015] motion-reduce:transition-none"
+                                style={`view-transition-name: blog-post-image-${post.id}`}
+                                format="webp"
+                                loading="lazy"
+                                decoding="async"
+                                width={640}
+                                densities={[1, 1.5, 2]}
+                                src={post.data.teaser}
+                                alt={post.data.teaserAlt}
+                            />
+                        </a>
+                    )}
+
+                    <div class:list={[{ "mt-5": post.data.teaser }]}>
+                        <span class="text-muted-foreground text-eyebrow mb-3 flex min-w-0 items-center gap-x-2">
+                            {primaryTag && (
+                                <>
+                                    <a
+                                        class="hover:text-primary truncate transition-colors"
+                                        href={`/blog/tags/${toSlug(primaryTag)}/`}
+                                        aria-label={`Thema: ${primaryTag}`}
+                                    >
+                                        {primaryTag}
+                                    </a>
+                                    <span class="shrink-0" aria-hidden="true">
+                                        •
+                                    </span>
+                                </>
+                            )}
+                            <time
+                                class="shrink-0"
+                                datetime={post.data.published.toISOString()}
+                            >
+                                {post.data.published.toLocaleDateString(
+                                    "de-DE",
+                                    {
+                                        dateStyle: "long",
+                                    },
+                                )}
+                            </time>
+                        </span>
+
+                        <h2 class="line-clamp-2 text-xl leading-snug font-semibold tracking-tight md:min-h-14">
                             <a
-                                class="relative block overflow-hidden rounded-lg"
+                                class="hover:text-primary no-underline transition-colors"
                                 data-astro-prefetch
                                 href={`/blog/${post.id}/`}
-                                aria-label={post.data.title}
                             >
-                                <div class="skeleton absolute inset-0 -z-10" />
-                                <Image
-                                    class="aspect-video w-full rounded-lg object-cover shadow-sm transition-transform duration-300 group-hover:scale-[1.015] motion-reduce:transition-none"
-                                    style={`view-transition-name: blog-post-image-${post.id}`}
-                                    format="webp"
-                                    loading="lazy"
-                                    decoding="async"
-                                    width={640}
-                                    densities={[1, 1.5, 2]}
-                                    src={post.data.teaser}
-                                    alt={post.data.teaserAlt}
-                                />
+                                {post.data.title}
                             </a>
-                        )}
-
-                        <div class:list={[{ "mt-5": post.data.teaser }]}>
-                            <span class="text-muted-foreground text-eyebrow mb-3 flex min-w-0 items-center gap-x-2">
-                                {primaryTag && (
-                                    <>
-                                        <a
-                                            class="hover:text-primary truncate transition-colors"
-                                            href={`/blog/tags/${toSlug(primaryTag)}/`}
-                                            aria-label={`Thema: ${primaryTag}`}
-                                        >
-                                            {primaryTag}
-                                        </a>
-                                        <span
-                                            class="shrink-0"
-                                            aria-hidden="true"
-                                        >
-                                            •
-                                        </span>
-                                    </>
-                                )}
-                                <time
-                                    class="shrink-0"
-                                    datetime={post.data.published.toISOString()}
-                                >
-                                    {post.data.published.toLocaleDateString(
-                                        "de-DE",
-                                        {
-                                            dateStyle: "long",
-                                        },
-                                    )}
-                                </time>
-                            </span>
-
-                            <h2 class="line-clamp-2 text-xl leading-snug font-semibold tracking-tight md:min-h-14">
-                                <a
-                                    class="hover:text-primary no-underline transition-colors"
-                                    data-astro-prefetch
-                                    href={`/blog/${post.id}/`}
-                                >
-                                    {post.data.title}
-                                </a>
-                            </h2>
-                            <p class="mt-3 line-clamp-4 text-base leading-relaxed">
-                                {post.data.description}
-                            </p>
-                        </div>
-                    </article>
-                </li>
-            );
-        })
-    }
+                        </h2>
+                        <p class="mt-3 line-clamp-4 text-base leading-relaxed">
+                            {post.data.description}
+                        </p>
+                    </div>
+                </article>
+            </li>
+        );
+    })}
 </ol>

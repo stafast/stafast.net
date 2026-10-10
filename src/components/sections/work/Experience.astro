@@ -1,0 +1,46 @@
+---
+import { experience } from "@data/work.ts";
+---
+
+<section id="work-experiences">
+    {experience.map((section) => (
+        <div class="group even:bg-neutral-900 even:text-neutral-300 md:py-42 py-24">
+            <div class="container grid gap-10 lg:grid-cols-3 lg:gap-24">
+                <div>
+                    <h2
+                        id={section.id}
+                        class="h3 hyphens-auto group-even:text-neutral-50"
+                    >
+                        {section.title}
+                    </h2>
+                    <p class="mt-2">{section.description}</p>
+                </div>
+                <div class="space-y-12 lg:col-span-2">
+                    {section.entries.map((entry) => (
+                        <div>
+                            <div class="mb-4">
+                                <p class="text-eyebrow">{entry.period}</p>
+                                <h3
+                                    id={entry.id}
+                                    class="h4 mt-2 group-even:text-neutral-50"
+                                >
+                                    {entry.organization}
+                                </h3>
+                                <span class="mt-1">{entry.role}</span>
+                            </div>
+                            <p>{entry.description}</p>
+                            <ul
+                                class="marker:text-primary mt-4 space-y-2 pl-5"
+                                style="list-style-type: square;"
+                            >
+                                {entry.highlights.map((highlight) => (
+                                    <li>{highlight}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    ))}
+</section>

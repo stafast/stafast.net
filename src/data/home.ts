@@ -13,7 +13,7 @@ export const hero = {
     },
     heading: "Softwareentwicklung mit technischer Tiefe.",
     description:
-        "Ich entwickle komplexe digitale Produkte und verbinde technische Tiefe mit klarer Struktur, guter Benutzerführung und langfristig wartbaren Lösungen.",
+        "Ich entwickle Webanwendungen mit Schwerpunkt im Frontend und verbinde technische Tiefe mit klarer Struktur, guter Benutzerführung und langfristig wartbaren Lösungen.",
     cta: {
         primary: {
             label: "Erfahrung ansehen",
@@ -66,20 +66,20 @@ export const work = {
         {
             title: "Frontend für komplexe Anwendungen",
             eyebrow: "Softwareentwicklung",
-            text: "Bei TriNext verantworte ich das Frontend von Nextfolder, einer Anwendung für die Arbeit mit Dokumenten im Bankenumfeld. Dazu gehören die technische Konzeption, die Frontend-Architektur und die Entwicklung mit Vue.js und TypeScript.",
+            text: "Als Frontend Engineer bei TriNext entwickle ich Nextfolder weiter, eine Webanwendung zur Bearbeitung und Strukturierung von Dokumenten im Bankenumfeld. Meine Schwerpunkte sind technische Konzeption, die Mitgestaltung der Frontend-Architektur und wartbare Benutzeroberflächen mit Vue.js und TypeScript.",
             note: "Meine Erfahrung reicht von E-Commerce bei intedia bis zur Full-Stack-Entwicklung bei INMEDIUM.",
         },
         {
             eyebrow: "Selbständige Tätigkeit",
-            title: "Websites und E-Commerce",
-            text: "Seit 2013 setze ich neben meiner Festanstellung selbständig digitale Projekte um. Der Schwerpunkt liegt auf Websites und E-Commerce-Lösungen für Unternehmen aus unterschiedlichen Branchen.",
-            note: "Dabei bringe ich meine Erfahrung aus der Softwareentwicklung und dem E-Commerce ein.",
+            title: "Webentwicklung und technische Beratung",
+            text: "Seit 2013 konzipiere, entwickle und betreue ich Websites, Online-Shops und individuelle Webanwendungen. Ich unterstütze Unternehmen bei der technischen Planung, Umsetzung und Weiterentwicklung ihrer digitalen Projekte.",
+            note: "Außerdem berate ich Festivals und Veranstaltungen zu organisatorischen Abläufen und technischen Lösungen.",
         },
         {
             eyebrow: "Projekt- & Veranstaltungsleitung",
             title: "Teams und Veranstaltungen",
-            text: "Von 2021 bis 2025 war ich bei Love Explosion für das Booking und den Bereich Artists verantwortlich. Als stellvertretender Veranstaltungsleiter war ich auch an der Planung und den Entscheidungen für die Veranstaltung beteiligt.",
-            note: "Mit Just Aion habe ich zuvor ein Community-Projekt aufgebaut und ein Team von bis zu 20 Personen geleitet.",
+            text: "Von 2021 bis 2025 war ich bei Love Explosion in der digitalen Umsetzung und Festivalorganisation tätig. Ab 2022 verantwortete ich das Artist Management für über 60 Artists und koordinierte die Bühnenabläufe auf drei Stages. Dazu kam die Mitverantwortung für Planung und Veranstaltungsleitung.",
+            note: "Mit Just Aion habe ich zuvor ein Community-Projekt mit über 100.000 Mitgliedern aufgebaut und ein Team von bis zu 20 Personen geleitet.",
         },
     ],
 };

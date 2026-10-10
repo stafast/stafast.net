@@ -30,18 +30,21 @@
 
     --radius: 0.75rem;
 
-    --shadow: 0 1px 2px oklch(0.21 0.005 145 / 0.06),
-    0 12px 32px -18px oklch(0.21 0.005 145 / 0.22);
+    --shadow:
+        0 1px 2px oklch(0.21 0.005 145 / 0.06),
+        0 12px 32px -18px oklch(0.21 0.005 145 / 0.22);
 }
 
 @theme inline {
-    --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans:
+        "Geist Variable", ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: "Bricolage Grotesque Variable", ui-sans-serif, sans-serif;
-    --font-mono: "Geist Mono Variable", "IBM Plex Mono", "SFMono-Regular", Consolas,
-    "Liberation Mono", monospace;
+    --font-mono:
+        "Geist Mono Variable", "IBM Plex Mono", "SFMono-Regular", Consolas,
+        "Liberation Mono", monospace;
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -59,16 +62,17 @@
 
     --color-border: var(--border);
 
-    --text-display: clamp(2.75rem, 5.5vw, 5rem);
-    --text-h1: clamp(2.75rem, 5vw, 4.25rem);
-    --text-h2: clamp(2.25rem, 4vw, 3.25rem);
-    --text-h3: clamp(1.625rem, 2.5vw, 2rem);
-    --text-h4: 1.5rem;
-    --text-h5: 1.125rem;
-    --text-h6: 0.75rem;
+    /* Fluid scale from 20rem to 80rem viewport width (320–1280px at 16px/rem). */
+    --text-display: clamp(2.75rem, 2rem + 3.75vw, 5rem);
+    --text-h1: clamp(2.75rem, 2.25rem + 2.5vw, 4.25rem);
+    --text-h2: clamp(2.25rem, 1.916667rem + 1.666667vw, 3.25rem);
+    --text-h3: clamp(1.625rem, 1.5rem + 0.625vw, 2rem);
+    --text-h4: clamp(1.25rem, 1.166667rem + 0.416667vw, 1.5rem);
+    --text-h5: clamp(1.125rem, 1.083333rem + 0.208333vw, 1.25rem);
+    --text-h6: clamp(0.75rem, 0.708333rem + 0.208333vw, 0.875rem);
 
-    --text-lead: clamp(1.125rem, 1.5vw, 1.375rem);
-    --text-body: clamp(1rem, 0.97rem + 0.12vw, 1.125rem);
+    --text-lead: clamp(1.125rem, 1.041667rem + 0.416667vw, 1.375rem);
+    --text-body: clamp(1rem, 0.958333rem + 0.208333vw, 1.125rem);
     --text-small: 0.875rem;
     --text-eyebrow: 0.75rem;
 
@@ -100,7 +104,7 @@
     }
 
     body {
-        @apply hyphens-auto lg:hyphens-none bg-background text-foreground/90 text-body grid min-h-svh antialiased grid-rows-[auto_1fr_auto];
+        @apply bg-background text-foreground/90 text-body grid min-h-svh grid-rows-[auto_1fr_auto] hyphens-auto antialiased lg:hyphens-none;
     }
 
     ::selection {
@@ -124,7 +128,6 @@
         display: block;
         max-width: 100%;
     }
-
 
     h1,
     h2,
@@ -175,14 +178,14 @@
 
     .h4,
     h4 {
-        font-size: 1.5rem;
+        font-size: var(--text-h4);
         font-weight: 650;
         line-height: 1.3;
     }
 
     .h5,
     h5 {
-        font-size: 1.125rem;
+        font-size: var(--text-h5);
         font-weight: 650;
         line-height: 1.4;
     }
@@ -190,7 +193,7 @@
     .h6,
     h6 {
         font-family: var(--font-mono);
-        font-size: 0.75rem;
+        font-size: var(--text-h6);
         font-weight: 500;
         line-height: 1.4;
         letter-spacing: 0.1em;
@@ -213,7 +216,7 @@
 @layer components {
     .text-lead {
         @apply text-foreground/85;
-        font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+        font-size: var(--text-lead);
         line-height: 1.55;
         letter-spacing: -0.012em;
         text-wrap: pretty;
@@ -236,7 +239,6 @@
         text-transform: uppercase;
     }
 
-
     .cursor {
         --cursor-size: 20px;
         box-sizing: content-box;
@@ -251,7 +253,12 @@
         transform-origin: center center;
         will-change: opacity, scale, border-radius, height, width, transform;
         border: 0 solid red;
-        transition: opacity 200ms, height 100ms, width 200ms, scale 150ms, border-radius 100ms;
+        transition:
+            opacity 200ms,
+            height 100ms,
+            width 200ms,
+            scale 150ms,
+            border-radius 100ms;
         z-index: 99999;
         opacity: 0;
 
@@ -259,7 +266,6 @@
             width: 3px;
             height: 72px;
         }
-
     }
 
     .skeleton {
@@ -287,31 +293,13 @@
     }
 }
 
-
 @media (prefers-reduced-motion: no-preference) {
-
     @view-transition {
         navigation: auto;
     }
-}
 
-body > header {
-    view-transition-name: site-header;
+    /* Animate the named blog images without fading the entire page. */
+    :root {
+        view-transition-name: none;
+    }
 }
-
-body > footer {
-    view-transition-name: site-footer;
-}
-
-::view-transition-group(site-header),
-::view-transition-group(site-footer),
-::view-transition-new(site-header),
-::view-transition-new(site-footer) {
-    animation: none;
-}
-
-::view-transition-old(site-header),
-::view-transition-old(site-footer) {
-    display: none;
-}
-

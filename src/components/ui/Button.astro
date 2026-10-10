@@ -56,6 +56,6 @@ const Tag = href ? "a" : "button";
 const buttonClass = cn(buttonVariants({ variant, size }), className);
 ---
 
-<Tag class={buttonClass} {...href ? { href } : { type }} {...props}>
+<Tag class={buttonClass} {...(href ? { href } : { type })} {...props}>
     <slot />
 </Tag>

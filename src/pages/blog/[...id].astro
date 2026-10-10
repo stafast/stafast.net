@@ -83,7 +83,7 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
     title={post.data.title}
     description={post.data.description}
     canonical={canonicalUrl}
-    {...ogImage ? { image: ogImage.src } : {}}
+    {...(ogImage ? { image: ogImage.src } : {})}
     imageAlt={post.data.teaserAlt ?? post.data.title}
     openGraphType="article"
     article={{
@@ -100,93 +100,70 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
         type="application/ld+json"
         set:html={serializedStructuredData}
     />
-
     <article class="container">
         <div class="mx-auto max-w-3xl">
             <header class="mb-10">
-                <div
-                    class="text-foreground/60 mb-5 flex flex-wrap gap-x-3 gap-y-1 text-sm"
-                >
+                <div class="text-foreground/60 mb-5 flex flex-wrap gap-x-3 gap-y-1 text-sm">
                     <span>
                         <time datetime={post.data.published.toISOString()}>
-                            {
-                                post.data.published.toLocaleDateString(
-                                    "de-DE",
-                                    {
-                                        dateStyle: "long",
-                                    },
-                                )
-                            }
+                            {post.data.published.toLocaleDateString("de-DE", {
+                                dateStyle: "long",
+                            })}
                         </time>
                     </span>
                     <span aria-hidden="true">·</span>
                     <span>{minutesRead}</span>
                 </div>
 
-                <h1 class="text-5xl hyphens-auto">
-                    {post.data.title}
-                </h1>
+                <h1 class="text-5xl hyphens-auto">{post.data.title}</h1>
                 <p class="text-lead mt-4">{post.data.description}</p>
 
-                {
-                    post.data.teaser && (
-                        <Image
-                            class="transition-name-blog-image bg-tertiary mt-6 aspect-video w-full rounded-lg object-cover"
-                            style={`view-transition-name: blog-post-image-${post.id}`}
-                            format="webp"
-                            loading="eager"
-                            decoding="async"
-                            fetchpriority="high"
-                            widths={[640, 960, 1280]}
-                            sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
-                            src={post.data.teaser}
-                            alt={post.data.teaserAlt}
-                        />
-                    )
-                }
+                {post.data.teaser && (
+                    <Image
+                        class="transition-name-blog-image bg-tertiary mt-6 aspect-video w-full rounded-lg object-cover"
+                        style={`view-transition-name: blog-post-image-${post.id}`}
+                        format="webp"
+                        loading="eager"
+                        decoding="async"
+                        fetchpriority="high"
+                        widths={[640, 960, 1280]}
+                        sizes="(max-width: 768px) calc(100vw - 2rem), 768px"
+                        src={post.data.teaser}
+                        alt={post.data.teaserAlt}
+                    />
+                )}
 
-                {
-                    post.data.updated && (
-                        <div class="text-muted-foreground mt-5 text-sm italic">
-                            <span>
-                                Aktualisiert am{" "}
-                                <time
-                                    datetime={post.data.updated.toISOString()}
-                                >
-                                    {post.data.updated.toLocaleDateString(
-                                        "de-DE",
-                                        {
-                                            dateStyle: "long",
-                                        },
-                                    )}
-                                </time>
-                            </span>
-                        </div>
-                    )
-                }
+                {post.data.updated && (
+                    <div class="text-muted-foreground mt-5 text-sm italic">
+                        <span>
+                            Aktualisiert am{" "}
+                            <time datetime={post.data.updated.toISOString()}>
+                                {post.data.updated.toLocaleDateString("de-DE", {
+                                    dateStyle: "long",
+                                })}
+                            </time>
+                        </span>
+                    </div>
+                )}
             </header>
 
-            <div
-                class="prose prose-lg prose-neutral prose-a:text-primary max-w-none"
-            >
+            <div class="prose prose-lg prose-neutral prose-a:text-primary max-w-none">
                 <Content />
             </div>
 
             <ul class="mt-12 flex flex-wrap gap-4" aria-label="Themen">
-                {
-                    post.data.tags.map((tag) => (
-                        <li>
-                            <Button
-                                variant="secondary"
-                                class="rounded-full"
-                                size="sm"
-                                href={`/blog/tags/${toSlug(tag)}/`}
-                            >
-                                {tag}
-                            </Button>
-                        </li>
-                    ))
-                }
+                {post.data.tags.map((tag) => (
+                    <li>
+                        <Button
+                            variant="secondary"
+                            class="rounded-full"
+                            size="sm"
+                            href={`/blog/tags/${toSlug(tag)}/`}
+                        >
+                            {tag}
+                        </Button>
+                    </li>
+                ))}
             </ul>
 
             <p class="mt-12">

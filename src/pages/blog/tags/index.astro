@@ -21,24 +21,22 @@ const description =
             <h1 class="text-display">{title}</h1>
             <p class="text-lead mt-4">{description}</p>
 
-            {
-                tags.length > 0 ? (
-                    <ul class="mt-14 flex flex-wrap gap-3">
-                        {tags.map((tag) => (
-                            <li>
-                                <a
-                                    class="bg-secondary text-secondary-foreground hover:bg-accent inline-flex rounded-full px-4 py-2 no-underline transition-colors"
-                                    href={`/blog/tags/${toSlug(tag)}/`}
-                                >
-                                    {tag}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p class="mt-10">Noch sind keine Themen vorhanden.</p>
-                )
-            }
+            {tags.length > 0 ? (
+                <ul class="mt-14 flex flex-wrap gap-3">
+                    {tags.map((tag) => (
+                        <li>
+                            <a
+                                class="bg-secondary text-secondary-foreground hover:bg-accent inline-flex rounded-full px-4 py-2 no-underline transition-colors"
+                                href={`/blog/tags/${toSlug(tag)}/`}
+                            >
+                                {tag}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p class="mt-10">Noch sind keine Themen vorhanden.</p>
+            )}
 
             <p class="mt-12">
                 <a href="/blog/">&larr; Zurück zum Blog</a>

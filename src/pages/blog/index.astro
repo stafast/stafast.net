@@ -24,23 +24,17 @@ const posts = (
         </header>
 
         <div>
-            {
-                posts.length > 0 ? (
-                    <BlogList posts={posts} />
-                ) : (
-                    <p>Zurzeit sind keine Blogbeiträge veröffentlicht.</p>
-                )
-            }
+            {posts.length > 0 ? (
+                <BlogList posts={posts} />
+            ) : (
+                <p>Zurzeit sind keine Blogbeiträge veröffentlicht.</p>
+            )}
 
-            {
-                posts.length > 0 && (
-                    <div class="mt-12 text-center">
-                        <Button href="/blog/tags/">
-                            Alle Themen im Überblick
-                        </Button>
-                    </div>
-                )
-            }
+            {posts.length > 0 && (
+                <div class="mt-12 text-center">
+                    <Button href="/blog/tags/">Alle Themen im Überblick</Button>
+                </div>
+            )}
         </div>
     </section>
 </Layout>

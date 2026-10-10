@@ -11,6 +11,7 @@ import Footer from "@components/layout/Footer.astro";
 import Cursor from "@components/layout/Cursor.astro";
 import stafastConfig from "../../stafast.config";
 import { SEO } from "astro-seo";
+import { ChevronUp } from "@lucide/astro";
 
 interface Props {
     title?: string;
@@ -135,7 +136,93 @@ const openGraphImage = new URL(image, siteUrl).toString();
         </main>
         <Footer />
         <Cursor />
+        <button
+            data-scroll-top
+            type="button"
+            aria-label="Nach oben scrollen"
+            class="scroll-top-control fixed bottom-6 right-6 z-30 bg-neutral-900 text-neutral-300 data-[dark-background]:bg-background data-[dark-background]:text-foreground p-2 flex justify-center items-center rounded-full"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth', })"
+        >
+            <ChevronUp />
+        </button>
     </body>
 </html>
 
-<script></script>
+<style>
+    body {
+        view-timeline: --scroll-top block;
+        view-timeline-inset: 0;
+    }
+
+    @supports (animation-timeline: --scroll-top) {
+        .scroll-top-control {
+            animation: scroll-top-reveal linear both;
+            animation-timeline: --scroll-top;
+            animation-range: entry 125% entry 135%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-top-control {
+                animation-range: entry 125% entry 125%;
+            }
+        }
+    }
+
+    @keyframes scroll-top-reveal {
+        from {
+            opacity: 0;
+            visibility: hidden;
+        }
+        to {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+</style>
+
+<script>
+    const scrollTopButton =
+        document.querySelector<HTMLButtonElement>("[data-scroll-top]");
+    const darkSections = document.querySelectorAll("main .bg-neutral-900");
+
+    if (scrollTopButton) {
+        const updateButtonContrast = () => {
+            const buttonBounds = scrollTopButton.getBoundingClientRect();
+            const x = buttonBounds.left + buttonBounds.width / 2;
+            const y = buttonBounds.top + buttonBounds.height / 2;
+            const isOnDarkBackground = Array.from(darkSections).some(
+                (section) => {
+                    const bounds = section.getBoundingClientRect();
+                    return (
+                        x >= bounds.left &&
+                        x <= bounds.right &&
+                        y >= bounds.top &&
+                        y <= bounds.bottom
+                    );
+                },
+            );
+
+            scrollTopButton.toggleAttribute(
+                "data-dark-background",
+                isOnDarkBackground,
+            );
+        };
+
+        let updatePending = false;
+        const scheduleContrastUpdate = () => {
+            if (updatePending) return;
+            updatePending = true;
+            requestAnimationFrame(() => {
+                updateButtonContrast();
+                updatePending = false;
+            });
+        };
+
+        window.addEventListener("scroll", scheduleContrastUpdate, {
+            passive: true,
+        });
+        window.addEventListener("resize", scheduleContrastUpdate);
+        window.addEventListener("load", scheduleContrastUpdate);
+        updateButtonContrast();
+    }
+</script>

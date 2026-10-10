@@ -11,7 +11,7 @@ export default defineStafastConfig({
         title: "André Stafast — Softwareentwicklung mit technischer Tiefe",
         titleTemplate: "%s — André Stafast",
         description:
-            "André Stafast ist Software Engineer aus Kiel und entwickelt komplexe digitale Produkte mit technischer Tiefe, klarer Struktur und guter Benutzerführung.",
+            "André Stafast ist Software Engineer aus Kiel mit Schwerpunkt Frontend. Er entwickelt wartbare Webanwendungen und berät bei der technischen Umsetzung.",
         defaultImage: "/og.png",
     },
     blog: {

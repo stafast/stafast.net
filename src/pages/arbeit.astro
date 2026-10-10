@@ -1,11 +1,48 @@
 ---
 import Hero from "@/components/sections/work/Hero.astro";
+import Experience from "@components/sections/work/Experience.astro";
 import { seo } from "@data/work.ts";
 import Layout from "@layouts/Layout.astro";
+import stafastConfig from "../../stafast.config.ts";
+
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: seo.title,
+    description: seo.description,
+    inLanguage: stafastConfig.site.language,
+    mainEntity: {
+        "@type": "Person",
+        "@id": new URL("#person", siteUrl).toString(),
+        name: stafastConfig.site.name,
+        url: siteUrl.toString(),
+        jobTitle: "Software Engineer",
+        sameAs: stafastConfig.social.map(({ url }) => url),
+    },
+};
+const serializedStructuredData = JSON.stringify(structuredData).replace(
+    /</g,
+    "\\u003c",
+);
 ---
 
-<Layout title={seo.title}>
+<Layout
+    title={seo.title}
+    description={seo.description}
+    canonical={canonicalUrl}
+>
+    <script
+        slot="head"
+        is:inline
+        type="application/ld+json"
+        set:html={serializedStructuredData}
+    />
     <div class="grid gap-24 md:gap-42">
         <Hero />
+        <Experience />
     </div>
 </Layout>
