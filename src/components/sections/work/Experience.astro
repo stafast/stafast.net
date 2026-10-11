@@ -1,10 +1,11 @@
 ---
 import { experience } from "@data/work.ts";
+import { ExternalLink } from "@lucide/astro";
 ---
 
 <section id="work-experiences">
     {experience.map((section) => (
-        <div class="group even:bg-neutral-900 even:text-neutral-300 md:py-42 py-24">
+        <div class="group even:bg-neutral-900 md:py-42 py-24">
             <div class="container grid gap-10 lg:grid-cols-3 lg:gap-24">
                 <div>
                     <h2
@@ -37,6 +38,21 @@ import { experience } from "@data/work.ts";
                                     <li>{highlight}</li>
                                 ))}
                             </ul>
+                            {entry.links && (
+                                <p class="mt-4 hidden">
+                                    <span class="font-medium">Auswahl:</span>
+                                    {entry.links?.map((link) => (
+                                        <a
+                                            class="inline-flex items-center text-primary hover:text-primary/80 not-last:after:content-[','] pe-2"
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {link.title}
+                                        </a>
+                                    ))}
+                                </p>
+                            )}
                         </div>
                     ))}
                 </div>

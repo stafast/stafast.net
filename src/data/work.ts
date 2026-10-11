@@ -8,7 +8,7 @@ export const hero = {
     eyebrow: "Arbeit",
     heading: "Softwareentwicklung und Projektverantwortung.",
     description:
-        "Mein Schwerpunkt liegt heute auf der Frontend-Entwicklung komplexer Webanwendungen. Mein Weg führt durch Full-Stack-Entwicklung und E-Commerce. Selbständige Projekte, technische Beratung und Erfahrung in der Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
+        "Mein Schwerpunkt liegt aktuell auf der Frontend-Entwicklung komplexer Anwendungen. Mein Weg führt durch Full-Stack-Entwicklung und E-Commerce. Selbständige Projekte, technische Beratung und Erfahrung in der Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
 };
 
 interface ExperienceEntry {
@@ -18,6 +18,10 @@ interface ExperienceEntry {
     period: string;
     description: string;
     highlights: string[];
+    links?: {
+        title: string;
+        url: string;
+    }[];
 }
 
 interface ExperienceSection {
@@ -40,7 +44,7 @@ export const experience: ExperienceSection[] = [
                 role: "Frontend Engineer",
                 period: "Seit Juli 2025",
                 description:
-                    "Bei TriNext entwickle ich Nextfolder weiter, eine Webanwendung zur Bearbeitung und Strukturierung von Dokumenten im Bankenumfeld. Mein Schwerpunkt liegt auf technischer Konzeption, Frontend-Architektur und wartbaren Benutzeroberflächen.",
+                    "Bei TriNext entwickle ich Nextfolder weiter, eine browserbasierte Dokumentenmanagement-Software zur Bearbeitung und Strukturierung von Dokumenten im Bankenumfeld. Mein Schwerpunkt liegt auf technischer Konzeption, Frontend-Architektur und wartbaren Benutzeroberflächen.",
                 highlights: [
                     "Konzeption und Entwicklung neuer Funktionen und Produktbereiche mit Blick auf Benutzerfreundlichkeit und Performance.",
                     "Mitgestaltung der Frontend-Architektur, technischer Entscheidungen und Entwicklungsstandards.",
@@ -89,11 +93,21 @@ export const experience: ExperienceSection[] = [
                 role: "Software Engineer & Consultant · selbständig",
                 period: "Seit Februar 2013",
                 description:
-                    "Ich konzipiere, entwickle und betreue Websites, Online-Shops und individuelle Webanwendungen. Gemeinsam mit meinen Kunden analysiere ich Anforderungen und erarbeite Lösungen, die zu ihren Abläufen und technischen Rahmenbedingungen passen.",
+                    "Ich konzipiere, entwickle und betreue Websites, Online-Shops und individuelle Anwendungen. Gemeinsam mit meinen Kunden analysiere ich Anforderungen und erarbeite Lösungen, die zu ihren Abläufen und technischen Rahmenbedingungen passen.",
                 highlights: [
                     "Technische Beratung, Planung und Umsetzung digitaler Projekte sowie Wartung und kontinuierliche Weiterentwicklung bestehender Anwendungen.",
                     "Beratung von Festivals und Veranstaltungen zu organisatorischen Strukturen, Prozessen und technischen Lösungen.",
                     "Projektbezogene Übernahme von Artist Booking und Artist Relations.",
+                ],
+                links: [
+                    {
+                        title: "RAUM.",
+                        url: "https://raum.sh",
+                    },
+                    {
+                        title: "tohoop Festival",
+                        url: "https://tohoop-festival.de",
+                    },
                 ],
             },
         ],
