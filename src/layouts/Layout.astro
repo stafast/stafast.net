@@ -78,6 +78,7 @@ const openGraphImage = new URL(image, siteUrl).toString();
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
         <meta name="theme-color" content="#f5f7f5" />
+        <link rel="describedby" href={new URL("llms.txt", siteUrl)} />
         <SEO
             title={pageTitle}
             description={description}
@@ -225,4 +226,23 @@ const openGraphImage = new URL(image, siteUrl).toString();
         window.addEventListener("load", scheduleContrastUpdate);
         updateButtonContrast();
     }
+</script>
+<script defer is:inline type="text/javascript">
+    /* eslint-disable */
+    var _paq = (window._paq = window._paq || []);
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
+    (function () {
+        var u = "https://matomo.stafast.net/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "2"]);
+        var d = document,
+            g = d.createElement("script"),
+            s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src = u + "matomo.js";
+        s.parentNode.insertBefore(g, s);
+    })();
+    /* eslint-enable */
 </script>
