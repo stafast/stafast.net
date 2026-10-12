@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import { ArrowUpRight } from "@lucide/astro";
+import meImage from "@/assets/images/me.jpg";
+import { hero } from "@data/about.ts";
+import Button from "@/components/ui/Button.astro";
+---
+
+<section id="about-intro" class="container">
+    <div class="grid gap-12 lg:grid-cols-[3fr_2fr] lg:gap-16 xl:gap-32">
+        <div>
+            <p class="text-eyebrow mb-2">
+                <span aria-hidden="true">//</span> {hero.eyebrow}
+            </p>
+            <h1 class="text-display">{hero.heading}</h1>
+            <p class="text-lead mt-4">{hero.introduction}</p>
+            <p class="mt-6">{hero.description}</p>
+            <Button class="mt-10" href={hero.link.url}>
+                {hero.link.label}
+            </Button>
+        </div>
+        <div class="aspect-10/8 overflow-hidden rounded-lg lg:aspect-9/10">
+            <Image
+                src={meImage}
+                alt="Porträt von André Stafast"
+                width={1000}
+                height={1109}
+                widths={[400, 640, 800, 1000]}
+                sizes="(min-width: 1344px) 461px, (min-width: 1280px) calc((100vw - 12rem) * 0.4), (min-width: 1024px) calc((100vw - 8rem) * 0.4), calc(100vw - 2rem)"
+                priority
+                class="h-full w-full object-cover object-[center_40%]"
+            />
+        </div>
+    </div>
+</section>

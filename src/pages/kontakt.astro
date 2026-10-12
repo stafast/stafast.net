@@ -6,19 +6,13 @@ const title = "Kontakt";
 
 <Layout title={title}>
     <div class="container">
-        <div class="prose mx-auto">
-            <h1 class="text-3xl">{title}</h1>
+        <h1 class="h1 mb-6">{title}</h1>
 
-            <p>
-                Hast du Fragen oder möchtest du mit mir zusammenarbeiten? Ich
-                freue mich, von dir zu hören! Schick mir einfach eine E-Mail an:
-                <mail></mail>
-            </p>
-            <p>
-                Ich antworte in der Regel innerhalb von 24 Stunden. Ich freue
-                mich auf deine Nachricht!
-            </p>
-        </div>
+        <p class="mb-4">
+            Hast du Fragen oder möchtest du mit mir zusammenarbeiten? Ich freue
+            mich, von dir zu hören! Schick mir einfach eine E-Mail an:
+            <mail></mail>
+        </p>
     </div>
 </Layout>
 
@@ -27,5 +21,5 @@ const title = "Kontakt";
     const domain = "stafast";
     const tdl = "net";
     document.querySelector("mail").outerHTML =
-        `<a class="font-normal" href="mailto:${user}@${domain}.${tdl}">${user}@${domain}.${tdl}</a>`;
+        `<a class="font-medium text-primary" href="mailto:${user}@${domain}.${tdl}">${user}@${domain}.${tdl}</a>`;
 </script>

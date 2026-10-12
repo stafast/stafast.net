@@ -1,0 +1,18 @@
+---
+import { background } from "@data/about.ts";
+---
+
+<section id="mein-weg" class="container">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-24">
+        <div>
+            <h2 id="background-heading" class="h3">
+                {background.title}
+            </h2>
+        </div>
+        <div class="space-y-6 lg:col-span-2">
+            {background.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+            ))}
+        </div>
+    </div>
+</section>

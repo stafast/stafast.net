@@ -54,9 +54,9 @@ export default defineStafastConfig({
             items: [
                 { title: "Über mich", url: "/ueber-mich/" },
                 { title: "Arbeit", url: "/arbeit/" },
-                { title: "Webentwicklung", url: "/webentwicklung/" },
-                { title: "Beratung", url: "/beratung/" },
-                { title: "Astro Entwicklung", url: "/astro-entwicklung/" },
+                // { title: "Webentwicklung", url: "/webentwicklung/" },
+                // { title: "Beratung", url: "/beratung/" },
+                // { title: "Astro Entwicklung", url: "/astro-entwicklung/" },
             ],
         },
         {

@@ -11,7 +11,7 @@ export const hero = {
         screenReader:
             "Schwerpunkte: Software Engineering, Full-Stack Experience, Technical Conception sowie Festivals und digitale Erlebnisse.",
     },
-    heading: "Softwareentwicklung mit technischer Tiefe.",
+    heading: "Softwareentwicklung mit technischer Tiefe",
     description:
         "Ich entwickle Webanwendungen mit Schwerpunkt im Frontend und verbinde technische Tiefe mit klarer Struktur, guter Benutzerführung und langfristig wartbaren Lösungen.",
     cta: {
@@ -27,7 +27,7 @@ export const hero = {
 };
 
 export const workApproach = {
-    title: "Vier Perspektiven auf meine Arbeit.",
+    title: "Vier Perspektiven auf meine Arbeit",
     description:
         "Ich verbinde technische Umsetzung mit klarer Konzeption, echtem Verständnis für fachliche Abläufe und Verantwortung für das Ergebnis.",
     workApproaches: [

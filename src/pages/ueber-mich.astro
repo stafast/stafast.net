@@ -1,2 +1,64 @@
 ---
+import Hero from "@components/sections/about/Hero.astro";
+import Background from "@components/sections/about/Background.astro";
+import Collaboration from "@components/sections/about/Collaboration.astro";
+import Button from "@components/ui/Button.astro";
+import { contact, seo } from "@data/about.ts";
+import Layout from "@layouts/Layout.astro";
+import stafastConfig from "../../stafast.config.ts";
+
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: seo.title,
+    description: seo.description,
+    inLanguage: stafastConfig.site.language,
+    mainEntity: {
+        "@type": "Person",
+        "@id": new URL("#person", siteUrl).toString(),
+        name: stafastConfig.site.name,
+        url: siteUrl.toString(),
+        jobTitle: "Software Engineer",
+        sameAs: stafastConfig.social.map(({ url }) => url),
+    },
+};
+const serializedStructuredData = JSON.stringify(structuredData).replace(
+    /</g,
+    "\\u003c",
+);
 ---
+
+<Layout
+    title={seo.title}
+    description={seo.description}
+    canonical={canonicalUrl}
+>
+    <script
+        slot="head"
+        is:inline
+        type="application/ld+json"
+        set:html={serializedStructuredData}
+    />
+    <div class="grid gap-24 md:gap-42">
+        <Hero />
+        <Background />
+        <Collaboration />
+        <section class="container">
+            <div class="grid gap-6 lg:grid-cols-3 lg:gap-24">
+                <h2 id="contact-heading" class="h3">
+                    {contact.title}
+                </h2>
+                <div class="lg:col-span-2">
+                    <p>{contact.description}</p>
+                    <Button href={contact.link.url} class="mt-6">
+                        {contact.link.label}
+                    </Button>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

@@ -1,6 +1,5 @@
 ---
 import { experience } from "@data/work.ts";
-import { ExternalLink } from "@lucide/astro";
 ---
 
 <section id="work-experiences">
@@ -20,7 +19,9 @@ import { ExternalLink } from "@lucide/astro";
                     {section.entries.map((entry) => (
                         <div>
                             <div class="mb-4">
-                                <p class="text-eyebrow">{entry.period}</p>
+                                <p class="text-eyebrow group-even:text-accent">
+                                    {entry.period}
+                                </p>
                                 <h3
                                     id={entry.id}
                                     class="h4 mt-2 group-even:text-neutral-50"
@@ -31,7 +32,7 @@ import { ExternalLink } from "@lucide/astro";
                             </div>
                             <p>{entry.description}</p>
                             <ul
-                                class="marker:text-primary mt-4 space-y-2 pl-5"
+                                class="marker:text-primary mt-4 space-y-2 pl-5 group-even:marker:text-accent"
                                 style="list-style-type: square;"
                             >
                                 {entry.highlights.map((highlight) => (

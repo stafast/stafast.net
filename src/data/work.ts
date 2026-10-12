@@ -6,7 +6,7 @@ export const seo = {
 
 export const hero = {
     eyebrow: "Arbeit",
-    heading: "Softwareentwicklung und Projektverantwortung.",
+    heading: "Softwareentwicklung und Projektverantwortung",
     description:
         "Mein Schwerpunkt liegt aktuell auf der Frontend-Entwicklung komplexer Anwendungen. Mein Weg führt durch Full-Stack-Entwicklung und E-Commerce. Selbständige Projekte, technische Beratung und Erfahrung in der Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
 };
