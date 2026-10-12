@@ -1,47 +1,50 @@
-import {defineCollection, z} from "astro:content";
-import {glob, file} from "astro/loaders";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const blog = defineCollection({
     loader: glob({
-        pattern: "**/*.{md,mdx}",
         base: "./src/data/blog",
+        pattern: "**/*.md",
     }),
-    schema: ({ image }) => z.object({
-        title: z.string(),
-        description: z.string().min(70),
-        teaser: image().optional(),
-        teaserAlt: z.string().optional(),
-        published: z.coerce.date(),
-        updated: z.coerce.date().optional(),
-        tags: z.array(z.string())
-    })
-})
+    schema: ({ image }) =>
+        z
+            .object({
+                title: z.string().trim().min(1),
+                description: z.string().trim().min(70),
+                slug: z
+                    .string()
+                    .trim()
+                    .regex(
+                        /^[a-z0-9]+(?:[/-][a-z0-9]+)*$/,
+                        "Slugs may only contain lowercase letters, numbers, hyphens, and slashes.",
+                    )
+                    .optional(),
+                teaser: image().optional(),
+                teaserAlt: z.string().trim().min(1).optional(),
+                published: z.coerce.date(),
+                updated: z.coerce.date().optional(),
+                tags: z.array(z.string()),
+                draft: z.boolean().default(false),
+                canonicalUrl: z.url().optional(),
+            })
+            .superRefine((post, context) => {
+                if (post.teaser && !post.teaserAlt) {
+                    context.addIssue({
+                        code: "custom",
+                        message: "teaserAlt is required when teaser is set.",
+                        path: ["teaserAlt"],
+                    });
+                }
 
-const jobs = defineCollection({
-    loader: glob({
-        pattern: "**/*.{md,mdx}",
-        base: "./src/data/jobs",
-    }),
-    schema: z.object({
-        sortOrder: z.number(),
-        company: z.string(),
-        url: z.string().url().optional(),
-        job: z.string().optional(),
-        since: z.coerce.date()
-    })
-})
+                if (post.updated && post.updated < post.published) {
+                    context.addIssue({
+                        code: "custom",
+                        message: "updated must not be earlier than published.",
+                        path: ["updated"],
+                    });
+                }
+            }),
+});
 
-const skills = defineCollection({
-    loader: file('./src/data/skills.json'),
-    schema: z.object({
-        id: z.string(),
-        url: z.string().optional(),
-        icon: z.string().optional()
-    })
-})
-
-export const collections = {
-    blog,
-    jobs,
-    skills
-}
+export const collections = { blog };

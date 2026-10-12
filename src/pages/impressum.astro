@@ -1,21 +1,26 @@
 ---
-import Layout from '@layouts/Layout.astro'
+import Layout from "@layouts/Layout.astro";
 
-const pageTitle = 'Impressum'
+const title = "Impressum";
 ---
 
-<Layout pageTitle={pageTitle}>
+<Layout
+    title={title}
+    description="Impressum von André Stafast für stafast.net: Angaben zum Website-Anbieter, zu IT-Dienstleistungen und zur Anschrift."
+>
+    <div class="container">
+        <div class="prose mx-auto">
+            <h1>{title}</h1>
 
-    <div class="prose dark:prose-invert mx-auto">
-        <h1>{pageTitle}</h1>
-
-        <p>
-            § 5 TMG <br>
-            André Stafast <br>
-            Kleinunternehmen - IT-Dienstleistungen<br>
-            Stettiner Str. 22<br>
-            24537 Neumünster
-        </p>
+            <p>
+                § 5 TMG <br />
+                André Stafast <br />
+                Kleinunternehmen - IT-Dienstleistungen
+                <br />
+                Stettiner Str. 22
+                <br />
+                24537 Neumünster
+            </p>
+        </div>
     </div>
-
 </Layout>

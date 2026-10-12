@@ -1,0 +1,24 @@
+---
+import { work } from "@data/home.ts";
+import Button from "@components/ui/Button.astro";
+---
+
+<section id="work">
+    <div class="container">
+        <h2 class="h1">{work.title}</h2>
+        <p class="text-lead mt-4">{work.description}</p>
+        <div class="grid grid-cols-3 gap-12 lg:gap-24 mt-16 lg:mt-18">
+            {work.items.map((work) => (
+                <div class="col-span-3 lg:col-span-1">
+                    <span class="text-eyebrow mb-2">{work.eyebrow}</span>
+                    <h4 class="">{work.title}</h4>
+                    <p class="my-2 text-lg" set:html={work.text} />
+                    <p class="text-sm text-muted-foreground">{work.note}</p>
+                </div>
+            ))}
+        </div>
+        <div class="text-center mt-12">
+            <Button href="/arbeit/">Arbeit und Erfahrung ansehen</Button>
+        </div>
+    </div>
+</section>

@@ -4,6 +4,7 @@ description: "Ein Jahr später ist klar: Die Festival-Krise war keine Momentaufn
 teaser: "teaser.jpg"
 teaserAlt: "Blick auf eine beleuchtete Festivalbühne und ein dichtes Publikum am Abend."
 published: "2026-07-15T00:00:00"
+updated: "2026-07-21T00:00:00"
 tags: [ "Festival", "Event", "Booker" ]
 ---
 

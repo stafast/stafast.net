@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">André Stafast — Software Engineer aus Kiel</title>
+  <desc id="description">Softwareentwicklung mit technischer Tiefe. Die persönliche Website von André Stafast.</desc>
+  <rect width="1200" height="630" fill="#f5f7f5" />
+  <path d="M80 82h64" stroke="#25765d" stroke-width="5" />
+  <text x="80" y="138" fill="#25765d" font-family="Arial, Helvetica, sans-serif" font-size="23" letter-spacing="2">SOFTWARE ENGINEER · KIEL</text>
+  <text x="74" y="278" fill="#202723" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" letter-spacing="-3">André Stafast</text>
+  <text x="80" y="366" fill="#202723" font-family="Arial, Helvetica, sans-serif" font-size="43" letter-spacing="-1">Softwareentwicklung</text>
+  <text x="80" y="423" fill="#202723" font-family="Arial, Helvetica, sans-serif" font-size="43" letter-spacing="-1">mit technischer Tiefe.</text>
+  <path d="M80 520h1040" stroke="#d9e0da" stroke-width="2" />
+  <text x="80" y="577" fill="#25765d" font-family="Arial, Helvetica, sans-serif" font-size="25">stafast.net</text>
+  <text x="1120" y="577" fill="#5d6860" font-family="Arial, Helvetica, sans-serif" font-size="23" text-anchor="end">Frontend · Konzeption · Beratung</text>
+</svg>

@@ -1,29 +1,28 @@
 ---
-import Layout from '@layouts/Layout.astro'
+import Layout from "@layouts/Layout.astro";
 
-const pageTitle = 'Kontakt'
+const title = "Kontakt";
 ---
 
-<Layout pageTitle={pageTitle}>
+<Layout
+    title="Kontakt für Softwareprojekte und Austausch"
+    description="Kontaktiere André Stafast aus Kiel für Softwareprojekte, technische Beratung oder einen fachlichen Austausch. Schreib mir einfach eine E-Mail."
+>
+    <div class="container">
+        <h1 class="h1 mb-6">{title}</h1>
 
-    <div class="mx-auto max-w-prose">
-        <h1 class="text-3xl">{pageTitle}</h1>
-
-        <p>
-            Hast du Fragen oder möchtest du mit mir zusammenarbeiten?
-            Ich freue mich, von dir zu hören! Schick mir einfach eine E-Mail an:
-            <mail/>
-        </p>
-        <p>
-            Ich antworte in der Regel innerhalb von 24 Stunden. Ich freue mich auf deine Nachricht!
+        <p class="mb-4">
+            Hast du Fragen oder möchtest du mit mir zusammenarbeiten? Ich freue
+            mich, von dir zu hören! Schick mir einfach eine E-Mail an:
+            <mail></mail>
         </p>
     </div>
-
 </Layout>
 
 <script is:inline type="text/javascript">
     const user = "andre";
     const domain = "stafast";
     const tdl = "net";
-    document.querySelector('mail').outerHTML = `<a class="font-normal" href="mailto:${user}@${domain}.${tdl}">${user}@${domain}.${tdl}</a>`;
+    document.querySelector("mail").outerHTML =
+        `<a class="font-medium text-primary" href="mailto:${user}@${domain}.${tdl}">${user}@${domain}.${tdl}</a>`;
 </script>

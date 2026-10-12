@@ -4,8 +4,11 @@ description: "Wie ich mich vom Webentwickler zum Head of Artists beim Love Explo
 teaser: "./teaser.jpg"
 teaserAlt: "Psytrance Stage der Love Explosion 2023."
 published: "2024-02-16T00:00:00"
+updated: "2026-10-10T00:00:00"
 tags: [ "Festival", "Booker", "Love Explosion", "Event" ]
 ---
+
+> **Hinweis:** Meine Tätigkeit bei Love Explosion endete im November 2025. Dieser Beitrag beschreibt meine Aufgaben und Erfahrungen aus dem Jahr 2024.
 
 2021 hat mich ein Freund ins Boot geholt, um beim **Love and Trance Festival** (so hieß es damals) die Website zu
 entwickeln. Was anfangs nach einer überschaubaren Aufgabe klang, entwickelte sich schnell weiter. Da ich ein gutes
@@ -13,9 +16,9 @@ Verständnis für die Techno-Szene hatte – mehr als das restliche Team – üb
 Planung des Techno-Timetables, sondern auch das Stage-Management der Techno-Stage. So war ich bei der ersten Edition im
 Juni 2022 direkt voll eingespannt.
 
-Nach diesem Erfolg wuchs meine Begeisterung für das Projekt – ebenso wie meine Verantwortung. Ab 2023 übernahm ich dann
-das komplette Booking für beide Stages, Techno und Goa, und das Festival bekam mit dem neuen Namen **Love Explosion
-Festival** einen frischen Anstrich.
+Nach der ersten Ausgabe im Juni 2022 wuchs auch meine Verantwortung: Ab Juli 2022 übernahm ich das Artist Management
+und die bühnenübergreifende Koordination. Für die Festivalausgabe 2023 betreute ich dann das komplette Booking für beide
+Stages, Techno und Goa, und das Festival bekam mit dem neuen Namen **Love Explosion Festival** einen frischen Anstrich.
 
 ## Meine Aufgaben als Head of Artists: Von der Künstlerwahl bis zur Zahlungsabwicklung
 
@@ -71,8 +74,8 @@ die Mühe gelohnt hat.
 
 ## Ausblick in die Zukunft: Fokus und Wachstum
 
-Neben dem Booking übernehme ich während des Festivals auch Aufgaben als stellvertretender Veranstalter. Außerdem kümmere
-ich mich um die IT, die Website und bin das ganze Jahr über an der Planung beteiligt. Wenn das Festival weiterwächst und
+Neben dem Booking übernehme ich während des Festivals auch Aufgaben als stellvertretender Veranstaltungsleiter.
+Außerdem kümmere ich mich um die IT, die Website und bin das ganze Jahr über an der Planung beteiligt. Wenn das Festival weiterwächst und
 vielleicht noch mehr Stages hinzukommen, könnte es nötig werden, dass ich mich auf weniger Stages konzentriere, um
 weiterhin eine hohe Qualität im Booking sicherzustellen.
 

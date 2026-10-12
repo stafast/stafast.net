@@ -1,0 +1,123 @@
+---
+import stafastConfig from "../../../stafast.config";
+import { Menu, X } from "@lucide/astro";
+import StafastLogo from "@components/icons/StafastLogo.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="relative mb-16 border-b md:mb-24 lg:border-none">
+    <div class="container flex min-h-20 flex-wrap items-center justify-between">
+        <a href="/" title="Zur Startseite" class="flex h-20 items-center">
+            <StafastLogo class="text-foreground h-7 w-auto" />
+        </a>
+        <nav
+            id="site-navigation"
+            aria-label="Navigation"
+            class="w-full lg:w-auto"
+        >
+            <button
+                type="button"
+                aria-controls="navigation"
+                aria-expanded="false"
+                hidden
+                class="group text-foreground hover:bg-secondary flex size-11 cursor-pointer items-center justify-center rounded-lg transition-colors lg:hidden"
+            >
+                <span class="sr-only">Menü</span>
+                <Menu
+                    aria-hidden="true"
+                    class="size-6 group-aria-expanded:hidden"
+                />
+                <X
+                    aria-hidden="true"
+                    class="hidden size-6 group-aria-expanded:block"
+                />
+            </button>
+            <ul
+                id="navigation"
+                class="navigation-items flex flex-col gap-1 py-4 lg:flex-row lg:items-center lg:gap-8 lg:p-0"
+            >
+                {stafastConfig.navigation.map(({ url, title }) => (
+                    <li>
+                        <a
+                            href={url}
+                            aria-current={
+                                currentPath === url ? "page" : undefined
+                            }
+                            class="text-foreground/80 hover:text-foreground transition-colors aria-[current=page]:font-semibold aria-[current=page]:text-foreground"
+                        >
+                            {title}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+    @reference "../../styles/global.css";
+
+    @media (width < 64rem) {
+        nav[data-ready] {
+            width: auto;
+        }
+
+        nav[data-ready] .navigation-items {
+            @apply bg-background absolute inset-x-0 top-full z-40 max-h-[calc(100dvh-5rem)] overflow-y-auto border-b px-4 shadow-(--shadow);
+            display: none;
+        }
+
+        nav[data-ready] [aria-expanded="true"] + .navigation-items {
+            display: flex;
+        }
+
+        .navigation-items a {
+            @apply hover:bg-secondary block rounded-lg px-4 py-3;
+        }
+
+        .navigation-items a[aria-current="page"] {
+            @apply bg-secondary;
+        }
+    }
+</style>
+
+<script>
+    const nav = document.getElementById("site-navigation");
+    const toggle = nav?.querySelector<HTMLButtonElement>("button");
+
+    if (nav && toggle) {
+        nav.dataset.ready = "";
+        toggle.hidden = false;
+
+        const closeMenu = () => toggle.setAttribute("aria-expanded", "false");
+
+        toggle.addEventListener("click", () => {
+            const open = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", String(!open));
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!(event.target instanceof Element)) return;
+
+            if (!nav.contains(event.target) || event.target.closest("a")) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (
+                event.key !== "Escape" ||
+                toggle.getAttribute("aria-expanded") !== "true"
+            )
+                return;
+
+            event.preventDefault();
+            closeMenu();
+            toggle.focus();
+        });
+
+        const desktop = window.matchMedia("(min-width: 64rem)");
+        desktop.addEventListener("change", closeMenu);
+    }
+</script>

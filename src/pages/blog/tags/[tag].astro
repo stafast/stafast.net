@@ -1,46 +1,53 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import {type CollectionEntry, getCollection} from 'astro:content';
 import BlogList from "@components/BlogList.astro";
-import toSlug from "@utils/toSlug";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { toSlug } from "@lib/toSlug.ts";
+import stafastConfig from "../../../../stafast.config.ts";
 
 interface Props {
     posts: CollectionEntry<"blog">[];
-    title: string;
+    tag: string;
 }
 
 export async function getStaticPaths() {
-    const posts = await getCollection('blog')
-    const tags = [...new Set(posts.map((post) => post.data.tags).flat())]
+    const posts = (
+        await getCollection("blog", ({ data }) =>
+            import.meta.env.PROD ? !data.draft : true,
+        )
+    ).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+    const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 
-    return tags.map((tag) => {
-        const filteredPosts = posts.filter((post) => post.data.tags.includes(tag)).sort(
-            (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
-        );
-        return {
-            params: {tag: toSlug(tag)},
-            props: {posts: filteredPosts, title: tag},
-        };
-    });
+    return tags.map((tag) => ({
+        params: { tag: toSlug(tag) },
+        props: {
+            tag,
+            posts: posts.filter((post) => post.data.tags.includes(tag)),
+        },
+    }));
 }
 
-const {tag} = Astro.params;
-const {title, posts} = Astro.props;
-
-let pageTitle: string = title;
-let pageDescription: string = `Hier findest du alle Blogbeiträge, die sich mit dem Thema „${title}“ beschäftigen.`;
-
-if (tag == 'laufen') {
-    pageTitle = 'Laufen, Spaß und Schmerzen';
-    pageDescription = 'Laufen ist mehr als ein Hobby – es ist eine Leidenschaft!';
-}
+const { tag, posts } = Astro.props;
+const tagPage = stafastConfig.blog.tagPages[toSlug(tag)];
+const pageTitle = tagPage?.title ?? `${tag} im Blog`;
+const pageDescription =
+    tagPage?.description ??
+    `Beiträge von André Stafast zum Thema „${tag}“ – persönliche Erfahrungen, Hintergründe und praktische Einblicke.`;
 ---
-<Layout pageTitle={pageTitle} pageDescription={pageDescription} noindex={true}>
 
-    <h1 class="text-3xl font-bold">Blogbeiträge zum Thema <span class="whitespace-nowrap">{title}</span></h1>
+<Layout title={pageTitle} description={pageDescription}>
+    <section class="container">
+        <header class="mb-14">
+            <span class="text-eyebrow mb-2">// Blogthema</span>
+            <h1 class="text-display">{pageTitle}</h1>
+            <p class="text-lead mt-4">{pageDescription}</p>
+        </header>
 
-    <p class="mb-14 font-semibold">{pageDescription}</p>
-
-    <BlogList posts={posts}/>
-
+        <div class="">
+            <BlogList posts={posts} />
+            <p class="mt-12">
+                <a href="/blog/tags/">&larr; Alle Themen</a>
+            </p>
+        </div>
+    </section>
 </Layout>

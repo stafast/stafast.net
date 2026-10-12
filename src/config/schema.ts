@@ -1,0 +1,137 @@
+import { z } from "astro/zod";
+
+export const socialPlatforms = [
+    "instagram",
+    "linkedin",
+    "spotify",
+    "apple-music",
+    "youtube",
+    "tiktok",
+    "facebook",
+    "threads",
+    "x",
+    "whatsapp",
+    "soundcloud",
+    "resident-advisor",
+    "viberate",
+    "beatport",
+    "bluesky",
+    "discogs",
+    "mixcloud",
+    "bandcamp",
+    "email",
+    "github",
+    "strava",
+] as const;
+
+export type SocialPlatform = (typeof socialPlatforms)[number];
+
+export const socialPlatformLabels: Record<SocialPlatform, string> = {
+    instagram: "Instagram",
+    spotify: "Spotify",
+    "apple-music": "Apple Music",
+    linkedin: "LinkedIn",
+    youtube: "YouTube",
+    tiktok: "TikTok",
+    facebook: "Facebook",
+    threads: "Threads",
+    x: "X",
+    whatsapp: "WhatsApp",
+    soundcloud: "SoundCloud",
+    "resident-advisor": "Resident Advisor",
+    viberate: "Viberate",
+    beatport: "Beatport",
+    bluesky: "Bluesky",
+    discogs: "Discogs",
+    mixcloud: "Mixcloud",
+    bandcamp: "Bandcamp",
+    email: "Email",
+    github: "GitHub",
+    strava: "Strava",
+};
+
+const basePathSchema = z
+    .string()
+    .trim()
+    .regex(/^\/(?:[^/].*)?$/, "Base paths must start with a single slash.")
+    .transform((value) => (value === "/" ? value : value.replace(/\/+$/, "")));
+
+const imageSourceSchema = z.union([
+    z.url(),
+    z.string().regex(/^\//, "Local image paths must start with '/'."),
+]);
+
+const linkUrlSchema = z.union([
+    z.url(),
+    z.string().regex(/^\/(?!\/)/, "Internal links must start with '/'."),
+]);
+
+const navigationItemSchema = z.object({
+    title: z.string().min(1),
+    url: linkUrlSchema,
+});
+
+const socialLinkSchema = z
+    .object({
+        platform: z.enum(socialPlatforms),
+        url: z.url(),
+        label: z.string().min(1).optional(),
+    })
+    .transform((social) => ({
+        ...social,
+        label: social.label ?? socialPlatformLabels[social.platform],
+    }));
+
+const blogTagPageSchema = z.object({
+    title: z.string().trim().min(1).optional(),
+    description: z.string().trim().min(1).max(160).optional(),
+});
+
+export const stafastConfigSchema = z.object({
+    site: z.object({
+        name: z.string().min(1),
+        url: z.url(),
+        base: basePathSchema.default("/"),
+        language: z.string().min(2).default("en"),
+        locale: z.string().min(2).default("en_GB"),
+    }),
+    seo: z.object({
+        title: z.string().min(1),
+        titleTemplate: z.string().min(1),
+        description: z.string().min(1).max(160),
+        defaultImage: imageSourceSchema,
+    }),
+    blog: z.object({
+        title: z.string().trim().min(1),
+        description: z.string().trim().min(1).max(160),
+        introduction: z.string().trim().min(1),
+        tagPages: z
+            .record(
+                z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+                blogTagPageSchema,
+            )
+            .default({}),
+    }),
+    social: z.array(socialLinkSchema).default([]),
+    navigation: z.array(navigationItemSchema).default([]),
+    footerMenu: z.array(
+        z.object({
+            title: z.string().min(1),
+            items: z
+                .array(
+                    z.object({
+                        title: z.string().min(1),
+                        url: linkUrlSchema,
+                    }),
+                )
+                .min(1),
+        }),
+    ),
+});
+
+export type StafastConfig = z.infer<typeof stafastConfigSchema>;
+export type StafastConfigInput = z.input<typeof stafastConfigSchema>;
+
+export function defineStafastConfig(config: StafastConfigInput): StafastConfig {
+    return stafastConfigSchema.parse(config);
+}

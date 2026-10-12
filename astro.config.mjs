@@ -1,29 +1,41 @@
 // @ts-check
-import {defineConfig} from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import icon from "astro-icon";
-import tailwind from '@astrojs/tailwind';
-import astroExpressiveCode from 'astro-expressive-code'
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import { unified } from "@astrojs/markdown-remark";
+import tailwindcss from "@tailwindcss/vite";
+import stafast from "./stafast.config";
+import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 
+import expressiveCode from "astro-expressive-code";
 
-// https://astro.build/config
 export default defineConfig({
-    site: 'https://stafast.net',
-    trailingSlash: 'always',
     prefetch: {
-        defaultStrategy: 'viewport'
+        defaultStrategy: "viewport",
     },
-    integrations: [
-        sitemap({
-            filter: (page) => !page.includes('/blog/tags/'),
+
+    site: stafast.site.url,
+    base: stafast.site.base,
+    trailingSlash: "always",
+
+    markdown: {
+        processor: unified({
+            remarkPlugins: [remarkReadingTime],
         }),
-        icon(),
-        astroExpressiveCode({
-            themes: ['github-dark', 'github-light'],
+    },
+
+    vite: {
+        plugins: [tailwindcss()],
+    },
+
+    output: "static",
+    compressHTML: true,
+    integrations: [
+        sitemap(),
+        expressiveCode({
+            themes: ["github-dark", "github-light"],
             styleOverrides: {
                 codeFontSize: "0.9rem",
             },
         }),
-        tailwind({nesting: true})
-    ]
+    ],
 });

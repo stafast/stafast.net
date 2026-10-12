@@ -1,0 +1,22 @@
+---
+import { collaboration } from "@data/about.ts";
+---
+
+<section id="zusammenarbeit" class="bg-neutral-900 py-24 md:py-42">
+    <div class="container">
+        <div class="max-w-3xl">
+            <p class="text-eyebrow text-accent mb-3">{collaboration.eyebrow}</p>
+            <h2 id="collaboration-heading" class="h1">
+                {collaboration.title}
+            </h2>
+        </div>
+        <div class="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-3 lg:gap-16">
+            {collaboration.items.map((item) => (
+                <div>
+                    <h3 class="h4">{item.title}</h3>
+                    <p class="mt-4">{item.description}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

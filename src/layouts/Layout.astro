@@ -1,87 +1,228 @@
 ---
+import "@fontsource-variable/geist-mono/wght.css";
+import "@fontsource-variable/geist/wght.css";
+import "@fontsource-variable/bricolage-grotesque/wght.css";
+import "@/styles/global.css";
+import bricolageGrotesque from "@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url";
+import geistMono from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url";
+import geist from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
+import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
+import Cursor from "@components/layout/Cursor.astro";
+import stafastConfig from "../../stafast.config";
+import { SEO } from "astro-seo";
+import { ChevronUp } from "@lucide/astro";
+
 interface Props {
-    pageTitle?: string;
-    pageDescription?: string;
-    ogImage?: string;
+    title?: string;
+    description?: string;
     noindex?: boolean;
+    canonical?: string;
+    image?: string;
+    imageAlt?: string;
+    openGraphType?: "website" | "article";
+    article?: {
+        publishedTime: string;
+        modifiedTime?: string;
+        tags: string[];
+    };
 }
 
-import '@fontsource-variable/noto-sans';
-import notoSansWoff2 from '@fontsource-variable/noto-sans/files/noto-sans-latin-wght-normal.woff2?url';
-import { SEO } from "astro-seo";
-import Header from '@components/Header.astro'
-import Footer from '@components/Footer.astro'
-import {author, defaultPageDescription} from '@data/constants'
-import '@css/main.css'
+const {
+    title,
+    description = stafastConfig.seo.description,
+    noindex = false,
+    canonical,
+    image = stafastConfig.seo.defaultImage,
+    imageAlt = stafastConfig.site.name,
+    openGraphType = "website",
+    article,
+} = Astro.props;
 
-const {pageTitle, pageDescription, ogImage, noindex = false} = Astro.props;
-const title = pageTitle ? pageTitle + ' | ' + author : author
-const description = pageDescription ? pageDescription : defaultPageDescription;
-const ogImageUrl =  Astro.site + (ogImage ? ogImage : 'og.png')
+const pageTitle = title
+    ? stafastConfig.seo.titleTemplate.replace("%s", title)
+    : stafastConfig.seo.title;
 
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const canonicalUrl =
+    canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const openGraphImage = new URL(image, siteUrl).toString();
 ---
 
 <!doctype html>
-<html lang="de" class="scroll-smooth">
-<head>
-    <link rel="preload" as="font" type="font/woff2" href={notoSansWoff2} crossorigin="anonymous" />
-    <SEO
-        charset="utf-8"
-        title={title}
-        description={description}
-        noindex={noindex}
-        extend={{
-            meta: [
-                {
-                    name: "viewport",
-                    content: "width=device-width, initial-scale=1.0"
+<html lang={stafastConfig.site.language} class="scroll-p-8 scroll-smooth">
+    <head>
+        <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href={bricolageGrotesque}
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href={geist}
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href={geistMono}
+            crossorigin="anonymous"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="theme-color" content="#f5f7f5" />
+        <SEO
+            title={pageTitle}
+            description={description}
+            canonical={canonicalUrl}
+            charset="utf-8"
+            noindex={noindex}
+            nofollow={noindex}
+            openGraph={{
+                basic: {
+                    title: pageTitle,
+                    type: openGraphType,
+                    image: openGraphImage,
+                    url: canonicalUrl,
                 },
-                {
-                    name: "generator",
-                    content: Astro.generator
-                }
-            ]
-        }}
-        openGraph={{
-            basic: {
-                title: title,
-                type: "website",
-                image: ogImageUrl
-            },
-            optional: {
-                siteName: author,
-                locale: "de_DE",
-                description: pageDescription
-            }
-        }}
-
-    />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-</head>
-<body class="flex flex-col h-svh bg-stone-50 dark:bg-stone-900 leading-relaxed selection:text-white selection:bg-fuchsia-500 antialiased">
-
-<Header/>
-
-<main class="container max-w-4xl flex-1 print:my-10">
-    <slot/>
-</main>
-
-<Footer/>
-<script defer is:inline type="text/javascript">
-    /* eslint-disable */
-    var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-        var u="https://matomo.stafast.net/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '2']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-    /* eslint-enable */
-</script>
-</body>
+                optional: {
+                    description,
+                    locale: stafastConfig.site.locale,
+                    siteName: stafastConfig.site.name,
+                },
+                image: {
+                    alt: imageAlt,
+                },
+                ...(article
+                    ? {
+                          article: {
+                              publishedTime: article.publishedTime,
+                              ...(article.modifiedTime
+                                  ? { modifiedTime: article.modifiedTime }
+                                  : {}),
+                              authors: [stafastConfig.site.url],
+                              tags: article.tags,
+                          },
+                      }
+                    : {}),
+            }}
+            twitter={{
+                card: "summary_large_image",
+                title: pageTitle,
+                description,
+                image: openGraphImage,
+                imageAlt,
+            }}
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={`${stafastConfig.blog.title} – ${stafastConfig.site.name}`}
+            href={new URL("rss.xml", siteUrl)}
+        />
+        <slot name="head" />
+    </head>
+    <body>
+        <Header />
+        <main class="flex-1">
+            <slot />
+        </main>
+        <Footer />
+        <Cursor />
+        <button
+            data-scroll-top
+            type="button"
+            aria-label="Nach oben scrollen"
+            class="scroll-top-control fixed bottom-6 right-6 z-30 bg-neutral-900 text-neutral-300 data-[dark-background]:bg-background data-[dark-background]:text-foreground p-2 flex justify-center items-center rounded-full"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth', })"
+        >
+            <ChevronUp />
+        </button>
+    </body>
 </html>
+
+<style>
+    body {
+        view-timeline: --scroll-top block;
+        view-timeline-inset: 0;
+    }
+
+    @supports (animation-timeline: --scroll-top) {
+        .scroll-top-control {
+            animation: scroll-top-reveal linear both;
+            animation-timeline: --scroll-top;
+            animation-range: entry 125% entry 135%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-top-control {
+                animation-range: entry 125% entry 125%;
+            }
+        }
+    }
+
+    @keyframes scroll-top-reveal {
+        from {
+            opacity: 0;
+            visibility: hidden;
+        }
+        to {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+</style>
+
+<script>
+    const scrollTopButton =
+        document.querySelector<HTMLButtonElement>("[data-scroll-top]");
+    const darkSections = document.querySelectorAll("main .bg-neutral-900");
+
+    if (scrollTopButton) {
+        const updateButtonContrast = () => {
+            const buttonBounds = scrollTopButton.getBoundingClientRect();
+            const x = buttonBounds.left + buttonBounds.width / 2;
+            const y = buttonBounds.top + buttonBounds.height / 2;
+            const isOnDarkBackground = Array.from(darkSections).some(
+                (section) => {
+                    const bounds = section.getBoundingClientRect();
+                    return (
+                        x >= bounds.left &&
+                        x <= bounds.right &&
+                        y >= bounds.top &&
+                        y <= bounds.bottom
+                    );
+                },
+            );
+
+            scrollTopButton.toggleAttribute(
+                "data-dark-background",
+                isOnDarkBackground,
+            );
+        };
+
+        let updatePending = false;
+        const scheduleContrastUpdate = () => {
+            if (updatePending) return;
+            updatePending = true;
+            requestAnimationFrame(() => {
+                updateButtonContrast();
+                updatePending = false;
+            });
+        };
+
+        window.addEventListener("scroll", scheduleContrastUpdate, {
+            passive: true,
+        });
+        window.addEventListener("resize", scheduleContrastUpdate);
+        window.addEventListener("load", scheduleContrastUpdate);
+        updateButtonContrast();
+    }
+</script>
