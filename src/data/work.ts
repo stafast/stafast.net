@@ -8,7 +8,7 @@ export const hero = {
     eyebrow: "Arbeit",
     heading: "Softwareentwicklung und Projektverantwortung",
     description:
-        "Mein Schwerpunkt liegt aktuell auf der Frontend-Entwicklung komplexer Anwendungen. Mein Weg führt durch Full-Stack-Entwicklung und E-Commerce. Selbständige Projekte, technische Beratung und Erfahrung in der Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
+        "Mein Schwerpunkt liegt aktuell auf der Frontend-Entwicklung komplexer Webanwendungen. Ich bringe Erfahrung in der Full-Stack-Entwicklung und im E-Commerce mit. Selbstständige Projekte, technische Beratung und Erfahrung in der Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
 };
 
 interface ExperienceEntry {
@@ -36,7 +36,7 @@ export const experience: ExperienceSection[] = [
         id: "softwareentwicklung",
         title: "Softwareentwicklung",
         description:
-            "Von Websites und Online-Shops bis zu komplexen Anwendungen: Ich verbinde meinen heutigen Frontend-Schwerpunkt mit langjähriger Erfahrung im gesamten Web-Stack.",
+            "Von Websites und Online-Shops bis zu komplexen Anwendungen: Ich verbinde meinen heutigen Frontend-Schwerpunkt mit langjähriger Erfahrung in der Full-Stack-Entwicklung.",
         entries: [
             {
                 id: "trinext",
@@ -90,7 +90,7 @@ export const experience: ExperienceSection[] = [
             {
                 id: "andre-stafast",
                 organization: "André Stafast",
-                role: "Software Engineer & Consultant · selbständig",
+                role: "Software Engineer & Consultant · selbstständig",
                 period: "Seit Februar 2013",
                 description:
                     "Ich konzipiere, entwickle und betreue Websites, Online-Shops und individuelle Anwendungen. Gemeinsam mit meinen Kunden analysiere ich Anforderungen und erarbeite Lösungen, die zu ihren Abläufen und technischen Rahmenbedingungen passen.",

@@ -11,10 +11,13 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort(
 );
 const title = "Themen im Blog";
 const description =
-    "Alle Themen und Schlagwörter der Blogbeiträge von André Stafast im Überblick.";
+    "Alle Blogthemen von André Stafast im Überblick: Softwareentwicklung, Web-Performance, Festivals und Laufen. Finde die passenden Beiträge nach Thema.";
 ---
 
-<Layout title={title} description={description}>
+<Layout
+    title="Blogthemen: Software, Festivals und Laufen"
+    description={description}
+>
     <section class="container">
         <div class="">
             <span class="text-eyebrow mb-2">// Blogarchiv</span>

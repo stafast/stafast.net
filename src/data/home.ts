@@ -13,7 +13,7 @@ export const hero = {
     },
     heading: "Softwareentwicklung mit technischer Tiefe",
     description:
-        "Ich entwickle Webanwendungen mit Schwerpunkt im Frontend und verbinde technische Tiefe mit klarer Struktur, guter Benutzerführung und langfristig wartbaren Lösungen.",
+        "Ich entwickle Webanwendungen mit Schwerpunkt im Frontend. Dabei achte ich auf klare Strukturen, gute Benutzerführung und Code, der sich langfristig weiterentwickeln lässt.",
     cta: {
         primary: {
             label: "Erfahrung ansehen",
@@ -29,13 +29,13 @@ export const hero = {
 export const workApproach = {
     title: "Vier Perspektiven auf meine Arbeit",
     description:
-        "Ich verbinde technische Umsetzung mit klarer Konzeption, echtem Verständnis für fachliche Abläufe und Verantwortung für das Ergebnis.",
+        "Ich verbinde Softwareentwicklung und technische Konzeption mit dem Verständnis für fachliche Abläufe und Verantwortung für das Ergebnis.",
     workApproaches: [
         {
             title: "Softwareentwicklung",
             lead: "Entwickeln",
             description:
-                "Ich entwickle browserbasierte Anwendungen mit Schwerpunkt im Frontend – von klar strukturierten Oberflächen bis zur zuverlässigen Anbindung an Daten und Schnittstellen. Meine langjährige Full-Stack-Erfahrung hilft mir, das Frontend nicht isoliert, sondern als Teil eines größeren Systems zu betrachten. Dabei achte ich auf wartbaren Code, klare Zuständigkeiten und Lösungen, die sich langfristig verlässlich weiterentwickeln lassen.",
+                "Ich entwickle Benutzeroberflächen und binde Daten und Schnittstellen an. Meine langjährige Full-Stack-Erfahrung hilft mir, das Frontend als Teil des gesamten Systems zu betrachten. Dabei achte ich auf verständlichen Code, klare Zuständigkeiten und Strukturen, die sich gut weiterentwickeln lassen.",
         },
         {
             title: "Technische Konzeption",
@@ -61,7 +61,7 @@ export const workApproach = {
 export const work = {
     title: "Einblicke in meine Arbeit",
     description:
-        "Softwareentwicklung bildet meinen Schwerpunkt. Selbständige Projekte und Erfahrung in Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
+        "Softwareentwicklung bildet meinen Schwerpunkt. Selbstständige Projekte und Erfahrung in Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
     items: [
         {
             title: "Frontend für komplexe Anwendungen",
@@ -70,7 +70,7 @@ export const work = {
             note: "Meine Erfahrung reicht von E-Commerce bei intedia bis zur Full-Stack-Entwicklung bei INMEDIUM.",
         },
         {
-            eyebrow: "Selbständige Tätigkeit",
+            eyebrow: "Selbstständige Tätigkeit",
             title: "Webentwicklung und technische Beratung",
             text: "Seit 2013 konzipiere, entwickle und betreue ich Websites, Online-Shops und individuelle Webanwendungen. Ich unterstütze Unternehmen bei der technischen Planung, Umsetzung und Weiterentwicklung ihrer digitalen Projekte.",
             note: "Außerdem berate ich Festivals und Veranstaltungen zu organisatorischen Abläufen und technischen Lösungen.",
@@ -78,7 +78,7 @@ export const work = {
         {
             eyebrow: "Projekt- & Veranstaltungsleitung",
             title: "Teams und Veranstaltungen",
-            text: "Von 2021 bis 2025 war ich bei Love Explosion in der digitalen Umsetzung und Festivalorganisation tätig. Ab 2022 verantwortete ich das Artist Management für über 60 Artists und koordinierte die Bühnenabläufe auf drei Stages. Dazu kam die Mitverantwortung für Planung und Veranstaltungsleitung.",
+            text: "Von 2021 bis 2025 war ich beim Love Explosion Festival in der digitalen Umsetzung und Festivalorganisation tätig. Ab 2022 verantwortete ich das Artist Management für über 60 Artists und koordinierte die Bühnenabläufe auf drei Stages. Dazu kam die Mitverantwortung für Planung und Veranstaltungsleitung.",
             note: "Mit Just Aion habe ich zuvor ein Community-Projekt mit über 100.000 Mitgliedern aufgebaut und ein Team von bis zu 20 Personen geleitet.",
         },
     ],

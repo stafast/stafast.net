@@ -3,9 +3,45 @@ import Layout from "@layouts/Layout.astro";
 import Hero from "@components/sections/home/Hero.astro";
 import WorkApproach from "@components/sections/home/WorkApproach.astro";
 import Work from "@components/sections/home/Work.astro";
+import stafastConfig from "../../stafast.config.ts";
+
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const personId = new URL("#person", siteUrl).toString();
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": new URL("#website", siteUrl).toString(),
+            url: siteUrl.toString(),
+            name: stafastConfig.site.name,
+            description: stafastConfig.seo.description,
+            inLanguage: stafastConfig.site.language,
+            publisher: { "@id": personId },
+        },
+        {
+            "@type": "Person",
+            "@id": personId,
+            name: stafastConfig.site.name,
+            url: siteUrl.toString(),
+            jobTitle: "Software Engineer",
+            sameAs: stafastConfig.social.map(({ url }) => url),
+        },
+    ],
+};
+const serializedStructuredData = JSON.stringify(structuredData).replace(
+    /</g,
+    "\\u003c",
+);
 ---
 
 <Layout>
+    <script
+        slot="head"
+        is:inline
+        type="application/ld+json"
+        set:html={serializedStructuredData}
+    />
     <div class="grid gap-24 md:gap-42">
         <Hero />
         <WorkApproach />

@@ -8,7 +8,7 @@ export const hero = {
     eyebrow: "Über mich · Kiel",
     heading: "Ich bin André",
     introduction:
-        "Ich bin Software Engineer aus Kiel. Mein Schwerpunkt liegt aktuell auf der Frontend-Entwicklung komplexer Anwendungen.",
+        "Ich bin Software Engineer aus Kiel. Mein Schwerpunkt liegt aktuell auf der Frontend-Entwicklung komplexer Webanwendungen.",
     description:
         "Mich interessiert, wie eine Anwendung als Ganzes funktioniert: Welche Aufgabe sie löst, wie Menschen damit arbeiten und wie sie sich sinnvoll weiterentwickeln lässt.",
     link: {
@@ -21,8 +21,8 @@ export const background = {
     title: "Was mich geprägt hat",
     paragraphs: [
         "In einem eigenen Online-Gaming- und Community-Projekt habe ich Websites und Anwendungen entwickelt, ein Team koordiniert und Support- und Moderationsstrukturen aufgebaut. Dabei waren technische Entwicklung, Organisation und Abstimmung eng miteinander verbunden.",
-        "Seit 2013 arbeite ich auch selbständig. Über die Jahre habe ich Websites, Online-Shops und individuelle Anwendungen entwickelt und langfristig betreut. Meine Erfahrung im Frontend und Backend hilft mir heute, Zusammenhänge über die Benutzeroberfläche hinaus zu verstehen und technische Entscheidungen einzuordnen.",
-        "Von 2021 bis 2025 war ich außerdem bei Love Explosion in der Festivalorganisation tätig. Mein Weg führte dort von Website und IT bis ins Artist Management und die Veranstaltungsleitung. Die Abstimmung zwischen Artists, Technik und Organisation hat meinen Blick dafür geschärft, wie wichtig klare Zuständigkeiten und verlässliche Absprachen für die Umsetzung sind.",
+        "Seit 2013 arbeite ich auch selbstständig. Über die Jahre habe ich Websites, Online-Shops und individuelle Anwendungen entwickelt und langfristig betreut. Meine Erfahrung im Frontend und Backend hilft mir heute, Zusammenhänge über die Benutzeroberfläche hinaus zu verstehen und technische Entscheidungen einzuordnen.",
+        "Von 2021 bis 2025 war ich außerdem bei Love Explosion in der Festivalorganisation tätig. Dort begann ich mit der Website und der IT und übernahm später Aufgaben im Artist Management und in der Veranstaltungsleitung. Die Abstimmung zwischen Artists, Technik und Organisation hat meinen Blick dafür geschärft, wie wichtig klare Zuständigkeiten und verlässliche Absprachen für die Umsetzung sind.",
     ],
 };
 

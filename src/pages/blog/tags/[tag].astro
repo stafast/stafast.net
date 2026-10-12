@@ -29,10 +29,10 @@ export async function getStaticPaths() {
 
 const { tag, posts } = Astro.props;
 const tagPage = stafastConfig.blog.tagPages[toSlug(tag)];
-const pageTitle = tagPage?.title ?? `${tag}`;
+const pageTitle = tagPage?.title ?? `${tag} im Blog`;
 const pageDescription =
     tagPage?.description ??
-    `Hier findest du alle Blogbeiträge zum Thema „${tag}“.`;
+    `Beiträge von André Stafast zum Thema „${tag}“ – persönliche Erfahrungen, Hintergründe und praktische Einblicke.`;
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
