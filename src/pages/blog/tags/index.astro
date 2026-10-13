@@ -1,11 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getBlogPosts } from "@lib/blog";
 import { toSlug } from "@lib/toSlug.ts";
 
-const posts = await getCollection("blog", ({ data }) =>
-    import.meta.env.PROD ? !data.draft : true,
-);
+const posts = await getBlogPosts();
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort(
     (a, b) => a.localeCompare(b, "de", { sensitivity: "base" }),
 );

@@ -1,15 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import BlogList from "@components/BlogList.astro";
-import { getCollection } from "astro:content";
+import { getBlogPosts } from "@lib/blog";
 import stafastConfig from "../../../stafast.config.ts";
 import Button from "@/components/ui/Button.astro";
 
-const posts = (
-    await getCollection("blog", ({ data }) =>
-        import.meta.env.PROD ? !data.draft : true,
-    )
-).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+const posts = await getBlogPosts();
 ---
 
 <Layout

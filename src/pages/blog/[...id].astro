@@ -1,6 +1,7 @@
 ---
 import { Image, getImage } from "astro:assets";
-import { getCollection, render, type CollectionEntry } from "astro:content";
+import { render, type CollectionEntry } from "astro:content";
+import { getBlogPosts } from "@lib/blog";
 import Layout from "@layouts/Layout.astro";
 import { toSlug } from "@lib/toSlug.ts";
 import stafastConfig from "../../../stafast.config.ts";
@@ -11,9 +12,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog", ({ data }) =>
-        import.meta.env.PROD ? !data.draft : true,
-    );
+    const posts = await getBlogPosts();
 
     return posts.map((post) => ({
         params: { id: post.id },

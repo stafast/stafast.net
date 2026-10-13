@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/ui/Button.astro";
+import { ArrowLeft, ArrowRight } from "@lucide/astro";
+---
+
+<Layout
+    title="404 – Seite nicht gefunden"
+    description="Diese Seite konnte nicht gefunden werden. Zurück zur Startseite oder weiter zum Blog von André Stafast."
+    noindex
+>
+    <section class="container py-16 md:py-24" aria-labelledby="error-heading">
+        <span class="text-eyebrow">// Fehler 404</span>
+        <h1 id="error-heading" class="mt-4">
+            Seite nicht gefunden.
+        </h1>
+        <p class="text-lead mt-6 max-w-2xl">
+            Die gesuchte Seite existiert nicht oder wurde verschoben. Prüfe die
+            Adresse oder schau auf der Startseite und im Blog vorbei.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+            <Button href="/">
+                <ArrowLeft size={18} aria-hidden="true" />
+                Zur Startseite
+            </Button>
+            <Button href="/blog/" variant="outline">
+                Zum Blog
+                <ArrowRight size={18} aria-hidden="true" />
+            </Button>
+        </div>
+    </section>
+</Layout>

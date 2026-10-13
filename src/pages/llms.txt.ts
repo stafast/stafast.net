@@ -1,12 +1,10 @@
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
+import { getBlogPosts } from "@lib/blog";
 import stafastConfig from "../../stafast.config.ts";
 
 export const GET: APIRoute = async ({ site }) => {
     const siteUrl = site ?? new URL(stafastConfig.site.url);
-    const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
-        (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
-    );
+    const posts = await getBlogPosts({ includeUnpublished: false });
 
     const link = (title: string, path: string, description: string) => {
         const label = title
