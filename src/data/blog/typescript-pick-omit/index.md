@@ -5,7 +5,7 @@ teaser: "teaser.jpg"
 teaserAlt: "Blaues TypeScript-Logo über den Schriftzügen TypeScript und Pick & Omit auf einem hellen Hintergrund."
 published: "2026-10-13T00:00:00+02:00"
 tags: [ "TypeScript", "Webentwicklung", "Technologie" ]
-draft: true
+draft: false
 ---
 
 Eine Teaser-Komponente braucht keinen vollständigen Blogartikel. Eine Funktion zum Anlegen eines Artikels
