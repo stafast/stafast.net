@@ -18,7 +18,7 @@ const structuredData = {
     mainEntity: {
         "@type": "Person",
         "@id": new URL("#person", siteUrl).toString(),
-        name: stafastConfig.site.name,
+        name: stafastConfig.person.name,
         url: siteUrl.toString(),
         jobTitle: "Software Engineer",
         sameAs: stafastConfig.social.map(({ url }) => url),

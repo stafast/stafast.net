@@ -2,16 +2,19 @@ import { defineStafastConfig } from "@/config/schema.ts";
 
 export default defineStafastConfig({
     site: {
-        name: "André Stafast",
+        name: "stafast",
         url: "https://stafast.net",
         language: "de",
         locale: "de_DE",
     },
+    person: {
+        name: "André Stafast",
+    },
     seo: {
-        title: "André Stafast — Softwareentwicklung mit technischer Tiefe",
-        titleTemplate: "%s — André Stafast",
+        title: "stafast — Softwareentwicklung mit technischer Tiefe",
+        titleTemplate: "%s — stafast",
         description:
-            "André Stafast ist Software Engineer aus Kiel mit Schwerpunkt Frontend. Er entwickelt wartbare Webanwendungen und berät bei der technischen Umsetzung.",
+            "stafast steht für Softwareentwicklung und technische Beratung aus Kiel. André Stafast entwickelt wartbare Webanwendungen mit Schwerpunkt Frontend.",
         defaultImage: "/og-stafast.png",
     },
     blog: {

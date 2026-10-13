@@ -89,7 +89,7 @@ export const experience: ExperienceSection[] = [
         entries: [
             {
                 id: "andre-stafast",
-                organization: "André Stafast",
+                organization: "stafast",
                 role: "Software Engineer & Consultant · selbstständig",
                 period: "Seit Februar 2013",
                 description:

@@ -95,6 +95,9 @@ export const stafastConfigSchema = z.object({
         language: z.string().min(2).default("en"),
         locale: z.string().min(2).default("en_GB"),
     }),
+    person: z.object({
+        name: z.string().trim().min(1),
+    }),
     seo: z.object({
         title: z.string().min(1),
         titleTemplate: z.string().min(1),

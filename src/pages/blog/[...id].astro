@@ -69,7 +69,8 @@ const structuredData = {
         : {}),
     author: {
         "@type": "Person",
-        name: stafastConfig.site.name,
+        "@id": new URL("#person", siteUrl).toString(),
+        name: stafastConfig.person.name,
         url: stafastConfig.site.url,
     },
 };
