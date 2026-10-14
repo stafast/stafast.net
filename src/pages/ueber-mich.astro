@@ -23,7 +23,10 @@ const structuredData = {
         name: stafastConfig.person.name,
         url: siteUrl.toString(),
         jobTitle: "Software Engineer",
-        sameAs: stafastConfig.social.map(({ url }) => url),
+        sameAs: [
+            ...stafastConfig.social.map(({ url }) => url),
+            ...stafastConfig.person.sameAs,
+        ],
     },
 };
 const serializedStructuredData = JSON.stringify(structuredData).replace(

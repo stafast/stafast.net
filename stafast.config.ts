@@ -9,6 +9,10 @@ export default defineStafastConfig({
     },
     person: {
         name: "André Stafast",
+        sameAs: [
+            "https://www.instagram.com/sanjoelstak/",
+            "https://www.instagram.com/andre.stafast/",
+        ],
     },
     seo: {
         title: "stafast — Softwareentwicklung mit technischer Tiefe",

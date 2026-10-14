@@ -97,6 +97,7 @@ export const stafastConfigSchema = z.object({
     }),
     person: z.object({
         name: z.string().trim().min(1),
+        sameAs: z.array(z.url()).default([]),
     }),
     seo: z.object({
         title: z.string().min(1),
