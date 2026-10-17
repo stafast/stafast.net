@@ -1,0 +1,67 @@
+---
+import { Plus } from "@lucide/astro";
+import stafastConfig from "../../../stafast.config.ts";
+
+interface Props {
+    id?: string;
+    title: string;
+    items: readonly {
+        question: string;
+        answer: string;
+    }[];
+}
+
+const { id = "fragen", title, items } = Astro.props;
+const headingId = `${id}-heading`;
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: stafastConfig.site.language,
+    mainEntity: items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer.trim(),
+        },
+    })),
+};
+const serializedStructuredData = JSON.stringify(structuredData).replace(
+    /</g,
+    "\\u003c",
+);
+---
+
+{items.length > 0 && (
+    <script
+        is:inline
+        type="application/ld+json"
+        set:html={serializedStructuredData}
+    />
+)}
+
+<section id={id} class="container">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-24">
+        <div>
+            <h2 id={headingId} class="h3">
+                {title}
+            </h2>
+        </div>
+        <div class="min-w-0 lg:col-span-2">
+            <div class="border-t">
+                {items.map((item) => (
+                    <details class="group border-b py-6">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 font-medium [&::-webkit-details-marker]:hidden">
+                            <div>{item.question}</div>
+                            <Plus
+                                aria-hidden="true"
+                                class="text-primary mt-1 size-5 shrink-0 transition-transform group-open:rotate-45"
+                            />
+                        </summary>
+                        <p class="mt-4 pr-8">{item.answer}</p>
+                    </details>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>

@@ -57,8 +57,10 @@ import { hero } from "@data/home.ts";
                     loading="eager"
                     src={meImage}
                     alt="Porträt von André Stafast"
-                    width="1000"
-                    height="1109"
+                    width={1000}
+                    height={1109}
+                    widths={[400, 640, 800, 1000]}
+                    sizes="(min-width: 1024px) min(40vw, 461px), calc(100vw - 2rem)"
                     decoding="async"
                     fetchpriority="high"
                     class="h-full w-full object-cover object-[center_40%] shadow"

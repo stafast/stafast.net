@@ -125,7 +125,7 @@ export const stafastConfigSchema = z.object({
                 .array(
                     z.object({
                         title: z.string().min(1),
-                        url: linkUrlSchema,
+                        url: linkUrlSchema.optional(),
                     }),
                 )
                 .min(1),

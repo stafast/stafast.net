@@ -4,6 +4,7 @@ import Experience from "@components/sections/work/Experience.astro";
 import { seo } from "@data/work.ts";
 import Layout from "@layouts/Layout.astro";
 import stafastConfig from "../../stafast.config.ts";
+import Contact from "@components/sections/Contact.astro";
 
 const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
@@ -47,5 +48,9 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
     <div class="grid gap-24 md:gap-42">
         <Hero />
         <Experience />
+    </div>
+
+    <div>
+        <Contact class="bg-neutral-900" />
     </div>
 </Layout>

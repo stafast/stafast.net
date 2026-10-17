@@ -211,28 +211,26 @@ export default defineStafastConfig({
             items: [
                 { title: "Über mich", url: "/ueber-mich/" },
                 { title: "Arbeit", url: "/arbeit/" },
-                // { title: "Webentwicklung", url: "/webentwicklung/" },
+                { title: "Blog", url: "/blog/" },
                 // { title: "Beratung", url: "/beratung/" },
                 // { title: "Astro Entwicklung", url: "/astro-entwicklung/" },
             ],
         },
         {
-            title: "Ausgewählte Artikel",
+            title: "Leistungen",
             items: [
+                { title: "Webentwicklung", url: "/webentwicklung/" },
                 {
-                    title: "Festival-Krise 2026",
-                    url: "/blog/festival-krise-2026-aus-warnzeichen-wird-ein-strukturproblem/",
+                    title: "Individuelle Anwendungen",
+                    url: "/webentwicklung/",
                 },
                 {
-                    title: "Schriften preloading",
-                    url: "/blog/preload-fontsource/",
+                    title: "Festival- und Veranstaltungswebsites",
+                    url: "/webentwicklung/",
                 },
-                {
-                    title: "Kiel.Lauf",
-                    url: "/blog/kiellauf-2024/",
-                },
-                { title: "Meine Mac Apps", url: "/blog/mac-apps/" },
-                { title: "Alle Blogartikel", url: "/blog/" },
+                { title: "Vue-Entwicklung", url: "/webentwicklung/" },
+                // { title: "Beratung", url: "/beratung/" },
+                // { title: "Astro Entwicklung", url: "/astro-entwicklung/" },
             ],
         },
         {

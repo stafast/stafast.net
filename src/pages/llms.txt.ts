@@ -30,6 +30,11 @@ export const GET: APIRoute = async ({ site }) => {
             "Profil, Schwerpunkte und Einblicke in die Arbeit von André Stafast.",
         ),
         link(
+            "Webentwicklung",
+            "/webentwicklung/",
+            "Websites für Unternehmen: Entwicklung, Relaunch, vereinbarte Wartung und Weiterentwicklung. Zusammenarbeit deutschlandweit remote und projektbezogen neben dem Vollzeitjob.",
+        ),
+        link(
             "Über mich",
             "/ueber-mich/",
             "Persönlicher Hintergrund, Weg in die Softwareentwicklung und Grundsätze der Zusammenarbeit.",

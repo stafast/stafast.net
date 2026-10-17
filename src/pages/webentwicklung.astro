@@ -1,0 +1,69 @@
+---
+import Hero from "@components/sections/webdevelopment/Hero.astro";
+import Services from "@components/sections/webdevelopment/Services.astro";
+import Process from "@components/sections/webdevelopment/Process.astro";
+import Questions from "@components/sections/Questions.astro";
+import Contact from "@components/sections/Contact.astro";
+import { questions, seo } from "@data/webdevelopment.ts";
+import Layout from "@layouts/Layout.astro";
+import stafastConfig from "../../stafast.config.ts";
+
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const canonicalUrl = new URL("/webentwicklung/", siteUrl).toString();
+const personId = new URL("#person", siteUrl).toString();
+const serviceId = `${canonicalUrl}#service`;
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: seo.title,
+            description: seo.description,
+            inLanguage: stafastConfig.site.language,
+            isPartOf: { "@id": new URL("#website", siteUrl).toString() },
+            mainEntity: { "@id": serviceId },
+        },
+        {
+            "@type": "Service",
+            "@id": serviceId,
+            name: seo.title,
+            description: seo.description,
+            url: canonicalUrl,
+            serviceType: seo.serviceTypes,
+            provider: {
+                "@type": "Person",
+                "@id": personId,
+                name: stafastConfig.person.name,
+                url: siteUrl.toString(),
+            },
+            areaServed: { "@type": "Country", name: seo.areaServed },
+        },
+    ],
+};
+const serializedStructuredData = JSON.stringify(structuredData).replace(
+    /</g,
+    "\\u003c",
+);
+---
+
+<Layout
+    title={seo.title}
+    description={seo.description}
+    canonical={canonicalUrl}
+>
+    <script
+        slot="head"
+        is:inline
+        type="application/ld+json"
+        set:html={serializedStructuredData}
+    />
+    <div class="grid gap-24 md:gap-42">
+        <Hero />
+        <Services />
+        <Process />
+        <Questions {...questions} />
+        <Contact />
+    </div>
+</Layout>

@@ -1,5 +1,6 @@
 ---
 import { experience } from "@data/work.ts";
+import Button from "@components/ui/Button.astro";
 ---
 
 <section id="work-experiences">
@@ -39,6 +40,16 @@ import { experience } from "@data/work.ts";
                                     <li>{highlight}</li>
                                 ))}
                             </ul>
+                            {entry.id === "andre-stafast" && (
+                                <div class="mt-12">
+                                    <span class="me-2 font-medium">
+                                        Leistungsangebote:{" "}
+                                    </span>
+                                    <Button size="sm" href="/webentwicklung/">
+                                        Webentwicklung
+                                    </Button>
+                                </div>
+                            )}
                             {entry.links && (
                                 <p class="mt-4 hidden">
                                     <span class="font-medium">Auswahl:</span>

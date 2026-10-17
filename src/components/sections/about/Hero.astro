@@ -25,9 +25,10 @@ import Button from "@/components/ui/Button.astro";
                 width={1000}
                 height={1109}
                 widths={[400, 640, 800, 1000]}
-                sizes="(min-width: 1344px) 461px, (min-width: 1280px) calc((100vw - 12rem) * 0.4), (min-width: 1024px) calc((100vw - 8rem) * 0.4), calc(100vw - 2rem)"
-                priority
-                class="h-full w-full object-cover object-[center_40%]"
+                sizes="(min-width: 1024px) min(40vw, 461px), calc(100vw - 2rem)"
+                decoding="async"
+                fetchpriority="high"
+                class="h-full w-full object-cover object-[center_40%] shadow"
             />
         </div>
     </div>
