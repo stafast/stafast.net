@@ -3,7 +3,7 @@ title: "World of Warcraft Forever: Mit Freunden zurück nach Azeroth"
 description: "Seit 2005 begleitet mich WoW. Jetzt reizt mich Forever: vertrautes Azeroth, neue Inhalte und ein gemeinsamer Neustart mit Freunden auf Seiten der Horde."
 teaser: "teaser.jpg"
 teaserAlt: "Das Logo von World of Warcraft Forever vor einer blauen Karte von Azeroth."
-published: "2026-10-18T16:33:00+02:00"
+published: "2026-10-18T00:00:00+02:00"
 tags: [ "Gaming", "World of Warcraft", "Freizeit" ]
 draft: false
 ---
