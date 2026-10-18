@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import meImage from "@/assets/images/me.jpg";
+import Button from "@components/ui/Button.astro";
+import { hero } from "@data/events.ts";
+---
+
+<section aria-labelledby="event-heading" class="container">
+    <div class="grid gap-12 lg:grid-cols-[3fr_2fr] lg:gap-16 xl:gap-32">
+        <div class="min-w-0">
+            <p class="text-eyebrow mb-2">
+                <span aria-hidden="true">//</span> {hero.eyebrow}
+            </p>
+            <h1 id="event-heading" class="text-display hyphens-auto">
+                {hero.heading}
+            </h1>
+            <p class="text-lead mt-4">{hero.introduction}</p>
+            <p class="mt-6">{hero.description}</p>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+                <Button href={hero.link.url}>{hero.link.label}</Button>
+                <Button href={hero.secondaryLink.url} variant="link">
+                    {hero.secondaryLink.label}
+                </Button>
+            </div>
+        </div>
+        <figure>
+            <div class="aspect-10/8 overflow-hidden rounded-lg lg:aspect-9/10">
+                <Image
+                    src={meImage}
+                    alt={hero.image.alt}
+                    width={1000}
+                    height={1109}
+                    widths={[400, 640, 800, 1000]}
+                    sizes="(min-width: 1024px) min(40vw, 461px), calc(100vw - 2rem)"
+                    fetchpriority="high"
+                    loading="eager"
+                    class="h-full w-full object-cover object-[center_40%] shadow"
+                />
+            </div>
+            <figcaption class="text-muted-foreground mt-2 text-sm">
+                {hero.image.caption}
+            </figcaption>
+        </figure>
+    </div>
+</section>

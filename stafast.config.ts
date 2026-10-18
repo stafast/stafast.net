@@ -212,6 +212,7 @@ export default defineStafastConfig({
                 { title: "Über mich", url: "/ueber-mich/" },
                 { title: "Arbeit", url: "/arbeit/" },
                 { title: "Blog", url: "/blog/" },
+                { title: "Kontakt", url: "/kontakt/" },
                 // { title: "Beratung", url: "/beratung/" },
                 // { title: "Astro Entwicklung", url: "/astro-entwicklung/" },
             ],
@@ -219,16 +220,16 @@ export default defineStafastConfig({
         {
             title: "Leistungen",
             items: [
-                { title: "Webentwicklung", url: "/webentwicklung/" },
+                { title: "Websites für Unternehmen", url: "/webentwicklung/" },
+                {
+                    title: "Unterstützung für Veranstaltungen",
+                    url: "/veranstaltungen/",
+                },
                 {
                     title: "Individuelle Anwendungen",
                     url: "/webentwicklung/",
                 },
-                {
-                    title: "Festival- und Veranstaltungswebsites",
-                    url: "/webentwicklung/",
-                },
-                { title: "Vue-Entwicklung", url: "/webentwicklung/" },
+                // { title: "Vue-Entwicklung", url: "/webentwicklung/" },
                 // { title: "Beratung", url: "/beratung/" },
                 // { title: "Astro Entwicklung", url: "/astro-entwicklung/" },
             ],
@@ -236,7 +237,6 @@ export default defineStafastConfig({
         {
             title: "Rechtliches",
             items: [
-                { title: "Kontakt", url: "/kontakt/" },
                 { title: "Datenschutzhinweis", url: "/datenschutz/" },
                 { title: "Impressum", url: "/impressum/" },
             ],

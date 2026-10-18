@@ -121,7 +121,7 @@ export const experience: ExperienceSection[] = [
             {
                 id: "love-explosion",
                 organization: "Love Explosion Festival",
-                role: "Digital Projects & IT, Artist Management und Veranstaltungsleitung",
+                role: "Veranstaltungsleitung, Artist Management und Digital Projects & IT",
                 period: "August 2021–November 2025",
                 description:
                     "Mein Einstieg in die Festivalorganisation war 2021 die Website und die digitale Infrastruktur. Für die erste Ausgabe im Juni 2022 übernahm ich das Stage Management der Techno Stage. Ab Juli 2022 verantwortete ich das Artist Management und die Bühnenkoordination und war an der ganzjährigen Planung und Veranstaltungsleitung beteiligt.",

@@ -1,0 +1,37 @@
+---
+import { collaboration } from "@data/events.ts";
+---
+
+<section
+    id="zusammenarbeit"
+    aria-labelledby="zusammenarbeit-heading"
+    class="container"
+>
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-24">
+        <div>
+            <h2 id="zusammenarbeit-heading" class="h3">
+                {collaboration.title}
+            </h2>
+        </div>
+        <div class="min-w-0 lg:col-span-2">
+            <ol class="space-y-8">
+                {collaboration.items.map((step, index) => (
+                    <li>
+                        <h3 class="h4">
+                            {index + 1}. {step.title}
+                        </h3>
+                        <p class="mt-3">{step.description}</p>
+                    </li>
+                ))}
+            </ol>
+            <div class="bg-secondary mt-10 rounded-lg p-6 sm:p-8">
+                <h3 class="h5">{collaboration.availability.title}</h3>
+                {collaboration.availability.paragraphs.map(
+                    (paragraph, index) => (
+                        <p class={index === 0 ? "mt-3" : "mt-4"}>{paragraph}</p>
+                    ),
+                )}
+            </div>
+        </div>
+    </div>
+</section>

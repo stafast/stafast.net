@@ -1,0 +1,30 @@
+---
+import { services } from "@data/events.ts";
+---
+
+<section
+    id="angebot"
+    aria-labelledby="angebot-heading"
+    class="bg-neutral-900 py-24 md:py-42"
+>
+    <div class="container">
+        <div class="max-w-3xl">
+            <h2 id="angebot-heading" class="h1">
+                {services.title}
+            </h2>
+        </div>
+        <div class="mt-12 grid gap-12 md:grid-cols-2 lg:mt-16 lg:gap-x-24 lg:gap-y-16">
+            {services.items.map((service) => (
+                <div class="min-w-0">
+                    <h3 class="h4">{service.title}</h3>
+                    <p class="mt-4">{service.description}</p>
+                    <ul class="marker:text-accent mt-6 list-[square] space-y-2 pl-5">
+                        {service.examples.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

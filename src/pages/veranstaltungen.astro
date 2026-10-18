@@ -1,0 +1,75 @@
+---
+import Hero from "@components/sections/events/Hero.astro";
+import Services from "@components/sections/events/Services.astro";
+import Experience from "@components/sections/events/Experience.astro";
+import Projects from "@components/sections/events/Projects.astro";
+import Collaboration from "@components/sections/events/Collaboration.astro";
+import Questions from "@components/sections/Questions.astro";
+import Contact from "@components/sections/Contact.astro";
+import { contact, experience, questions, seo } from "@data/events.ts";
+import festivalImage from "@data/blog/website-entwickler-head-of-artists-love-explosion/teaser.jpg";
+import Layout from "@layouts/Layout.astro";
+import stafastConfig from "../../stafast.config.ts";
+
+const siteUrl = Astro.site ?? new URL(stafastConfig.site.url);
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const serviceId = `${canonicalUrl}#service`;
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: seo.title,
+            description: seo.description,
+            inLanguage: stafastConfig.site.language,
+            isPartOf: { "@id": new URL("#website", siteUrl).toString() },
+            mainEntity: { "@id": serviceId },
+        },
+        {
+            "@type": "Service",
+            "@id": serviceId,
+            name: seo.title,
+            description: seo.description,
+            url: canonicalUrl,
+            serviceType: seo.serviceTypes,
+            provider: {
+                "@type": "Person",
+                "@id": new URL("#person", siteUrl).toString(),
+                name: stafastConfig.person.name,
+                url: siteUrl.toString(),
+            },
+            areaServed: { "@type": "Country", name: seo.areaServed },
+        },
+    ],
+};
+const serializedStructuredData = JSON.stringify(structuredData).replace(
+    /</g,
+    "\\u003c",
+);
+---
+
+<Layout
+    title={seo.title}
+    description={seo.description}
+    canonical={canonicalUrl}
+    image={festivalImage.src}
+    imageAlt={experience.image.alt}
+>
+    <script
+        slot="head"
+        is:inline
+        type="application/ld+json"
+        set:html={serializedStructuredData}
+    />
+    <div class="grid gap-24 md:gap-42">
+        <Hero />
+        <Services />
+        <Experience />
+        <Projects />
+        <Collaboration />
+        <Questions {...questions} />
+        <Contact content={contact} />
+    </div>
+</Layout>

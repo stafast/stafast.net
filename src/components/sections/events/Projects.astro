@@ -1,0 +1,28 @@
+---
+import { projects } from "@data/events.ts";
+---
+
+<section id="projekte" aria-labelledby="projekte-heading" class="container">
+    <div class="grid gap-10 lg:grid-cols-3 lg:gap-24">
+        <div>
+            <h2 id="projekte-heading" class="h3">
+                {projects.title}
+            </h2>
+        </div>
+        <div class="grid min-w-0 gap-8 sm:grid-cols-2 lg:col-span-2 lg:gap-12">
+            {projects.items.map((project) => (
+                <article class="border-t pt-6">
+                    <h3 class="h4">{project.title}</h3>
+                    <p class="mt-4">{project.description}</p>
+                    <a
+                        href={project.link.url}
+                        target="_blank"
+                        class="text-primary hover:text-primary/80 mt-4 inline-block font-medium underline"
+                    >
+                        {project.link.label}
+                    </a>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>

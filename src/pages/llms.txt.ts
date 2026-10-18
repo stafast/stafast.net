@@ -35,6 +35,11 @@ export const GET: APIRoute = async ({ site }) => {
             "Websites für Unternehmen: Entwicklung, Relaunch, vereinbarte Wartung und Weiterentwicklung. Zusammenarbeit deutschlandweit remote und projektbezogen neben dem Vollzeitjob.",
         ),
         link(
+            "Veranstaltungen",
+            "/veranstaltungen/",
+            "Websites und individuelle Webanwendungen für Veranstaltungen, Beratung, Booking, Artist Management sowie Bühnenkoordination und stellvertretende Veranstaltungsleitung. Projektbezogene Zusammenarbeit neben dem Vollzeitjob; Erfahrung bei Love Explosion von 2021 bis 2025.",
+        ),
+        link(
             "Über mich",
             "/ueber-mich/",
             "Persönlicher Hintergrund, Weg in die Softwareentwicklung und Grundsätze der Zusammenarbeit.",
