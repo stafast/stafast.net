@@ -37,7 +37,7 @@ export const services = {
         {
             title: "Eine neue Website",
             description:
-                "Ich plane mit dir, wie du dein Angebot auf der Website vorstellst und wie Interessenten dich erreichen können. Daraus entwickeln wir die Seitenstruktur, die ich anschließend technisch umsetze.",
+                "Ich entwickle eine Website, die dein Angebot verständlich vorstellt und Interessenten zu den passenden Informationen und Kontaktwegen führt. Dafür erarbeite ich mit dir die Seitenstruktur und setze Gestaltung, Inhalte und Funktionen technisch um.",
             examples: [
                 "Unternehmensprofil und Leistungsseiten",
                 "Kontaktmöglichkeiten und Formulare",
@@ -47,7 +47,7 @@ export const services = {
         {
             title: "Relaunch deiner Website",
             description:
-                "Deine Website passt nicht mehr zu deinem Angebot oder lässt sich nur umständlich bedienen? Ich schaue mir den bestehenden Auftritt an. Wir besprechen, was bleiben kann und was überarbeitet werden sollte.",
+                "Ich prüfe Seitenstruktur, Bedienbarkeit und technische Grundlage deiner bestehenden Website. Daraus leite ich ab, welche Teile erhalten bleiben können und wo eine Überarbeitung sinnvoll ist. Bei der Umsetzung achte ich darauf, dass vorhandene Inhalte und bisherige Seitenadressen berücksichtigt werden.",
             examples: [
                 "Seitenstruktur und mobile Darstellung",
                 "Übernahme vorhandener Inhalte",
@@ -57,7 +57,7 @@ export const services = {
         {
             title: "Gezielte Weiterentwicklung",
             description:
-                "Eine zusätzliche Leistungsseite oder ein neues Formular braucht nicht gleich einen Relaunch. Ich prüfe, wie sich die gewünschte Änderung in deine bestehende Website einfügen lässt.",
+                "Ich erweitere bestehende Websites um Inhalte und Funktionen und verbessere ihre Bedienbarkeit. Eine zusätzliche Leistungsseite oder ein neues Formular braucht nicht gleich einen Relaunch. Nach einer Prüfung der technischen Grundlage setze ich die Änderungen passend zum bestehenden Aufbau um.",
             examples: [
                 "Neue Inhalte und kleinere Funktionen",
                 "Darstellung auf Smartphones verbessern",
@@ -92,7 +92,7 @@ export const process = {
         },
     ],
     collaboration: {
-        title: "Zusammenarbeit neben meinem Vollzeitjob",
+        title: "Verfügbarkeit und Zusammenarbeit",
         paragraphs: [
             "Ich bin neben meinem Vollzeitjob selbstständig. Bevor ich ein Projekt zusage, kläre ich mit dir, ob es zeitlich zu meiner verfügbaren Kapazität passt. Das gilt auch für die spätere Betreuung und die Erreichbarkeit.",
             "Wir können deutschlandweit remote zusammenarbeiten. In Schleswig-Holstein und Hamburg sind nach Vereinbarung auch persönliche Treffen möglich.",
@@ -125,13 +125,23 @@ export const questions = {
         },
         {
             question: "Betreust du die Website auch nach der Veröffentlichung?",
-            answer: "Ja, nach Vereinbarung übernehme ich Wartung, gelegentliche Änderungen und die weitere Entwicklung. Welche Aufgaben dazugehören und wann ich erreichbar bin, legen wir vorher fest. Da ich neben meinem Vollzeitjob selbstständig arbeite, muss auch die laufende Betreuung zeitlich dazu passen.",
+            answer: "Ja, nach Vereinbarung übernehme ich Wartung, gelegentliche Änderungen und die weitere Entwicklung. Umfang und Erreichbarkeit legen wir passend zu deiner Website und meiner verfügbaren Zeit fest.",
         },
         {
             question: "Unterstützt du auch Agenturen?",
             answer: "Ja, ich helfe Agenturen projektweise bei der Entwicklung. Dafür klären wir, welche Aufgaben anstehen, mit welcher Technik ihr arbeitet und wann Unterstützung gebraucht wird. Dann kann ich einschätzen, ob ich zeitlich und fachlich dazu passe.",
         },
     ],
+};
+
+export const websiteContact = {
+    title: "Was hast du mit deiner Website vor?",
+    description:
+        "Beschreib mir kurz dein Vorhaben. Falls bereits eine Website besteht, schick mir den Link und nenne deinen gewünschten Zeitraum. Damit haben wir eine Grundlage für das erste Gespräch.",
+    link: {
+        label: "Website-Projekt anfragen",
+        url: "mailto:andre@stafast.net?subject=Anfrage%20zu%20einem%20Website-Projekt",
+    },
 };
 
 export const contact = {

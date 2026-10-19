@@ -4,7 +4,7 @@ import Services from "@components/sections/webdevelopment/Services.astro";
 import Process from "@components/sections/webdevelopment/Process.astro";
 import Questions from "@components/sections/Questions.astro";
 import Contact from "@components/sections/Contact.astro";
-import { questions, seo } from "@data/webdevelopment.ts";
+import { questions, seo, websiteContact } from "@data/webdevelopment.ts";
 import Layout from "@layouts/Layout.astro";
 import stafastConfig from "../../stafast.config.ts";
 
@@ -64,6 +64,6 @@ const serializedStructuredData = JSON.stringify(structuredData).replace(
         <Services />
         <Process />
         <Questions {...questions} />
-        <Contact />
+        <Contact content={websiteContact} />
     </div>
 </Layout>
