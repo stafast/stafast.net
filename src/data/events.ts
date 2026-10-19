@@ -3,7 +3,7 @@ export const seo = {
     description:
         "André Stafast unterstützt Veranstaltungen mit Softwareentwicklung, Booking, Artist Management, Beratung und stellvertretender Veranstaltungsleitung.",
     serviceTypes: [
-        "Websites und Webanwendungen für Veranstaltungen",
+        "Websites und individuelle Anwendungen für Veranstaltungen",
         "Technische und organisatorische Veranstaltungsberatung",
         "Booking und Artist Management",
         "Bühnenkoordination und stellvertretende Veranstaltungsleitung",
@@ -12,12 +12,12 @@ export const seo = {
 };
 
 export const hero = {
-    eyebrow: "Softwareentwicklung · Booking · Veranstaltungsorganisation",
+    eyebrow: "Veranstaltungsorganisation · Booking · Softwareentwicklung",
     heading: "Unterstützung für eure Veranstaltung",
     introduction:
-        "Ich bin André. Ich entwickle Websites und Webanwendungen, übernehme Booking und Artist Management und unterstütze euer Team bei der Planung und Durchführung von Veranstaltungen.",
+        "Ich bin André. Ich unterstütze Veranstaltungsteams bei Planung, Booking und Durchführung und entwickle passende Websites und Anwendungen. Dafür bringe ich Erfahrung aus der Veranstaltungsleitung, dem Artist Management und der Softwareentwicklung mit.",
     description:
-        "Ihr könnt mich für ein Entwicklungsprojekt, eine Beratung oder die Mitarbeit in eurem Veranstaltungsteam anfragen. Wir klären gemeinsam, welche Aufgaben ich übernehme.",
+        "Ihr könnt mich für einzelne Aufgaben, eine Beratung oder die Mitarbeit in eurem Veranstaltungsteam anfragen.",
     link: {
         label: "Eure Veranstaltung besprechen",
         url: "#projekt-anfragen",
@@ -36,12 +36,12 @@ export const services = {
     title: "Wobei ich euer Team unterstützen kann",
     items: [
         {
-            title: "Websites und Webanwendungen",
+            title: "Websites und individuelle Anwendungen",
             description:
-                "Ich entwickle eure Website oder eine individuelle Webanwendung für eure Veranstaltung. Das kann etwa eine Timetable-Anwendung oder eine Anbindung an euren Ticketshop sein. Wir besprechen, welche Funktionen ihr braucht und wie euer Team die Inhalte pflegen möchte.",
+                "Ich entwickle Websites und Anwendungen für eure Gäste und euer Team, etwa einen Timetable oder eine Anbindung an euren Ticketshop. Die Funktionen und die Pflege der Inhalte richten sich danach, was ihr für eure Veranstaltung braucht.",
             examples: [
                 "Websites mit Programm und Besucherinformationen",
-                "Individuelle Webanwendungen, etwa für Timetables",
+                "Individuelle Anwendungen, etwa für Timetables",
                 "Weiterentwicklung und vereinbarte Betreuung",
             ],
         },
@@ -58,7 +58,7 @@ export const services = {
         {
             title: "Booking und Artist Management",
             description:
-                "Ich unterstütze bei der Künstlerauswahl, frage Acts und Agenturen an und verhandle Konditionen im vereinbarten Rahmen. Auch die weitere Abstimmung, die Vorbereitung der Auftritte und die Betreuung vor Ort kann ich übernehmen.",
+                "Ich unterstütze bei der Künstlerauswahl, frage Acts und Agenturen an und verhandle Konditionen. Auch die weitere Abstimmung, die Vorbereitung der Auftritte und die Betreuung vor Ort übernehme ich.",
             examples: [
                 "Künstlerauswahl, Anfragen und Verhandlungen",
                 "Artist Relations und Vorbereitung der Auftritte",
@@ -68,10 +68,10 @@ export const services = {
         {
             title: "Koordination und Veranstaltungsleitung",
             description:
-                "Ich kann Verantwortung für einzelne Bereiche übernehmen oder eure Veranstaltungsleitung als Stellvertretung unterstützen. Vor dem Einsatz legen wir fest, welche Aufgaben und Entscheidungen bei mir liegen und mit wem ich mich abstimme.",
+                "Ich übernehme die Koordination einzelner Bereiche oder unterstütze eure Veranstaltungsleitung als Stellvertretung. Dabei behalte ich die Abläufe und die Abstimmung zwischen Artists, Bühnen und Organisation im Blick.",
             examples: [
-                "Bühnenkoordination und Abstimmung der Teams",
-                "Verantwortung für vereinbarte Aufgabenbereiche",
+                "Abstimmung zwischen Artists, Technik und Organisation",
+                "Koordination von Bühnen und Backstage",
                 "Stellvertretende Veranstaltungsleitung",
             ],
         },
@@ -82,34 +82,24 @@ export const experience = {
     eyebrow: "Love Explosion · August 2021–November 2025",
     title: "Veranstaltungsleitung bei Love Explosion",
     introduction:
-        "Ich gehörte zur Veranstaltungsleitung von Love Explosion und habe die ganzjährige Planung, Organisation und Durchführung des Festivals mit über 4.500 Gästen mitverantwortet. Dazu leitete ich das Artist Management für über 60 Artists sowie die Stage Operations auf drei Bühnen.",
+        "Ich gehörte zur Veranstaltungsleitung von Love Explosion und habe die ganzjährige Planung, Organisation und Durchführung des Festivals mit über 4.500 Gästen mitverantwortet. Dazu leitete ich das Artist Management für über 60 Artists sowie die Bühnenkoordination auf drei Bühnen.",
     description:
         "Begonnen hatte meine Mitarbeit 2021 mit der Website und der digitalen Infrastruktur. 2025 fand die letzte Ausgabe von Love Explosion statt.",
     details: [
         {
             title: "Veranstaltungsleitung und Planung",
             description:
-                "Mitverantwortlich für die ganzjährige Festivalplanung und strategische Entscheidungen sowie für Planung, technische Konzeption und Gestaltung der Bühnen. Den Geländeplan erstellte ich mit AutoCAD und GPS-Daten.",
+                "Ich wirkte an strategischen Entscheidungen sowie der Planung und Gestaltung von Bühnen und Gelände mit. Dazu gehörte die Erstellung des Geländeplans mit AutoCAD und GPS-Daten.",
         },
         {
-            title: "Software und IT",
+            title: "Software, IT und Ticketing",
             description:
-                "Verantwortlich für Konzeption, Entwicklung und Betreuung der Festival-Website und einer webbasierten Timetable-Anwendung. Dazu gehörten Hosting, Cloud-Dienste, E-Mail und Software sowie IT-Support und die technische Betreuung des Ticketshops.",
+                "Ich entwickelte die Festival-Website und eine Timetable-Anwendung und betreute die digitale Infrastruktur. Außerdem verantwortete ich Ticketing und Ticketshop und setzte Performance Marketing und Social Ads um.",
         },
         {
-            title: "Booking und Artist Management",
+            title: "Artists, Bühnen und Backstage",
             description:
-                "Hauptverantwortlich für das Artist Management von über 60 Artists: Künstlerauswahl, Booking, Verhandlungen, Vertragsabwicklung, Buchhaltung, Logistik und Betreuung.",
-        },
-        {
-            title: "Bühnen und Backstage",
-            description:
-                "Verantwortlich für die Running Order aller drei Bühnen sowie die Leitung und Koordination der Stage Manager und des Backstage-Bereichs. Abstimmung der Abläufe zwischen Artists, Bühnen, Backstage und Veranstaltungsleitung.",
-        },
-        {
-            title: "Ticketing und Marketing",
-            description:
-                "Hauptverantwortlich für Ticketing und Ticketshop. Beteiligung an der Marketingstrategie sowie eigenverantwortliche Umsetzung von Performance Marketing und Social Ads.",
+                "Ich verantwortete Booking, Verträge, Logistik und Betreuung der Artists sowie die Running Order. Vor Ort leitete und koordinierte ich die Stage Manager und den Backstage-Bereich.",
         },
     ],
     image: {
@@ -166,7 +156,7 @@ export const collaboration = {
         },
     ],
     availability: {
-        title: "Projektbezogen neben meinem Vollzeitjob",
+        title: "Verfügbarkeit und Einsatzplanung",
         paragraphs: [
             "Ich bin neben meinem Vollzeitjob selbstständig. Deshalb prüfe ich vor einer Zusage, ob die Vorbereitung und der Einsatz zeitlich passen. Nennt mir den Veranstaltungstermin und die benötigten Tage am besten schon bei eurer Anfrage.",
             "Für Ort und Einsatzdauer bin ich offen. Beratung und Entwicklung können remote stattfinden. Vor-Ort-Einsätze stimme ich mit euch für die jeweilige Veranstaltung ab.",
@@ -180,20 +170,20 @@ export const questions = {
         {
             question:
                 "Können wir dich auch für eine einzelne Aufgabe anfragen?",
-            answer: "Ja. Ihr könnt mich beispielsweise für eure Website, eine Timetable-Anwendung, das Booking oder eine Beratung anfragen. Wir besprechen, was ihr braucht und wie sich meine Mitarbeit in euer bestehendes Team einfügt.",
+            answer: "Ja. Ihr könnt mich gezielt für eine Website, das Booking oder eine Beratung anfragen. Ihr müsst nicht mehrere Leistungen zusammen beauftragen.",
         },
         {
             question: "Übernimmst du Booking und Betreuung vor Ort?",
-            answer: "Beides ist möglich. Beim Booking kann ich von der Künstlerauswahl über Anfragen bis zu Verhandlungen unterstützen. Artist Relations, die Vorbereitung der Auftritte und die Betreuung vor Ort können ebenfalls dazugehören. Wir vereinbaren, welche Phasen und Aufgaben ich übernehme und welche Entscheidungen bei euch bleiben.",
+            answer: "Ja, zusammen oder unabhängig voneinander. Ich kann das Booking übernehmen oder für die Vorbereitung und Betreuung bereits gebuchter Artists dazukommen.",
         },
         {
             question:
                 "Welche Rolle übernimmst du in der Veranstaltungsleitung?",
-            answer: "Ich biete die Mitarbeit als Stellvertretung oder die Verantwortung für einzelne Bereiche an, etwa die Bühnenkoordination. Dafür besprechen wir vorab Aufgaben, Befugnisse und die Abstimmung mit eurer Veranstaltungsleitung. Eine eigenständige Gesamtleitung ist aktuell nicht Teil meines Angebots.",
+            answer: "Ich unterstütze als Stellvertretung oder verantworte einzelne Bereiche, etwa die Bühnenkoordination. Aufgaben und Befugnisse stimmen wir mit eurer Veranstaltungsleitung ab. Eine eigenständige Gesamtleitung ist aktuell nicht Teil meines Angebots.",
         },
         {
             question: "Entwickelst du auch individuelle Software?",
-            answer: "Ja, ich entwickle neben Websites auch individuelle Webanwendungen, zum Beispiel für Timetables. Welche Lösung passt, hängt davon ab, was eure Gäste oder euer Team damit tun sollen. Wir klären zuerst die Anforderungen und prüfen dann, ob eine Erweiterung eurer Website, eine eigene Anwendung oder vorhandene Software sinnvoll ist.",
+            answer: "Ja. Ausgehend von euren Anforderungen prüfe ich, ob vorhandene Software, eine Erweiterung eurer Website oder eine eigene Anwendung sinnvoll ist. Ein Beispiel für eine individuelle Anwendung ist ein Festival-Timetable.",
         },
         {
             question: "Passt dein Angebot auch zu unserer Veranstaltung?",
