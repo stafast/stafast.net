@@ -3,7 +3,7 @@ title: "Generative Engine Optimization: Was GEO für Unternehmen bedeutet"
 description: "Wie Unternehmen in KI-Antworten sichtbar werden können, warum GEO heute und künftig relevant ist und welche Verbesserungen an deiner Website sinnvoll sind."
 teaser: "teaser.jpg"
 teaserAlt: "Grüne Lupe mit Sprechblase neben dem Schriftzug Generative Engine Optimization auf hellgrauem Hintergrund."
-published: "2026-11-17T16:33:00+01:00"
+published: "2026-12-01T16:33:00+01:00"
 tags: [ "GEO", "SEO", "KI" ]
 draft: false
 ---

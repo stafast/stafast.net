@@ -3,7 +3,7 @@ title: "Pile Pattern: Elemente mit CSS Grid überlagern"
 description: "Content, Hintergrund und Badge in derselben Grid-Zelle: Das Pile Pattern ermöglicht flexible Überlagerungen ohne absolute Positionierung."
 teaser: "teaser.jpg"
 teaserAlt: "Drei überlagerte grüne Rechtecke neben den Schriftzügen CSS Grid und Pile Pattern auf hellem Hintergrund."
-published: "2026-10-27T16:33:00+01:00"
+published: "2026-11-09T16:33:00+01:00"
 tags: [ "CSS", "CSS Grid", "Webentwicklung" ]
 draft: false
 ---

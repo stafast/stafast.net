@@ -3,7 +3,7 @@ title: "Festivalplanung beginnt lange vor dem Sommer"
 description: "Line-up, Budget, Running Order und Künstlerbetreuung hängen eng zusammen. Ein Blick auf die Festivalvorbereitung aus meiner früheren Arbeit bei Love Explosion."
 teaser: "teaser.jpg"
 teaserAlt: "Blick von der Bühne über das DJ-Pult auf das blau beleuchtete Publikum bei Love Explosion, rechts eine Person auf der Bühne."
-published: "2026-12-15T16:33:00+01:00"
+published: "2027-01-25T16:33:00+01:00"
 tags: [ "Festival", "Booking", "Event" ]
 draft: false
 ---

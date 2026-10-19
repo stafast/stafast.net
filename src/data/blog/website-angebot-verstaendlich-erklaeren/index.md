@@ -3,7 +3,7 @@ title: "Deine Website sieht gut aus – aber erklärt sie dein Angebot?"
 description: "Eine gute Unternehmenswebsite macht Leistungen verständlich und den nächsten Schritt einfach. So werden aus allgemeinen Werbesätzen konkrete Informationen."
 teaser: "teaser-foto.jpg"
 teaserAlt: "Laptop auf einem Holztisch mit einer Unternehmenswebsite, die IT-Betreuung für kleine Unternehmen und die Leistungen Arbeitsplätze, Netzwerke und Support zeigt."
-published: "2026-10-23T16:33:00+02:00"
+published: "2026-10-29T16:33:00+01:00"
 tags: [ "Websites", "Kommunikation", "Webentwicklung" ]
 draft: false
 ---

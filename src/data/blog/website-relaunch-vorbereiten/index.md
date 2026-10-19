@@ -3,7 +3,7 @@ title: "Website-Relaunch: Was vor dem ersten Entwurf geklärt sein sollte"
 description: "Ein Website-Relaunch braucht klare Ziele, Inhalte und Zuständigkeiten. Welche Entscheidungen Unternehmen vor Gestaltung und Entwicklung vorbereiten sollten."
 teaser: "teaser-andre.png"
 teaserAlt: "Zwei Personen besprechen ausgedruckte Website-Entwürfe und eine Seitenstruktur an einem Holztisch neben einem geöffneten Laptop."
-published: "2026-12-08T16:33:00+01:00"
+published: "2027-01-14T16:33:00+01:00"
 tags: [ "Websites", "Projektplanung", "Webentwicklung" ]
 draft: false
 ---

@@ -3,7 +3,7 @@ title: "RCS erklärt: Brauchen wir für Nachrichten noch WhatsApp?"
 description: "RCS bringt viele Messenger-Funktionen in die Nachrichten-App. Was zwischen iPhone und Android funktioniert, wo Unterschiede bleiben und worauf es ankommt."
 teaser: "teaser.jpg"
 teaserAlt: "Zwei grüne Sprechblasen neben dem Schriftzug Nachrichten – RCS auf hellgrauem Hintergrund."
-published: "2026-11-24T16:33:00+01:00"
+published: "2026-12-12T16:33:00+01:00"
 tags: [ "RCS", "Kommunikation", "Technik" ]
 draft: false
 ---

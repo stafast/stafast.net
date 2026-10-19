@@ -3,7 +3,7 @@ title: "Container Queries: Komponenten an ihren verfügbaren Platz anpassen"
 description: "Mit CSS Container Queries reagieren Komponenten auf ihren verfügbaren Platz. Ein vollständiges Kartenbeispiel zeigt Container, Breakpoint und sinnvollen Fallback."
 teaser: "teaser.jpg"
 teaserAlt: "Grüne Umrisse einer schmalen und einer breiten Karte neben dem Schriftzug CSS – Container Queries auf hellgrauem Hintergrund."
-published: "2026-12-01T16:33:00+01:00"
+published: "2026-12-23T16:33:00+01:00"
 tags: [ "CSS", "Webentwicklung", "Frontend" ]
 draft: false
 ---

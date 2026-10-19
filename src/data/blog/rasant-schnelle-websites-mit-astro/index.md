@@ -3,7 +3,7 @@ title: "Rasant schnelle Websites mit Astro"
 description: "Wie Astro schnelle Unternehmenswebsites ermöglicht: wenig JavaScript, optimierte Bilder und eine Architektur, die zu Inhalt, Redaktion und Funktionen passt."
 teaser: "teaser.jpg"
 teaserAlt: "Weißes Astro-Logo in einer dunkelblauen Weltraum-Illustration mit zwei Planeten und einer Sternschnuppe."
-published: "2026-11-10T16:33:00+01:00"
+published: "2026-11-20T16:33:00+01:00"
 tags: [ "Astro", "Performance", "Webentwicklung" ]
 draft: false
 ---
