@@ -18,7 +18,7 @@ export default defineStafastConfig({
         title: "stafast — Softwareentwicklung mit technischer Tiefe",
         titleTemplate: "%s — stafast",
         description:
-            "stafast steht für Softwareentwicklung und technische Beratung aus Kiel. André Stafast entwickelt wartbare Webanwendungen mit Schwerpunkt Frontend.",
+            "Softwareentwicklung und technische Beratung aus Kiel: André Stafast konzipiert und entwickelt Software mit Erfahrung im Frontend und Backend.",
         defaultImage: "/og-stafast.png",
     },
     blog: {

@@ -13,7 +13,7 @@ export const hero = {
     },
     heading: "Softwareentwicklung mit technischer Tiefe",
     description:
-        "Ich entwickle Webanwendungen mit Schwerpunkt im Frontend. Dabei achte ich auf klare Strukturen, gute Benutzerführung und Code, der sich langfristig weiterentwickeln lässt.",
+        "Ich konzipiere und entwickle Software. Dabei verbinde ich langjährige Erfahrung im Frontend und Backend mit einem klaren Blick für fachliche Abläufe, gute Bedienbarkeit und wartbare technische Strukturen.",
     cta: {
         primary: {
             label: "Erfahrung ansehen",
@@ -35,7 +35,7 @@ export const workApproach = {
             title: "Softwareentwicklung",
             lead: "Entwickeln",
             description:
-                "Ich entwickle Benutzeroberflächen und binde Daten und Schnittstellen an. Meine langjährige Full-Stack-Erfahrung hilft mir, das Frontend als Teil des gesamten Systems zu betrachten. Dabei achte ich auf verständlichen Code, klare Zuständigkeiten und Strukturen, die sich gut weiterentwickeln lassen.",
+                "Ich entwickle Websites, Online-Shops und individuelle Webanwendungen und begleite ihre technische Weiterentwicklung. Meine Erfahrung reicht von Benutzeroberflächen und Schnittstellen bis zu Backend-Logik und Datenbankstrukturen. Dabei achte ich auf klare Zuständigkeiten und verständlichen, wartbaren Code.",
         },
         {
             title: "Technische Konzeption",
@@ -64,7 +64,7 @@ export const work = {
         "Softwareentwicklung bildet meinen Schwerpunkt. Selbstständige Projekte und Erfahrung in Projekt- und Veranstaltungsleitung ergänzen meine Arbeit.",
     items: [
         {
-            title: "Frontend für komplexe Anwendungen",
+            title: "Entwicklung komplexer Anwendungen",
             eyebrow: "Softwareentwicklung",
             text: "Als Frontend Engineer bei TriNext entwickle ich Nextfolder weiter, eine Webanwendung zur Bearbeitung und Strukturierung von Dokumenten im Bankenumfeld. Meine Schwerpunkte sind technische Konzeption, die Mitgestaltung der Frontend-Architektur und wartbare Benutzeroberflächen mit Vue.js und TypeScript.",
             note: "Meine Erfahrung reicht von E-Commerce bei intedia bis zur Full-Stack-Entwicklung bei INMEDIUM.",
