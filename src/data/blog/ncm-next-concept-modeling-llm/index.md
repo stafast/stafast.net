@@ -19,8 +19,7 @@ Die Forschungsgruppe Hazy Research aus dem Stanford-Umfeld hat den Ansatz im Okt
 ## Wie ein übliches LLM Text erzeugt
 
 LLM steht für **Large Language Model**, also ein großes Sprachmodell. Solche Modelle werden
-mit großen Textmengen trainiert. Einen Überblick über diese Modellfamilie gibt der
-[LLM-Kurs von Hugging Face](https://huggingface.co/learn/llm-course/chapter1/4).
+mit großen Textmengen trainiert.
 
 Bei vielen bekannten generativen Sprachmodellen wird die Ausgabe schrittweise verlängert.
 Das Modell berechnet jeweils das nächste **Token**: einen Textbaustein, der etwa ein Wortteil,
@@ -29,8 +28,7 @@ Verfahren heißt *autoregressiv*.
 
 Dabei berücksichtigt das Modell den verfügbaren Kontext. Es rät also nicht einfach ein
 einzelnes Wort ohne Zusammenhang. Die Abfolge der Ausgabeschritte kann jedoch Zeit kosten,
-besonders bei langen Antworten. Den Ablauf beschreibt Hugging Face im
-[Leitfaden zur Textgenerierung](https://huggingface.co/learn/llm-course/chapter1/8).
+besonders bei langen Antworten.
 
 ## Was ist Next-Concept Modeling?
 
