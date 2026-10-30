@@ -4,6 +4,7 @@ description: "Was ist Next-Concept Modeling? NCM verständlich erklärt: Untersc
 teaser: "teaser.jpg"
 teaserAlt: "Grünes Symbol mit groben und feinen Textblöcken neben den Schriftzügen NCM vs. LLM und Next-Concept Modeling auf hellem Hintergrund."
 published: "2026-10-25T09:21:00+01:00"
+updated: "2026-10-30T23:37:00+01:00"
 tags: [ "KI", "NCM", "LLM", "Technologie" ]
 draft: false
 ---
@@ -15,6 +16,8 @@ Darstellung bis zu den Details. Das soll die Erzeugung beschleunigen.
 
 Die Forschungsgruppe Hazy Research aus dem Stanford-Umfeld hat den Ansatz im Oktober 2026
 [vorgestellt](https://hazyresearch.stanford.edu/blog/2026-10-12-ncm).
+Grundlage dieses Artikels ist der
+[Forschungs-Preprint vom 9. Oktober 2026](https://arxiv.org/abs/2610.14162), Version 1.
 
 ## Wie ein übliches LLM Text erzeugt
 
@@ -29,6 +32,11 @@ Verfahren heißt *autoregressiv*.
 Dabei berücksichtigt das Modell den verfügbaren Kontext. Es rät also nicht einfach ein
 einzelnes Wort ohne Zusammenhang. Die Abfolge der Ausgabeschritte kann jedoch Zeit kosten,
 besonders bei langen Antworten.
+
+Auch autoregressive Modelle lassen sich beschleunigen. Bei Verfahren wie
+[Speculative Decoding](https://arxiv.org/abs/2211.17192) werden mehrere mögliche Folgetokens
+vorgeschlagen und vom eigentlichen Sprachmodell gemeinsam geprüft. Das kann die Ausgabe
+beschleunigen, während das autoregressive Modell erhalten bleibt.
 
 ## Was ist Next-Concept Modeling?
 
@@ -59,17 +67,25 @@ Mit „NCM vs. LLM“ ist deshalb meist dieser Vergleich gemeint:
 | --- | --- | --- |
 | Wie entsteht die Ausgabe? | Textbaustein für Textbaustein | Über gröbere und feinere Darstellungsebenen |
 | Was wird im nächsten Schritt vorhergesagt? | Das nächste Ausgabetoken | Die Codes der nächsten Ebene |
-| Was lässt sich parallel berechnen? | Die nächste Ausgabe hängt von vorherigen Tokens ab | Mehrere Positionen innerhalb einer Ebene |
+| Was wird nacheinander berechnet? | Im Grundverfahren die einzelnen Ausgabetokens | Die Ebenen; die Codes innerhalb einer Ebene entstehen parallel |
 
 ## Ist NCM schneller und besser?
 
 Das Forschungsteam berichtet je nach untersuchter Aufgabe von **10- bis 31-fach schnellerer
-Texterzeugung** bei vergleichbaren oder besseren Qualitätswerten. Die Messungen erfolgten
-auf einer bestimmten Grafikkarte, einer NVIDIA H100. Verglichen wurde dabei mit ausgewählten
-**Diffusions-Sprachmodellen**: einem weiteren Ansatz, bei dem eine Textfolge über wiederholte
-Bearbeitungsschritte entsteht. Untersucht wurden unter anderem Textgenerierung,
-Übersetzungen, Zusammenfassungen und Sudokus. Die Bedingungen stehen im
+Texterzeugung**. Diese Spanne bezieht sich auf drei konkrete Vergleiche:
+
+- **Textgenerierung:** 21-fach schneller auf der Textsammlung LM1B und 10-fach auf OpenWebText.
+- **Zusammenfassungen:** 31-fach schneller auf dem Datensatz XSum.
+
+Verglichen wurde mit ausgewählten **Diffusions-Sprachmodellen**, bei denen eine Textfolge
+über wiederholte Bearbeitungsschritte entsteht. Die Messungen erfolgten auf einer
+NVIDIA H100 SXM mit 80 GB Speicher, bei vergleichbaren oder besseren automatischen
+Qualitätswerten. Diese Kennzahlen bewerten bestimmte Texteigenschaften; sie belegen
+nicht, dass jede Aussage sachlich richtig ist. Die Bedingungen stehen im
 [Forschungsbericht von Hazy Research](https://hazyresearch.stanford.edu/blog/2026-10-12-ncm).
+
+Übersetzungen und Sudokus wurden ebenfalls untersucht. Die genannten Geschwindigkeitsfaktoren
+lassen sich daraus nicht pauschal auf diese oder andere Aufgaben übertragen.
 
 Daraus wird kein allgemeines „31-mal schneller als jedes LLM“. Ein Vergleich braucht dieselbe
 Aufgabe, passende Qualitätsmaßstäbe und vergleichbare Hardware. Eine schnelle Zusammenfassung
@@ -83,10 +99,11 @@ die im Training angepassten Modellwerte. Größere Modelle und Datensätze müss
 untersucht werden. Außerdem bleibt die Zahl der Verfeinerungsstufen bislang fest vorgegeben.
 
 Schon die Umwandlung zwischen Text und Codes kann Fehler verursachen. Die Autoren zeigen
-beispielsweise veränderte Namen und Zahlen in rekonstruierten Texten. Diese Beispiele stehen
-in ihrer [Analyse des Tokenizers](https://arxiv.org/html/2610.14162v1).
-Ein solcher Fehler ist nicht dasselbe wie eine erfundene Behauptung bei einer Antwort;
-für zuverlässige Anwendungen sind beide Probleme relevant.
+beispielsweise veränderte Namen und Zahlen in rekonstruierten Texten. Die Beispiele stammen
+vom OpenWebText-Tokenizer, für den sie zugleich eine exakte Rekonstruktion von **99,99 Prozent
+der Tokens** melden. Das beschreibt die Wiederherstellung vorhandenen Textes, keine
+Wahrheitsquote neu erzeugter Antworten. Die Einzelheiten stehen in ihrer
+[Analyse des Tokenizers](https://arxiv.org/html/2610.14162v1).
 
 Dass NCM falsche Aussagen grundsätzlich verhindert oder eine bessere allgemeine Intelligenz
 besitzt, ist damit nicht belegt. Die
@@ -112,4 +129,4 @@ Zugriffsrechte. Ein anderes Erzeugungsverfahren nimmt diese Arbeit nicht ab. NCM
 praktisch interessant, wenn es einen solchen Ablauf nachweisbar verbessert – etwa durch
 kürzere Wartezeiten bei ausreichend verlässlichen Ergebnissen.
 
-*Stand der Recherche: 25. Oktober 2026.*
+*Stand der Recherche und Faktenprüfung: 30. Oktober 2026.*
