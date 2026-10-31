@@ -82,9 +82,9 @@ export const experience = {
     eyebrow: "Love Explosion · August 2021–November 2025",
     title: "Veranstaltungsleitung bei Love Explosion",
     introduction:
-        "Ich gehörte zur Veranstaltungsleitung von Love Explosion und habe die ganzjährige Planung, Organisation und Durchführung des Festivals mit über 4.500 Gästen mitverantwortet. Dazu leitete ich das Artist Management für über 60 Artists sowie die Bühnenkoordination auf drei Bühnen.",
+        "Ich gehörte zur Veranstaltungsleitung vom Love Explosion Festival und habe die ganzjährige Planung, Organisation und Durchführung des Festivals mit über 4.500 Gästen mitverantwortet. Dazu leitete ich das Artist Management für über 60 Artists sowie die Bühnenkoordination auf drei Bühnen.",
     description:
-        "Begonnen hatte meine Mitarbeit 2021 mit der Website und der digitalen Infrastruktur. 2025 fand die letzte Ausgabe von Love Explosion statt.",
+        "Begonnen hatte meine Mitarbeit 2021 mit der Website und der digitalen Infrastruktur. 2025 fand leider die letzte Ausgabe von Love Explosion statt.",
     details: [
         {
             title: "Veranstaltungsleitung und Planung",
